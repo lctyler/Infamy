@@ -22,7 +22,7 @@ public class Dialogue extends Movement
     {
         try
         {
-            List<NPC> neighbors = getNeighbours(40, true, java.lang.Class.forName("NPC"));
+            List<NPC> neighbors = getNeighbours(60, true, java.lang.Class.forName("NPC"));
             if (neighbors.isEmpty() && Greenfoot.isKeyDown("r"))
             {
                 ((InfamyWorld)this.getWorld()).RemoveDialogueBoxes();
