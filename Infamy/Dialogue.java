@@ -23,13 +23,13 @@ public class Dialogue extends Movement
         try
         {
             List<NPC> neighbors = getNeighbours(60, true, java.lang.Class.forName("NPC"));
-            if (neighbors.isEmpty() && Greenfoot.isKeyDown("r"))
+            if (neighbors.isEmpty())
             {
                 ((InfamyWorld)this.getWorld()).RemoveDialogueBoxes();
             }
-            else if (neighbors.get(0).Type.equals("NPC") && Greenfoot.isKeyDown("e"))
+            else if (neighbors.get(0).Type.equals("TutorialNPC") && Greenfoot.isKeyDown("e"))
             {
-                MakeMessage("Good Afternoon laddy. I'm an NPC!!!!", neighbors.get(0).getX(), neighbors.get(0).getY());
+                MakeMessage("Good Day laddy!\nAim with your cursor and\nclick to fire your weapon!\nTry it out on the incoming enemies!", neighbors.get(0).getX(), neighbors.get(0).getY());
             }
         }
         catch (Exception e)
