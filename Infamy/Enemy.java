@@ -36,7 +36,7 @@ public class Enemy extends German
                 
                 i = Greenfoot.getRandomNumber(n);
                 if (brits.size() != 0) {
-                    System.out.println("BANG!"); 
+                    System.out.println("Shooting: " + brits.get(i).getX() + " " + brits.get(i).getY()); 
                     shoot(brits.get(i)); 
                     hasShot = true; 
                     timer = d.getTime(); 

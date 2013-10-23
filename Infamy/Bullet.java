@@ -13,18 +13,18 @@ public class Bullet extends Movement
     private int x, y, posx, posy;
     
     public Bullet(Actor from, Actor target) {
-        int x, y; 
+        //int tempX, tempY; 
         setLocation(from.getX(), from.getY());
         this.target = target; 
         x = target.getX(); 
         y = target.getY();
         posx = x; 
         posy = y;
-        x += Greenfoot.getRandomNumber(4);
-        y += Greenfoot.getRandomNumber(4); 
+       // x += Greenfoot.getRandomNumber(4);
+       // y += Greenfoot.getRandomNumber(4); 
         
-        this.x = x;
-        this.x = y; 
+       // this.x = x;
+        //this.x = y; 
         
         
         
@@ -44,8 +44,11 @@ public class Bullet extends Movement
          getWorld().removeObject(this);     
           
       }
+      else {
+         kill();     
+      }
       
-      kill(); 
+      
       
      
           
