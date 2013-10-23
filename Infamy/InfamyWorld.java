@@ -36,14 +36,29 @@ public class InfamyWorld extends World
         NPC npc1 = new NPC("TutorialNPC");
         addObject(npc1, 90, 100);
         
-        NPC npc2 = new NPC("TutorialNPC");
-        addObject(npc2, 90, 200);
+       
+        
+        Flag germanFlag = new Flag("german"); 
+        addObject(germanFlag, 700, 245);
+        
+        Flag britishFlag = new Flag("British"); 
+        addObject(britishFlag, 90, 200); 
+        
+        Enemy german = new Enemy();
+        addObject(german, 700, 400); 
     }
     
     public void RemoveDialogueBoxes()
     {
         removeObject(dia);
         dialogueCounter = 0;
+    }
+    /**
+     * Try to add in the bullet here. Call from 
+     */
+    public void addBullet(Actor source, Actor target) {
+        addObject(new Bullet(source, target), source.getX(), source.getY()); 
+        
     }
     
     public void AddDialogueBox(String message, int x, int y)

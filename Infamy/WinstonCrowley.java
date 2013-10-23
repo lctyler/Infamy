@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WinstonCrowley extends Dialogue
+public class WinstonCrowley extends British
 {
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
