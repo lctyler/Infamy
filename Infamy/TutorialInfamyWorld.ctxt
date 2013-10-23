@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=InfamyWorld()
+comment0.target=TutorialInfamyWorld()
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ InfamyWorld.\r\n\ \r\n
 comment1.params=
 comment1.target=void\ populate()
@@ -8,6 +8,8 @@ comment2.params=
 comment2.target=void\ RemoveDialogueBoxes()
 comment3.params=message\ x\ y
 comment3.target=void\ AddDialogueBox(java.lang.String,\ int,\ int)
-comment4.params=message\ x\ y
-comment4.target=void\ AddTutorialDialogue(java.lang.String,\ int,\ int)
-numComments=5
+comment4.params=
+comment4.target=void\ TutorialWin()
+comment5.params=message\ x\ y\ intro
+comment5.target=void\ AddTutorialDialogue(java.lang.String,\ int,\ int,\ boolean)
+numComments=6

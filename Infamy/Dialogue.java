@@ -25,7 +25,7 @@ public class Dialogue extends Movement
             List<NPC> neighbors = getNeighbours(60, true, java.lang.Class.forName("NPC"));
             if (neighbors.isEmpty())
             {
-                ((InfamyWorld)this.getWorld()).RemoveDialogueBoxes();
+                ((TutorialInfamyWorld)this.getWorld()).RemoveDialogueBoxes();
             }
             else if (neighbors.get(0).Type.equals("TutorialNPC") && Greenfoot.isKeyDown("e"))
             {
@@ -39,6 +39,6 @@ public class Dialogue extends Movement
     
     public void MakeMessage(String message, int x, int y)
     {        
-        ((InfamyWorld)this.getWorld()).AddDialogueBox(message, 300, 300);
+        ((TutorialInfamyWorld)this.getWorld()).AddDialogueBox(message, 300, 300);
     }
 }
