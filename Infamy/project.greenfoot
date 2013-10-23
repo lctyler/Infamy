@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Oct 22 17:41:04 PDT 2013
+#Tue Oct 22 18:48:00 PDT 2013
 target4.type=ClassTarget
 dependency3.from=InfamyWorld
 target3.height=50
@@ -32,6 +32,7 @@ dependency5.type=UsesDependency
 class.NPC.superclass=Dialogue
 class.Movement.superclass=greenfoot.Actor
 dependency3.to=NPC
+class.TutorialInfamyWorld.superclass=greenfoot.World
 target3.showInterface=false
 dependency4.to=NPC
 dependency5.to=InfamyWorld
@@ -41,7 +42,6 @@ target5.showInterface=false
 target5.naviview.expanded=true
 package.numTargets=5
 target1.type=ClassTarget
-class.InfamyWorld.superclass=greenfoot.World
 target1.naviview.expanded=true
 target2.editor.y=0
 target2.height=50
@@ -81,13 +81,14 @@ target3.type=ClassTarget
 target4.width=80
 dependency2.from=InfamyWorld
 dependency2.type=UsesDependency
-world.lastInstantiated=InfamyWorld
+world.lastInstantiated=TutorialInfamyWorld
 target2.showInterface=false
 mainWindow.height=780
 class.XMarksTheSpot.superclass=Dialogue
 target3.name=InfamyWorld
 target1.editor.width=900
 class.Dialogue.superclass=Movement
+class.XMarksTheSpot.image=redx.png
 target3.naviview.expanded=true
 target3.width=100
 project.charset=UTF-8

@@ -29,7 +29,7 @@ public class Dialogue extends Movement
             }
             else if (neighbors.get(0).Type.equals("TutorialNPC") && Greenfoot.isKeyDown("e"))
             {
-                MakeMessage("Good Day laddy!\nAim with your cursor and\nclick to fire your weapon!\nTry it out on the incoming enemies!", neighbors.get(0).getX(), neighbors.get(0).getY());
+                MakeMessage("Good Day laddy! Aim with your cursor and click to fire your weapon!\nTry it out on the incoming enemies! The goal of the tutorial is to beat\nthe other side and plant the British flag on the X!", 400, neighbors.get(0).getY());
             }
         }
         catch (Exception e)
@@ -39,6 +39,6 @@ public class Dialogue extends Movement
     
     public void MakeMessage(String message, int x, int y)
     {        
-        ((TutorialInfamyWorld)this.getWorld()).AddDialogueBox(message, 300, 300);
+        ((TutorialInfamyWorld)this.getWorld()).AddDialogueBox(message, x, y);
     }
 }

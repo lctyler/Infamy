@@ -23,7 +23,7 @@ public class TutorialInfamyWorld extends World
         populate();
         setBackground("Tutorial-BG-working-nochar.png");
         dialogueCounter = 0;
-        AddTutorialDialogue("Hey Winston!!\nCome over here!.", 200, 300, false);
+        AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
     }
     
