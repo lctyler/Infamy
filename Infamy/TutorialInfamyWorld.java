@@ -28,17 +28,12 @@ public class TutorialInfamyWorld extends World
     }
     
     public void populate()
-    {        
-        WinstonCrowley move = new WinstonCrowley();
-        addObject(move, 95, 500);        
-        
+    {   
         NPC npc = new NPC("TutorialNPC");
         addObject(npc, 90, 300);
         
         NPC npc1 = new NPC("TutorialNPC");
-        addObject(npc1, 90, 100);
-
-       
+        addObject(npc1, 90, 100);       
         
         Flag germanFlag = new Flag("german"); 
         addObject(germanFlag, 700, 245);
@@ -52,8 +47,8 @@ public class TutorialInfamyWorld extends World
         NPC npc2 = new NPC("TutorialNPC");
         addObject(npc2, 90, 200);
         
-     
-
+        WinstonCrowley move = new WinstonCrowley();
+        addObject(move, 95, 500);
     }
     
     public void RemoveDialogueBoxes()
@@ -93,7 +88,8 @@ public class TutorialInfamyWorld extends World
     
     public void TutorialWin()
     {
-        //Greenfoot.setWorld(new World());
+        //System.out.println("Winning");
+        Greenfoot.setWorld(new FirstLevel());
     }
     
     private void AddTutorialDialogue(String message, int x, int y, boolean intro)
