@@ -37,8 +37,7 @@ public class TutorialInfamyWorld extends World
         
         NPC npc1 = new NPC("TutorialNPC");
         addObject(npc1, 90, 100);
-        
-<<<<<<< HEAD:Infamy/InfamyWorld.java
+
        
         
         Flag germanFlag = new Flag("german"); 
@@ -49,13 +48,12 @@ public class TutorialInfamyWorld extends World
         
         Enemy german = new Enemy();
         addObject(german, 700, 400); 
-=======
+
         NPC npc2 = new NPC("TutorialNPC");
         addObject(npc2, 90, 200);
         
-        XMarksTheSpot xSpot = new XMarksTheSpot();
-        addObject(xSpot, 500, 300);
->>>>>>> fe1ba8955a9bbec7c387804beca635e79ceb54ce:Infamy/TutorialInfamyWorld.java
+     
+
     }
     
     public void RemoveDialogueBoxes()

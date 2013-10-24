@@ -117,6 +117,6 @@ public class Movement extends Actor
     public boolean isAtWorldEdge()
     {
         World world = getWorld();
-        return this.getX() == 0 || this.getX() == world.getWidth() || this.getY() == 0 || this.getY() == world.getHeight();
+        return this.getX() == 0 || this.getX() == world.getWidth()-1 || this.getY() == 0 || this.getY() == world.getHeight()-1;
     }
 }

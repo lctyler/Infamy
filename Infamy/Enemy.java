@@ -14,7 +14,7 @@ public class Enemy extends German
 {
     private static final long RELOAD_TIME = 4000;
     Flag enemyflag = null; 
-    private boolean hasShot = false; 
+    private boolean hasShot = false, advance = true; 
     long timer; 
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
@@ -32,22 +32,28 @@ public class Enemy extends German
             //System.out.println(brits.size());
             int n = brits.size(); 
             int i = 0; 
+            advance = false; 
             if ( n > 0)
                 
-                i = Greenfoot.getRandomNumber(n);
+                //i = Greenfoot.getRandomNumber(n);
                 if (brits.size() != 0) {
-                    System.out.println("Shooting: " + brits.get(i).getX() + " " + brits.get(i).getY()); 
-                    shoot(brits.get(i)); 
+                    System.out.println("Shooting: " + brits.get(0).getX() + " " + brits.get(0).getY()); 
+                    shoot(brits.get(0)); 
                     hasShot = true; 
                     timer = d.getTime(); 
                 }
-           }
+        }
+        else {
+            advance = true; 
+        }
            
             
             
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
-            advance(); 
+        if (brits.size() == 0) {
+            advance();
+        }
     }
         // Spot bad guys. (if bad guys are there, crouch, and shoot) 
         // else: advance. 
@@ -80,6 +86,6 @@ public class Enemy extends German
     }
     
     public void shoot(British  target) {
-        ((InfamyWorld)getWorld()).addBullet(this, target);
+        ((TutorialInfamyWorld)getWorld()).addBullet(this, target);
     }
 }

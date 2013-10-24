@@ -9,6 +9,7 @@ import java.util.*;
 public class Bullet extends Movement
 {
     private Actor target = null;
+    private boolean targetMoved = false; 
     
     private int x, y, posx, posy;
     
@@ -26,7 +27,7 @@ public class Bullet extends Movement
        // this.x = x;
         //this.x = y; 
         
-        
+      
         
     }
     
@@ -54,9 +55,15 @@ public class Bullet extends Movement
           
     }
     
-    
+    // prevention of the bullet from going towards one spot. 
     public void moveTowardsTarget() {
-        turnTowards(x, y);
+        if (getX() == x && getY() == y) {
+            targetMoved = true;
+        }
+        
+        if (!targetMoved) {
+            turnTowards(x, y);
+        }
         move(1); 
     }
     
