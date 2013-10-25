@@ -41,6 +41,9 @@ public class TutorialInfamyWorld extends World
         Flag britishFlag = new Flag("British"); 
         addObject(britishFlag, 90, 200); 
         
+	   CrossHair crosshair = new CrossHair();
+       addObject(crosshair, 0, 0);
+		
         Enemy german = new Enemy();
         addObject(german, 700, 400); 
 

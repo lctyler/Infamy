@@ -14,6 +14,11 @@ public class WinstonCrowley extends British
      */
     public void act() 
     {
+	    if(Greenfoot.mouseClicked(null)){
+            MouseInfo info = Greenfoot.getMouseInfo();
+            getWorld().addObject(new Bullet(this, info.getX(), info.getY()), 
+                this.getX() + this.getImage().getWidth()/2 + 10, this.getY() - 10);
+        }
         move();
         ExecuteDialogueInteraction();
     }    

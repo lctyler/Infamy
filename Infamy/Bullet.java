@@ -13,6 +13,15 @@ public class Bullet extends Movement
     
     private int x, y, posx, posy;
     
+	    public Bullet(Actor from, int targetx, int targety) {
+        setLocation(from.getX(), from.getY());
+        this.target = target; 
+        x = targetx; 
+        y = targety;
+        posx = x; 
+        posy = y;
+    }
+	
     public Bullet(Actor from, Actor target) {
         //int tempX, tempY; 
         setLocation(from.getX(), from.getY());
@@ -57,26 +66,28 @@ public class Bullet extends Movement
     
     // prevention of the bullet from going towards one spot. 
     public void moveTowardsTarget() {
-        if (getX() == x && getY() == y) {
+        if (getX() >= x && getX() <= x + 10) {
             targetMoved = true;
         }
         
         if (!targetMoved) {
             turnTowards(x, y);
         }
-        move(1); 
+        move(10); 
     }
     
     public void kill() {
         British brit = (British)getOneIntersectingObject(British.class);
+        German germ = (German)getOneIntersectingObject(German.class);
         
         if (brit != null) {
             getWorld().removeObject(brit); 
             getWorld().removeObject(this); 
         }
-        
-        
-       
+        if (germ != null) {
+            getWorld().removeObject(germ);
+            getWorld().removeObject(this);
+        }
     }
     
     
