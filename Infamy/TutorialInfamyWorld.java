@@ -55,7 +55,14 @@ public class TutorialInfamyWorld extends World
         Flag britishFlag = new Flag("British"); 
         addObject(britishFlag, 90, 200); 
         
+<<<<<<< HEAD
         EnemyNPC german = new EnemyNPC();
+=======
+	   CrossHair crosshair = new CrossHair();
+       addObject(crosshair, 0, 0);
+		
+        Enemy german = new Enemy();
+>>>>>>> 4810551414170826bca846d0c51249d3ea03051c
         addObject(german, 700, 400); 
 
         BritNPC npc2 = new BritNPC("TutorialNPC");
