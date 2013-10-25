@@ -28,26 +28,18 @@ public class TutorialInfamyWorld extends World
     }
     
     public void populate()
-<<<<<<< HEAD
     {        
         WinstonCrowley move = new WinstonCrowley();
         addObject(move, 95, 500);        
         
-        BritNPC npc = new BritNPC("TutorialNPC");
-        addObject(npc, 90, 300);
-        
-        BritNPC npc1 = new BritNPC("TutorialNPC");
-        addObject(npc1, 90, 100);
-
-       
-=======
-    {   
         NPC npc = new NPC("TutorialNPC");
         addObject(npc, 90, 300);
         
         NPC npc1 = new NPC("TutorialNPC");
-        addObject(npc1, 90, 100);       
->>>>>>> e9706b54d9699ef57bac8637c31e96bb8acdbedf
+        addObject(npc1, 90, 100);
+        
+<<<<<<< HEAD:Infamy/InfamyWorld.java
+       
         
         Flag germanFlag = new Flag("german"); 
         addObject(germanFlag, 700, 245);
@@ -55,14 +47,15 @@ public class TutorialInfamyWorld extends World
         Flag britishFlag = new Flag("British"); 
         addObject(britishFlag, 90, 200); 
         
-        EnemyNPC german = new EnemyNPC();
+        Enemy german = new Enemy();
         addObject(german, 700, 400); 
-
-        BritNPC npc2 = new BritNPC("TutorialNPC");
+=======
+        NPC npc2 = new NPC("TutorialNPC");
         addObject(npc2, 90, 200);
         
-        WinstonCrowley move = new WinstonCrowley();
-        addObject(move, 95, 500);
+        XMarksTheSpot xSpot = new XMarksTheSpot();
+        addObject(xSpot, 500, 300);
+>>>>>>> fe1ba8955a9bbec7c387804beca635e79ceb54ce:Infamy/TutorialInfamyWorld.java
     }
     
     public void RemoveDialogueBoxes()
@@ -102,8 +95,7 @@ public class TutorialInfamyWorld extends World
     
     public void TutorialWin()
     {
-        //System.out.println("Winning");
-        Greenfoot.setWorld(new FirstLevel());
+        //Greenfoot.setWorld(new World());
     }
     
     private void AddTutorialDialogue(String message, int x, int y, boolean intro)

@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class Flag here.
  * 
@@ -8,11 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Flag extends Actor
 {
-    
-    private String nationality;  
-    
+    private String nationality;    
    
     public Flag(String nationality) {
+        this.nationality = nationality;
         if (nationality.equals("British")) {
             setImage("british.png");
         }
@@ -33,6 +32,22 @@ public class Flag extends Actor
       if (isTouching(EnemyNPC.class)) {
         // end the game.   
       }
+      CheckTutorialWin();
     }    
-    
+    public void CheckTutorialWin()
+    {
+        try
+        {
+            List<WinstonCrowley> actors = getNeighbours(50, true, java.lang.Class.forName("WinstonCrowley"));
+            //Actor actors = getOneIntersectingObject(java.lang.Class.forName("WinstonCrowley"));
+            System.out.println(!actors.isEmpty() + " " + this.nationality);
+            if (!actors.isEmpty() && this.nationality == "german")
+            {
+                ((TutorialInfamyWorld)this.getWorld()).TutorialWin();
+            }
+        }
+        catch (Exception e)
+        {
+        }
+    }
 }
