@@ -10,13 +10,14 @@ public class Bullet extends Movement
 {
     private Actor target = null;
     private boolean targetMoved = false; 
-    
+    private Actor source = null;
     private int x, y, posx, posy;
     
     public Bullet(Actor from, Actor target) {
         //int tempX, tempY; 
         setLocation(from.getX(), from.getY());
-        this.target = target; 
+        this.target = target;
+        this.source = from;
         x = target.getX(); 
         y = target.getY();
         posx = x; 
@@ -56,6 +57,7 @@ public class Bullet extends Movement
     }
     
     // prevention of the bullet from going towards one spot. 
+    // set rotation thing. 
     public void moveTowardsTarget() {
         if (getX() == x && getY() == y) {
             targetMoved = true;
@@ -68,10 +70,10 @@ public class Bullet extends Movement
     }
     
     public void kill() {
-        British brit = (British)getOneIntersectingObject(British.class);
+        Dialogue target = (Dialogue)getOneIntersectingObject(Dialogue.class);
         
-        if (brit != null) {
-            getWorld().removeObject(brit); 
+        if (target != null && target != this.source) {
+            getWorld().removeObject(target); 
             getWorld().removeObject(this); 
         }
         

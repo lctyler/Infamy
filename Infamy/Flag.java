@@ -30,7 +30,7 @@ public class Flag extends Actor
     public void act() 
     {
       // Want a cool wave animation
-      if (isTouching(Enemy.class)) {
+      if (isTouching(EnemyNPC.class)) {
         // end the game.   
       }
     }    

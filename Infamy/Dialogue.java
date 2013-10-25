@@ -22,7 +22,7 @@ public class Dialogue extends Movement
     {
         try
         {
-            List<NPC> neighbors = getNeighbours(60, true, java.lang.Class.forName("NPC"));
+            List<BritNPC> neighbors = getNeighbours(60, true, java.lang.Class.forName("NPC"));
             if (neighbors.isEmpty())
             {
                 ((TutorialInfamyWorld)this.getWorld()).RemoveDialogueBoxes();

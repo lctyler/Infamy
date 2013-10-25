@@ -32,10 +32,10 @@ public class TutorialInfamyWorld extends World
         WinstonCrowley move = new WinstonCrowley();
         addObject(move, 95, 500);        
         
-        NPC npc = new NPC("TutorialNPC");
+        BritNPC npc = new BritNPC("TutorialNPC");
         addObject(npc, 90, 300);
         
-        NPC npc1 = new NPC("TutorialNPC");
+        BritNPC npc1 = new BritNPC("TutorialNPC");
         addObject(npc1, 90, 100);
 
        
@@ -46,10 +46,10 @@ public class TutorialInfamyWorld extends World
         Flag britishFlag = new Flag("British"); 
         addObject(britishFlag, 90, 200); 
         
-        Enemy german = new Enemy();
+        EnemyNPC german = new EnemyNPC();
         addObject(german, 700, 400); 
 
-        NPC npc2 = new NPC("TutorialNPC");
+        BritNPC npc2 = new BritNPC("TutorialNPC");
         addObject(npc2, 90, 200);
         
      
