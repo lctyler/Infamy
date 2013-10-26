@@ -27,27 +27,8 @@ public class TutorialInfamyWorld extends World
         AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
     }
     
-    public void populate()
-<<<<<<< HEAD
-    {        
-        WinstonCrowley move = new WinstonCrowley();
-        addObject(move, 95, 500);        
-        
-        BritNPC npc = new BritNPC("TutorialNPC");
-        addObject(npc, 90, 300);
-        
-        BritNPC npc1 = new BritNPC("TutorialNPC");
-        addObject(npc1, 90, 100);
+    public void populate() {
 
-       
-=======
-    {   
-        NPC npc = new NPC("TutorialNPC");
-        addObject(npc, 90, 300);
-        
-        NPC npc1 = new NPC("TutorialNPC");
-        addObject(npc1, 90, 100);       
->>>>>>> e9706b54d9699ef57bac8637c31e96bb8acdbedf
         
         Flag germanFlag = new Flag("german"); 
         addObject(germanFlag, 700, 245);
@@ -55,14 +36,14 @@ public class TutorialInfamyWorld extends World
         Flag britishFlag = new Flag("British"); 
         addObject(britishFlag, 90, 200); 
         
-<<<<<<< HEAD
+
         EnemyNPC german = new EnemyNPC();
-=======
+
 	   CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
 		
-        Enemy german = new Enemy();
->>>>>>> 4810551414170826bca846d0c51249d3ea03051c
+       
+
         addObject(german, 700, 400); 
 
         BritNPC npc2 = new BritNPC("TutorialNPC");

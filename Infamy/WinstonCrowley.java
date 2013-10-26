@@ -20,6 +20,6 @@ public class WinstonCrowley extends British
                 this.getX() + this.getImage().getWidth()/2 + 10, this.getY() - 10);
         }
         move();
-        ExecuteDialogueInteraction();
+        d.ExecuteDialogueInteraction();
     }    
 }
