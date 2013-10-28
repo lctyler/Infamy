@@ -33,14 +33,15 @@ public class Flag extends Actor
         // end the game.   
       }
       CheckTutorialWin();
-    }    
+    }
+    
     public void CheckTutorialWin()
     {
         try
         {
             List<WinstonCrowley> actors = getNeighbours(50, true, java.lang.Class.forName("WinstonCrowley"));
             //Actor actors = getOneIntersectingObject(java.lang.Class.forName("WinstonCrowley"));
-           
+
             if (!actors.isEmpty() && this.nationality == "german")
             {
                 ((TutorialInfamyWorld)this.getWorld()).TutorialWin();

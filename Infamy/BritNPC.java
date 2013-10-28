@@ -13,10 +13,10 @@ public class BritNPC extends British
     Flag enemyflag = null; 
     private boolean hasShot = false, advance = true; 
     long timer;
-    
-    public BritNPC(String npcType)
+    private boolean isDefender; 
+    public BritNPC(boolean defender)
     {
-        this.Type = npcType;
+        isDefender = defender; 
     }
     /**
      * Act - do whatever the NPC wants to do. This method is called whenever
@@ -53,13 +53,13 @@ public class BritNPC extends British
             
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0);  
-        if (germans.size() == 0) {
+        if (germans.size() == 0 && !isDefender) {
             advance();
         }
     }    
     
     
-    public void advance() { 
+   public void advance() { 
         if (enemyflag.getX() < getX()) {
            setLocation(getX()-1, getY()); 
         }
@@ -67,14 +67,12 @@ public class BritNPC extends British
            setLocation(getX()+1, getY());  
         }
         
-        if (getX() > (getWorld().getWidth() / 2)){
-             if (enemyflag.getY() < getY()) {
-                 setLocation(getX(), getY()- 1); 
-                }
-             else {
-                  setLocation(getX(), getY()+1);  
-                }
-       }
+         if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
+           setLocation(getX(), getY()- 1); 
+        }
+        else if (enemyflag.getX() == getX()) {
+           setLocation(getX(), getY()+1);  
+        }
         
     }
     

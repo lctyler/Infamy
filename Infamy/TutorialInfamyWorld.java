@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
+import java.util.*;
 /**
  * Write a description of class InfamyWorld here.
  * 
@@ -8,10 +9,18 @@ import java.awt.Color;
  */
 public class TutorialInfamyWorld extends World
 {
+    public final int NUM_ADVANCERS = 3;
+    public final String BRIT = "british"; 
+    public final String GERM = "german"; 
+    public final int BRIT_X = 200; 
+    public final int GERM_X = 750; 
+    public final int[] Y_SET = {135, 235, 335}; 
+   
     public Dialogue dia;
     public Dialogue tutorialDiaIntro;
     public Dialogue tutorialDia;
     public int dialogueCounter;
+    public ArrayList<Human> GermanAdvancers, BritAdvancers; 
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -19,35 +28,70 @@ public class TutorialInfamyWorld extends World
     public TutorialInfamyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1);
+        super(1024, 600, 1);
         populate();
-        setBackground("Tutorial-BG-working-nochar.png");
+        setBackground("Background.png");
         dialogueCounter = 0;
         AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
+        
+        GermanAdvancers = new ArrayList<Human>(); 
+        BritAdvancers = new ArrayList<Human>(); 
+        spawnWave(GERM); 
+        spawnWave(BRIT); 
+        
+    }
+    
+    public void spawnWave(String type) {
+        for (int i = 0; i < NUM_ADVANCERS; i++) {
+            if (type.equals(BRIT)) {
+               BritNPC adv = new BritNPC(false); 
+               addObject(adv, BRIT_X, Y_SET[i]);
+              
+              
+            }
+            else {
+                EnemyNPC adv = new EnemyNPC(false);
+                addObject(adv, GERM_X, Y_SET[i]);
+                
+            }
+        }
+        
+    }
+    
+    
+    public void act() {
+        
     }
     
     public void populate() {
 
         
         Flag germanFlag = new Flag("german"); 
-        addObject(germanFlag, 700, 245);
+        addObject(germanFlag, 900, 245);
         
         Flag britishFlag = new Flag("British"); 
-        addObject(britishFlag, 90, 200); 
+        addObject(britishFlag, 130, 245); 
         
 
-        EnemyNPC german = new EnemyNPC();
+        EnemyNPC germanDefender1 = new EnemyNPC(true);
+        addObject(germanDefender1, 900, 400); 
+        
+        EnemyNPC germanDefender2 = new EnemyNPC(true); 
+        addObject(germanDefender2, 900, 100); 
+        
 
-	   CrossHair crosshair = new CrossHair();
+       CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
-		
+        
        
 
-        addObject(german, 700, 400); 
+        
 
-        BritNPC npc2 = new BritNPC("TutorialNPC");
-        addObject(npc2, 90, 200);
+        BritNPC npc2 = new BritNPC(true);
+        addObject(npc2, 130, 400);
+        BritNPC npc1 = new BritNPC(true);
+        addObject(npc1, 130, 100);
         
         WinstonCrowley move = new WinstonCrowley();
         addObject(move, 95, 500);

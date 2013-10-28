@@ -16,6 +16,10 @@ public class EnemyNPC extends German
     Flag enemyflag = null; 
     private boolean hasShot = false, advance = true; 
     long timer; 
+    private boolean isDefender;
+    public EnemyNPC(boolean defenderStatus) {
+        isDefender = defenderStatus; 
+    }
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -51,7 +55,7 @@ public class EnemyNPC extends German
             
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
-        if (brits.size() == 0) {
+        if (brits.size() == 0 && !isDefender) {
             advance();
         }
     }
@@ -68,10 +72,10 @@ public class EnemyNPC extends German
            setLocation(getX()+1, getY());  
         }
         
-         if (enemyflag.getY() < getY()) {
+         if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
            setLocation(getX(), getY()- 1); 
         }
-        else {
+        else if (enemyflag.getX() == getX()) {
            setLocation(getX(), getY()+1);  
         }
         
