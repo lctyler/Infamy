@@ -28,7 +28,15 @@ public class Human extends Movement
     }
     
     public void die() {
-        getWorld().removeObject(this); 
+        if (this instanceof British) {
+               ((TutorialInfamyWorld)this.getWorld()).decBCounter();
+        }
+        else {
+               ((TutorialInfamyWorld)this.getWorld()).decGCounter();
+        }
+        
+        getWorld().removeObject(this);
+        
     }
     
     /**

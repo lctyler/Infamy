@@ -39,7 +39,7 @@ public class BritNPC extends British
                 
                 //i = Greenfoot.getRandomNumber(n);
                 if (germans.size() != 0) {
-                    System.out.println("Shooting: " + germans.get(0).getX() + " " + germans.get(0).getY()); 
+                   // System.out.println("Shooting: " + germans.get(0).getX() + " " + germans.get(0).getY()); 
                     shoot(germans.get(0)); 
                     hasShot = true; 
                     timer = d.getTime(); 

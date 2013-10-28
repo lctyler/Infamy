@@ -85,8 +85,8 @@ public class Bullet extends Movement
      
         if (target != null && target != this.source) {
             target.loseHealth(DAMAGE); 
-            getWorld().removeObject(this); 
-        }
+            getWorld().removeObject(this);
+       }
    }
     
     

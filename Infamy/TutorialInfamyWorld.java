@@ -21,6 +21,9 @@ public class TutorialInfamyWorld extends World
     public Dialogue tutorialDia;
     public int dialogueCounter;
     public ArrayList<Human> GermanAdvancers, BritAdvancers; 
+    public int bCounter, gCounter;
+    public long baseTimeG, baseTimeB;
+    public boolean spawnG, spawnB; 
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -34,26 +37,33 @@ public class TutorialInfamyWorld extends World
         dialogueCounter = 0;
         AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
-        
-        GermanAdvancers = new ArrayList<Human>(); 
-        BritAdvancers = new ArrayList<Human>(); 
-        spawnWave(GERM); 
-        spawnWave(BRIT); 
+        bCounter = gCounter = 0;
+        spawnWave(GERM, NUM_ADVANCERS, false); 
+        spawnWave(BRIT, NUM_ADVANCERS, false); 
+        spawnG = false;
+        spawnB = false;
         
     }
+    public void decBCounter() {
+        bCounter--;
+    }
     
-    public void spawnWave(String type) {
-        for (int i = 0; i < NUM_ADVANCERS; i++) {
+    public void decGCounter() {
+        gCounter--;
+    }
+    
+    public void spawnWave(String type, int ammount, boolean rand) {
+        for (int i = 0; i < ammount; i++) {
             if (type.equals(BRIT)) {
                BritNPC adv = new BritNPC(false); 
                addObject(adv, BRIT_X, Y_SET[i]);
-              
+               bCounter++; 
               
             }
             else {
                 EnemyNPC adv = new EnemyNPC(false);
                 addObject(adv, GERM_X, Y_SET[i]);
-                
+                gCounter++; 
             }
         }
         
@@ -61,7 +71,27 @@ public class TutorialInfamyWorld extends World
     
     
     public void act() {
+        Date d  = new Date();
         
+        if ((d.getTime() - baseTimeB) > 10000 ) {
+           spawnB = true;
+        }
+        if ((d.getTime() - baseTimeG) > 10000 ) {
+           spawnG = true; 
+        }
+        System.out.println("B: " + bCounter + " G: " + gCounter); 
+        
+        if(spawnB && bCounter == 0) {
+            spawnWave(BRIT, 1, true);
+            spawnB = false;
+            baseTimeB = d.getTime(); 
+        }
+        
+        if (spawnG && gCounter == 0) {
+            spawnWave(GERM, 1, true);
+            spawnG = false;
+            baseTimeG = d.getTime(); 
+        }
     }
     
     public void populate() {
