@@ -40,7 +40,7 @@ public class Flag extends Actor
         {
             List<WinstonCrowley> actors = getNeighbours(50, true, java.lang.Class.forName("WinstonCrowley"));
             //Actor actors = getOneIntersectingObject(java.lang.Class.forName("WinstonCrowley"));
-            System.out.println(!actors.isEmpty() + " " + this.nationality);
+           
             if (!actors.isEmpty() && this.nationality == "german")
             {
                 ((TutorialInfamyWorld)this.getWorld()).TutorialWin();
