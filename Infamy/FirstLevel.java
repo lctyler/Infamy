@@ -51,15 +51,24 @@ public class FirstLevel extends World
     {
         List<WinstonCrowley> list = getObjects(WinstonCrowley.class);
         WinstonCrowley winston = list.get(0);
-        winstonPosX = winston.getX() + winstonPosX - 200;
-        winstonPosY = winston.getY() + winstonPosY - 300;
-        int x = 200 - winstonPosX;//winston.getX();
-        int y = 300 - winstonPosY;//winston.getY();
-        System.out.println(x + " " + y);
+        boolean canMoveX = (winston.getX() + winstonPosX - 200 > 200) && (winston.getX() + winstonPosX - 200 < 1000);
+        boolean canMoveY = (winston.getY() + winstonPosY - 300 > 300) && (winston.getY() + winstonPosY - 300 < 900) ;
+        int x;
+        int y;
+        if (canMoveX)
+        {
+            winstonPosX = winston.getX() + winstonPosX - 200;
+            
+        }
+        if (canMoveY)
+        {
+            winstonPosY = winston.getY() + winstonPosY - 300;
+            
+        }
+        x = 200 - winstonPosX;
+        y = 300 - winstonPosY;
+        //System.out.println(winstonPosX + " " + winstonPosY);
         getBackground().drawImage(scrollImage, x, y);
-        //for(int i = 0; i < 1600; i++)
-         //for (int j = 0; j < 300; j++)
-            //getBackground().drawImage(scrollImage, i, j);
         winston.setLocation(200, 300);
         
     }
