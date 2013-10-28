@@ -56,7 +56,7 @@ public class EnemyNPC extends German
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
         if (brits.size() == 0 && !isDefender) {
-            advance();
+            NPCAdvance();
         }
     }
         // Spot bad guys. (if bad guys are there, crouch, and shoot) 
@@ -64,22 +64,7 @@ public class EnemyNPC extends German
         
     
     
-    public void advance() { 
-        if (enemyflag.getX() < getX()) {
-           setLocation(getX()-1, getY()); 
-        }
-        else {
-           setLocation(getX()+1, getY());  
-        }
-        
-         if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
-           setLocation(getX(), getY()- 1); 
-        }
-        else if (enemyflag.getX() == getX()) {
-           setLocation(getX(), getY()+1);  
-        }
-        
-    }
+    
     /**
      * Detects if there are any british soldiers in the search area. 
      */

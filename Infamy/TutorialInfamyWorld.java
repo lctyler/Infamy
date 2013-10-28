@@ -114,7 +114,8 @@ public class TutorialInfamyWorld extends World
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
-       
+       Sandbag sb1 = new Sandbag();
+       addObject(sb1, 600, 130);
 
         
 

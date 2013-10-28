@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Human here.
  * 
@@ -47,4 +47,42 @@ public class Human extends Movement
     {
         // Add your action code here.
     }    
+    
+    public void NPCAdvance() {
+       Flag enemyflag = null; 
+       if (this instanceof German) {
+        enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);
+       }
+       else {
+          enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0); 
+        }
+       List<Obstacle> inWay = null; 
+        if (this instanceof German) {
+          inWay = getObjectsAtOffset(-1, 0, Obstacle.class);
+          
+        }
+        else {
+          inWay = getObjectsAtOffset(1, 0, Obstacle.class);
+        }
+        if (inWay.size() == 0) {
+            if (enemyflag.getX() < getX()) {
+               setLocation(getX()-1, getY()); 
+            }
+            else {
+               setLocation(getX()+1, getY());  
+            }
+            
+             if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
+               setLocation(getX(), getY()- 1); 
+            }
+            else if (enemyflag.getX() == getX()) {
+               setLocation(getX(), getY()+1);  
+            }
+       } else {
+           System.out.println("tacooo");
+        }
+    }
+    
+    
+    
 }
