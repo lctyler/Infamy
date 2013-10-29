@@ -10,13 +10,18 @@ public class Human extends Movement
 {
     protected Dialogue d;
     public static int Score = 0;
-    int health = 100; 
-    HealthBar healthBar;
-    long stopTimer; 
-    boolean isStoped = false; 
+
+    private int health = 100; 
+    private HealthBar healthBar;
+    private ArrayList<DamageOverTime> dmgOverTime;
+
     public Human() {
        d = new Dialogue();     
-        
+       dmgOverTime = new ArrayList<DamageOverTime>();
+    }
+    
+    public void addDamageOverTime(int damage, int time) {
+        dmgOverTime.add(new DamageOverTime(damage,time));
     }
     
     public int getHealth() {
@@ -50,7 +55,14 @@ public class Human extends Movement
         getWorld().removeObject(this);
         
     }
-    
+    public void applyDamageOverTime(){
+         for(DamageOverTime dmg : dmgOverTime){
+            if(dmg.getDamageLeft() > 0){
+                loseHealth(dmg.getDamagePerTick());
+                dmg.decrementDamageLeft();
+            }
+        }
+    }
     /**
      * Act - do whatever the Human wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -58,6 +70,7 @@ public class Human extends Movement
     public void act() 
     {
         // Add your action code here.
+
     }    
     
     public void yield() {

@@ -56,7 +56,7 @@ public class EnemyNPC extends German
             
             
         
-            enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
+        enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
         if (brits.size() == 0 && !isDefender) {
 
             NPCAdvance();
@@ -74,6 +74,7 @@ public class EnemyNPC extends German
         }
         else
             setImage("enemy-aiming-left.png");
+        applyDamageOverTime();
     }
         // Spot bad guys. (if bad guys are there, crouch, and shoot) 
         // else: advance. 

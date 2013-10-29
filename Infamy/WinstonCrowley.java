@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
+import java.util.*;
 /**
  * Write a description of class WinstonCrowley here.
  * 
@@ -8,6 +9,7 @@ import java.awt.Color;
  */
 public class WinstonCrowley extends British
 {
+    private final int SHOOT_RANGE = 500;
     private int runTimer = 0;
     private boolean loaded = true;
     private int lastShot = 0;
@@ -20,9 +22,15 @@ public class WinstonCrowley extends British
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public boolean inRange() {
+        ArrayList<Actor> germans = (ArrayList<Actor>)getObjectsInRange(SHOOT_RANGE, German.class);
+        return !germans.isEmpty(); 
+    }
+    
     public void act() 
     {
-        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
+        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && inRange()) {
             if(--magazineRemaining == 0){
                reloadClock = 0;
                loaded = false;
@@ -66,5 +74,6 @@ public class WinstonCrowley extends British
             setImage("man-aiming-right.png");
         }
         d.ExecuteDialogueInteraction();
+        applyDamageOverTime();
     }    
 }

@@ -14,5 +14,6 @@ public class British extends Human {
     public void act() 
     {
         // Add your action code here.
+        
     }    
 }
