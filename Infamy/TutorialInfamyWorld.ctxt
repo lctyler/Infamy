@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #BlueJ class context
 comment0.params=
 comment0.target=TutorialInfamyWorld()
@@ -25,31 +24,3 @@ comment8.target=void\ AddDialogueBox(java.lang.String,\ int,\ int)
 comment9.params=
 comment9.target=void\ TutorialWin()
 numComments=11
-=======
-#BlueJ class context
-comment0.params=
-comment0.target=TutorialInfamyWorld()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ InfamyWorld.\r\n\ \r\n
-comment1.params=
-comment1.target=void\ decBCounter()
-comment10.params=message\ x\ y\ intro
-comment10.target=void\ AddTutorialDialogue(java.lang.String,\ int,\ int,\ boolean)
-comment2.params=
-comment2.target=void\ decGCounter()
-comment3.params=type\ ammount\ rand
-comment3.target=void\ spawnWave(java.lang.String,\ int,\ boolean)
-comment4.params=
-comment4.target=void\ act()
-comment5.params=
-comment5.target=void\ populate()
-comment6.params=
-comment6.target=void\ RemoveDialogueBoxes()
-comment7.params=source\ target
-comment7.target=void\ addBullet(greenfoot.Actor,\ greenfoot.Actor)
-comment7.text=\r\n\ Try\ to\ add\ in\ the\ bullet\ here.\ Call\ from\ \r\n
-comment8.params=message\ x\ y
-comment8.target=void\ AddDialogueBox(java.lang.String,\ int,\ int)
-comment9.params=
-comment9.target=void\ TutorialWin()
-numComments=11
->>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

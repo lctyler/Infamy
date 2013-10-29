@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #BlueJ class context
 comment0.params=defender
 comment0.target=BritNPC(boolean)
@@ -13,19 +12,3 @@ comment3.text=\r\n\ Detects\ if\ there\ are\ any\ british\ soldiers\ in\ the\ se
 comment4.params=target
 comment4.target=void\ shoot(greenfoot.Actor)
 numComments=5
-=======
-#BlueJ class context
-comment0.params=defender
-comment0.target=BritNPC(boolean)
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ NPC\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment2.params=
-comment2.target=void\ advance()
-comment3.params=range
-comment3.target=java.util.ArrayList\ spot(int)
-comment3.text=\r\n\ Detects\ if\ there\ are\ any\ british\ soldiers\ in\ the\ search\ area.\ \r\n
-comment4.params=target
-comment4.target=void\ shoot(greenfoot.Actor)
-numComments=5
->>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

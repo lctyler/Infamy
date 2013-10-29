@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-#BlueJ class context
-comment0.params=
-comment0.target=DefeatWorld()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ DefeatWorld.\r\n\ \r\n
-numComments=1
-=======
 #BlueJ class context
 comment0.params=score
 comment0.target=DefeatWorld(int)
@@ -12,4 +5,3 @@ comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ DefeatWorld.\r\n\ \r\n
 comment1.params=message\ x\ y
 comment1.target=void\ AddScoreDialogue(java.lang.String,\ int,\ int)
 numComments=2
->>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

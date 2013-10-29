@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-#BlueJ class context
-comment0.params=
-comment0.target=Human()
-comment1.params=
-comment1.target=int\ getHealth()
-comment2.params=damage
-comment2.target=void\ loseHealth(int)
-comment3.params=
-comment3.target=void\ die()
-comment4.params=
-comment4.target=void\ act()
-comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ Human\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment5.params=y
-comment5.target=void\ yield(int)
-comment6.params=
-comment6.target=void\ NPCAdvance()
-numComments=7
-=======
 #BlueJ class context
 comment0.params=
 comment0.target=Human()
@@ -31,7 +12,8 @@ comment4.target=void\ die()
 comment5.params=
 comment5.target=void\ act()
 comment5.text=\r\n\ Act\ -\ do\ whatever\ the\ Human\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment6.params=
-comment6.target=void\ NPCAdvance()
-numComments=7
->>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237
+comment6.params=y
+comment6.target=void\ yield(int)
+comment7.params=
+comment7.target=void\ NPCAdvance()
+numComments=8
