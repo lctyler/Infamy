@@ -86,7 +86,7 @@ public class TutorialInfamyWorld extends World
         if ((d.getTime() - baseTimeG) > 10000 ) {
            spawnG = true; 
         }
-        System.out.println("B: " + bCounter + " G: " + gCounter); 
+       
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT, 1, true);
@@ -122,7 +122,17 @@ public class TutorialInfamyWorld extends World
        addObject(crosshair, 0, 0);
         
        Sandbag sb1 = new Sandbag();
+       sb1.turn(90);
        addObject(sb1, 600, 130);
+       Sandbag sb2 = new Sandbag();
+       sb2.turn(90);
+       addObject(sb2, 500, 400);
+       Sandbag sb3 = new Sandbag();
+       sb3.turn(90);
+       addObject(sb3, 300, 375);
+       Sandbag sb4 = new Sandbag();
+       sb4.turn(90);
+       addObject(sb4, 400, 230);
 
         
 

@@ -79,7 +79,7 @@ public class Human extends Movement
                setLocation(getX(), getY()+1);  
             }
        } else {
-           System.out.println("tacooo");
+           setLocation(getX(), getY()+1); 
         }
     }
     
