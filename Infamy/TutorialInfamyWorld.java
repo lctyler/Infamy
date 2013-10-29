@@ -25,6 +25,8 @@ public class TutorialInfamyWorld extends HumanWorld
     public int bCounter, gCounter;
     public long baseTimeG, baseTimeB;
     public boolean spawnG, spawnB; 
+    public GreenfootSound bgMusic ;
+    public boolean playmusic = true;
     
     /**
      * Constructor for objects of class InfamyWorld.
@@ -34,11 +36,11 @@ public class TutorialInfamyWorld extends HumanWorld
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1);
-        populate();
+       
         dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
-        AddTutorialDialogue("Kill all the enemies and capture the flag!!", 512, 525, false);
+        AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 512, 525, false);
         //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
         bCounter = gCounter = 0;
@@ -46,7 +48,8 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(BRIT, NUM_ADVANCERS, false); 
         spawnG = false;
         spawnB = false;
-        Greenfoot.playSound("FiveArmies.mp3");
+        populate();
+        //Greenfoot.playSound("FiveArmies.mp3");
         
     }
     public void decBCounter() {
@@ -58,31 +61,54 @@ public class TutorialInfamyWorld extends HumanWorld
     }
     
     public void spawnWave(String type, int ammount, boolean rand) {
+      
+       //int x  = Greenfoot.getRandomNumber(2);
+       int x = 0;
         for (int i = 0; i < ammount; i++) {
+            x = i;
             if (type.equals(BRIT)) {
                BritNPC adv = new BritNPC(false); 
-               addHuman(adv, BRIT_X, Y_SET[i]);
+               addHuman(adv, BRIT_X, Y_SET[x]);
                bCounter++; 
               
             }
             else {
                 EnemyNPC adv = new EnemyNPC(false);
-                addHuman(adv, GERM_X, Y_SET[i]);
+                addHuman(adv, GERM_X, Y_SET[x]);
                 gCounter++; 
             }
         }
         
     }
     
+    public void toggleSound(boolean volumeOn) {
+        if (volumeOn) {
+           bgMusic.play(); 
+        }
+        else {
+           bgMusic.pause(); 
+        }
+    }
+    
+    
+    public void playMusic() {
+        if (playmusic) {
+           bgMusic = new GreenfootSound("FiveArmies.mp3"); 
+           bgMusic.play();
+           playmusic = false;
+        }
+        
+    }
     
     public void act() {
         Date d  = new Date();
+        playMusic(); 
         dialogueTimer++;
         if (dialogueTimer == 500)
         {
             removeObject(tutorialDia);
         }
-        if ((d.getTime() - baseTimeB) > 10000 ) {
+        if ((d.getTime() - baseTimeB) > 12000 ) {
            spawnB = true;
         }
         if ((d.getTime() - baseTimeG) > 10000 ) {
@@ -97,7 +123,7 @@ public class TutorialInfamyWorld extends HumanWorld
         }
         
         if (spawnG && gCounter == 0) {
-            spawnWave(GERM, 1, true);
+            spawnWave(GERM, 2, true);
             spawnG = false;
             baseTimeG = d.getTime(); 
         }
@@ -140,7 +166,8 @@ public class TutorialInfamyWorld extends HumanWorld
        sb4.turn(90);
        addObject(sb4, 400, 230);
 
-
+      VolumeButton vb = new VolumeButton();
+      addObject(vb, 20, 40);
         
 
         BritNPC npc2 = new BritNPC(true);

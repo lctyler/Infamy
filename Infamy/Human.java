@@ -12,6 +12,8 @@ public class Human extends Movement
     public static int Score = 0;
     int health = 100; 
     HealthBar healthBar;
+    long stopTimer; 
+    boolean isStoped = false; 
     public Human() {
        d = new Dialogue();     
         
@@ -58,9 +60,10 @@ public class Human extends Movement
         // Add your action code here.
     }    
     
-    public void yield(int y) {
-        setLocation(getX()- 1, y  - 1); 
-        
+    public void yield() {
+       if (!(this instanceof WinstonCrowley)) {
+           setLocation(getX()-1, getY()); 
+       }
     }
     
     
@@ -85,7 +88,7 @@ public class Human extends Movement
             
             Human target = (Human)getOneIntersectingObject(Human.class);
             if (target != null) {
-               target.yield(getY()); 
+               target.yield(); 
             }
             else {
             

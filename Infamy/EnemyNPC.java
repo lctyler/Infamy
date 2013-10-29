@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class EnemyNPC extends German
 {
-    private static final long RELOAD_TIME = 4000;
+    private static final long RELOAD_TIME = 3000;
     Flag enemyflag = null; 
     private boolean hasShot = false, advance = true; 
     long timer; 
