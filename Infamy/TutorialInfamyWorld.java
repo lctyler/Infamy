@@ -126,11 +126,10 @@ public class TutorialInfamyWorld extends HumanWorld
        Sandbag sb1 = new Sandbag();
        sb1.turn(90);
        addObject(sb1, 600, 130);
-<<<<<<< HEAD
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
-=======
+
        Sandbag sb2 = new Sandbag();
        sb2.turn(90);
        addObject(sb2, 500, 400);
@@ -140,7 +139,7 @@ public class TutorialInfamyWorld extends HumanWorld
        Sandbag sb4 = new Sandbag();
        sb4.turn(90);
        addObject(sb4, 400, 230);
->>>>>>> a68f08e87df5194f794f7fedebed1577d365d9de
+
 
         
 

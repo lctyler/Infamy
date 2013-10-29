@@ -36,6 +36,6 @@ public class GasButton extends HUD
         List humanList = this.getWorld().getObjects(Human.class);
         
         for (Object hu : humanList)
-            ((Human)hu).loseHealth(10);
+            ((Human)hu).loseHealth(40);
     }
 }
