@@ -8,8 +8,10 @@ import java.util.*;
  */
 public class Human extends Movement
 {
-    protected Dialogue d; 
+    protected Dialogue d;
+    public static int Score = 0;
     int health = 100; 
+    HealthBar healthBar;
     public Human() {
        d = new Dialogue();     
         
@@ -17,9 +19,14 @@ public class Human extends Movement
     
     public int getHealth() {
        return health;     
-        
     }
     
+    public void createHealthBar(){
+        healthBar = new HealthBar(this);
+        getWorld().addObject(healthBar, getX() , 
+            getY() - getImage().getHeight()/2 -1); 
+    }
+
     public void loseHealth(int damage) {
        health -= damage;
        if (health <= 0) {
@@ -30,13 +37,14 @@ public class Human extends Movement
     public void die() {
         if (this instanceof British) {
             if (this instanceof WinstonCrowley)
-                Greenfoot.setWorld(new DefeatWorld());
+                Greenfoot.setWorld(new DefeatWorld(Human.Score));
             ((TutorialInfamyWorld)this.getWorld()).decBCounter();
         }
         else {
                ((TutorialInfamyWorld)this.getWorld()).decGCounter();
+               Score+=100;
         }
-        
+        getWorld().removeObject(healthBar);
         getWorld().removeObject(this);
         
     }

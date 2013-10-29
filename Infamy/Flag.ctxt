@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.params=nationality
 comment0.target=Flag(java.lang.String)
@@ -7,3 +8,14 @@ comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Flag\ wants\ to\ do.\ This\ metho
 comment2.params=
 comment2.target=void\ CheckTutorialWin()
 numComments=3
+=======
+#BlueJ class context
+comment0.params=nationality
+comment0.target=Flag(java.lang.String)
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Flag\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ CheckTutorialWin()
+numComments=3
+>>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

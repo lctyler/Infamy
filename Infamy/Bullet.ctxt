@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.params=from\ targetx\ targety
 comment0.target=Bullet(greenfoot.Actor,\ int,\ int)
@@ -11,3 +12,18 @@ comment3.target=void\ moveTowardsTarget()
 comment4.params=
 comment4.target=void\ kill()
 numComments=5
+=======
+#BlueJ class context
+comment0.params=from\ targetx\ targety
+comment0.target=Bullet(greenfoot.Actor,\ int,\ int)
+comment1.params=from\ target
+comment1.target=Bullet(greenfoot.Actor,\ greenfoot.Actor)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ bullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ moveTowardsTarget()
+comment4.params=
+comment4.target=void\ kill()
+numComments=5
+>>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

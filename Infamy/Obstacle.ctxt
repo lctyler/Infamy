@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
 comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Obstacle\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 numComments=1
+=======
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Obstacle\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=1
+>>>>>>> e7d443ad13db94c59198eda6f03a9f8a45ab1237

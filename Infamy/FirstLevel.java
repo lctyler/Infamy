@@ -6,7 +6,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FirstLevel extends World
+public class FirstLevel extends HumanWorld
 {
     private GreenfootImage scrollImage;
     private int winstonPosX;

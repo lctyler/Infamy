@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 /**
- * Write a description of class DefeatWorld here.
+ * Write a description of class WinWorld here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DefeatWorld extends World
+public class WinWorld extends World
 {
     Dialogue score;
     /**
-     * Constructor for objects of class DefeatWorld.
+     * Constructor for objects of class WinWorld.
      * 
      */
-    public DefeatWorld(int score)
+    public WinWorld(int score)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1); 
