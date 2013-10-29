@@ -71,6 +71,12 @@ public class Human extends Movement
 
     }    
     
+    public void yield(int y) {
+        setLocation(getX()- 1, y  - 1); 
+        
+    }
+    
+    
     public void NPCAdvance() {
        Flag enemyflag = null; 
        if (this instanceof German) {
@@ -79,31 +85,48 @@ public class Human extends Movement
        else {
           enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0); 
         }
-       List<Obstacle> inWay = null; 
+       List<Actor> inWay = null; 
         if (this instanceof German) {
           inWay = getObjectsAtOffset(-1, 0, Obstacle.class);
-          
+          //inWay.addAll(getObjectsAtOffset(-1, 0, Human.class));
         }
         else {
           inWay = getObjectsAtOffset(1, 0, Obstacle.class);
+          //inWay.addAll(getObjectsAtOffset(-1, 0, Human.class));
         }
         if (inWay.size() == 0) {
-            if (enemyflag.getX() < getX()) {
-               setLocation(getX()-1, getY()); 
+            
+            Human target = (Human)getOneIntersectingObject(Human.class);
+            if (target != null) {
+               target.yield(getY()); 
             }
             else {
-               setLocation(getX()+1, getY());  
-            }
             
-             if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
-               setLocation(getX(), getY()- 1); 
+                if (enemyflag.getX() < getX()) {
+                   setLocation(getX()-1, getY()); 
+                }
+                else {
+                   setLocation(getX()+1, getY());  
+                }
+                
+                 if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
+                   setLocation(getX(), getY()- 1); 
+                }
+                else if (enemyflag.getX() == getX()) {
+                   setLocation(getX(), getY()+1);  
+                }
             }
-            else if (enemyflag.getX() == getX()) {
-               setLocation(getX(), getY()+1);  
-            }
+           
        } else {
-           setLocation(getX(), getY()+1); 
-        }
+           
+           for (Actor a : inWay ) {
+           
+            if (a instanceof Sandbag) {
+                setLocation(getX(), getY()+ 1); 
+            }
+          }
+       }
+      
     }
     
     
