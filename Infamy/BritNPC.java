@@ -72,6 +72,7 @@ public class BritNPC extends British
         }
         else
             setImage("man-aiming-right.png");
+        applyDamageOverTime();
     }    
     
     

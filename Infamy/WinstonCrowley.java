@@ -66,5 +66,6 @@ public class WinstonCrowley extends British
             setImage("man-aiming-right.png");
         }
         d.ExecuteDialogueInteraction();
+        applyDamageOverTime();
     }    
 }

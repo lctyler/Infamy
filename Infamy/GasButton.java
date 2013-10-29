@@ -11,6 +11,10 @@ public class GasButton extends HUD
 {
     private int counter = 1000;
     
+    public GasButton(){
+        super();
+        setImage("gas-button-pressed.png");
+    }
     /**
      * Act - do whatever the GasButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,6 +40,6 @@ public class GasButton extends HUD
         List humanList = this.getWorld().getObjects(Human.class);
         
         for (Object hu : humanList)
-            ((Human)hu).loseHealth(40);
+            ((Human)hu).addDamageOverTime(40, 40);
     }
 }
