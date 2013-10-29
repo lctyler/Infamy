@@ -45,6 +45,7 @@ public class TutorialInfamyWorld extends World
         spawnWave(BRIT, NUM_ADVANCERS, false); 
         spawnG = false;
         spawnB = false;
+        Greenfoot.playSound("FiveArmies.mp3");
         
     }
     public void decBCounter() {
