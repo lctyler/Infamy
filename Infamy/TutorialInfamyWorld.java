@@ -25,6 +25,7 @@ public class TutorialInfamyWorld extends World
     public int bCounter, gCounter;
     public long baseTimeG, baseTimeB;
     public boolean spawnG, spawnB; 
+    
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -124,6 +125,9 @@ public class TutorialInfamyWorld extends World
         
        Sandbag sb1 = new Sandbag();
        addObject(sb1, 600, 130);
+       
+       GasButton gb = new GasButton();
+       addObject(gb, 512, 550);
 
         
 
