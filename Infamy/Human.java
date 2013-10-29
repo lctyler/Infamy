@@ -48,7 +48,7 @@ public class Human extends Movement
             ((TutorialInfamyWorld)this.getWorld()).decBCounter();
         }
         else {
-               ((TutorialInfamyWorld)this.getWorld()).decGCounter();
+               ((HumanWorld)this.getWorld()).decGCounter();
                Score+=100;
         }
         getWorld().removeObject(healthBar);

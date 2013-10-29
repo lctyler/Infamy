@@ -52,13 +52,6 @@ public class TutorialInfamyWorld extends HumanWorld
         //Greenfoot.playSound("FiveArmies.mp3");
         
     }
-    public void decBCounter() {
-        bCounter--;
-    }
-    
-    public void decGCounter() {
-        gCounter--;
-    }
     
     public void spawnWave(String type, int ammount, boolean rand) {
       
@@ -184,13 +177,7 @@ public class TutorialInfamyWorld extends HumanWorld
         removeObject(dia);
         dialogueCounter = 0;
     }
-    /**
-     * Try to add in the bullet here. Call from 
-     */
-    public void addBullet(Actor source, Actor target) {
-        addObject(new Bullet(source, target), source.getX(), source.getY()); 
-        
-    }
+    
     
     public void AddDialogueBox(String message, int x, int y)
     {
@@ -218,7 +205,8 @@ public class TutorialInfamyWorld extends HumanWorld
     {
         //System.out.println("Winning");
         //Greenfoot.setWorld(new FirstLevel());
-        Greenfoot.setWorld(new WinWorld(Human.Score));
+        //Greenfoot.setWorld(new WinWorld(Human.Score));
+        Greenfoot.setWorld(new SecondLevel());
     }
     
     private void AddTutorialDialogue(String message, int x, int y, boolean intro)
