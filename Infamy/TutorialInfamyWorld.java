@@ -7,7 +7,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TutorialInfamyWorld extends World
+public class TutorialInfamyWorld extends HumanWorld
 {
     public final int NUM_ADVANCERS = 3;
     public final String BRIT = "british"; 
@@ -61,13 +61,13 @@ public class TutorialInfamyWorld extends World
         for (int i = 0; i < ammount; i++) {
             if (type.equals(BRIT)) {
                BritNPC adv = new BritNPC(false); 
-               addObject(adv, BRIT_X, Y_SET[i]);
+               addHuman(adv, BRIT_X, Y_SET[i]);
                bCounter++; 
               
             }
             else {
                 EnemyNPC adv = new EnemyNPC(false);
-                addObject(adv, GERM_X, Y_SET[i]);
+                addHuman(adv, GERM_X, Y_SET[i]);
                 gCounter++; 
             }
         }
@@ -88,7 +88,7 @@ public class TutorialInfamyWorld extends World
         if ((d.getTime() - baseTimeG) > 10000 ) {
            spawnG = true; 
         }
-        System.out.println("B: " + bCounter + " G: " + gCounter); 
+       
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT, 1, true);
@@ -114,30 +114,43 @@ public class TutorialInfamyWorld extends World
         
 
         EnemyNPC germanDefender1 = new EnemyNPC(true);
-        addObject(germanDefender1, 900, 400); 
+        addHuman(germanDefender1, 900, 400); 
         
         EnemyNPC germanDefender2 = new EnemyNPC(true); 
-        addObject(germanDefender2, 900, 100); 
+        addHuman(germanDefender2, 900, 100); 
         
 
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
        Sandbag sb1 = new Sandbag();
+       sb1.turn(90);
        addObject(sb1, 600, 130);
+<<<<<<< HEAD
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
+=======
+       Sandbag sb2 = new Sandbag();
+       sb2.turn(90);
+       addObject(sb2, 500, 400);
+       Sandbag sb3 = new Sandbag();
+       sb3.turn(90);
+       addObject(sb3, 300, 375);
+       Sandbag sb4 = new Sandbag();
+       sb4.turn(90);
+       addObject(sb4, 400, 230);
+>>>>>>> a68f08e87df5194f794f7fedebed1577d365d9de
 
         
 
         BritNPC npc2 = new BritNPC(true);
-        addObject(npc2, 130, 400);
+        addHuman(npc2, 130, 400);
         BritNPC npc1 = new BritNPC(true);
-        addObject(npc1, 130, 100);
+        addHuman(npc1, 130, 100);
         
         WinstonCrowley move = new WinstonCrowley();
-        addObject(move, 95, 500);
+        addHuman(move, 95, 500);
     }
     
     public void RemoveDialogueBoxes()
