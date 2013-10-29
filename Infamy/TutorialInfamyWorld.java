@@ -143,21 +143,21 @@ public class TutorialInfamyWorld extends HumanWorld
        addObject(crosshair, 0, 0);
         
        Sandbag sb1 = new Sandbag();
-       sb1.turn(90);
+       //sb1.turn(90);
        addObject(sb1, 600, 130);
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
 
        Sandbag sb2 = new Sandbag();
-       sb2.turn(90);
+       //sb2.turn(90);
        addObject(sb2, 500, 400);
        Sandbag sb3 = new Sandbag();
-       sb3.turn(90);
+       //sb3.turn(90);
        addObject(sb3, 300, 375);
        Sandbag sb4 = new Sandbag();
-       sb4.turn(90);
-       addObject(sb4, 400, 230);
+       //sb4.turn(90);
+       addObject(sb4, 400, 190);
 
       VolumeButton vb = new VolumeButton();
       addObject(vb, 20, 40);
