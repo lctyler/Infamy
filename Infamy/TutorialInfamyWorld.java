@@ -190,7 +190,8 @@ public class TutorialInfamyWorld extends HumanWorld
     public void TutorialWin()
     {
         //System.out.println("Winning");
-        Greenfoot.setWorld(new FirstLevel());
+        //Greenfoot.setWorld(new FirstLevel());
+        Greenfoot.setWorld(new WinWorld(Human.Score));
     }
     
     private void AddTutorialDialogue(String message, int x, int y, boolean intro)
