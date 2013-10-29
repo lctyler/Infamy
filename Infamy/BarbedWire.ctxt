@@ -1,5 +1,9 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+<<<<<<< HEAD
 comment0.text=\n\ Act\ -\ do\ whatever\ the\ BarbedWire\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+=======
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ BarbedWire\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+>>>>>>> e8d01eb95dd204f234faca20f8e82b968baae826
 numComments=1

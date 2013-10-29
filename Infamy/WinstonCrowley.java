@@ -18,6 +18,7 @@ public class WinstonCrowley extends British
     {
         if(Greenfoot.mouseClicked(null)){
             MouseInfo info = Greenfoot.getMouseInfo();
+            Greenfoot.playSound("gunFire.mp3");
             getWorld().addObject(new Bullet(this, info.getX(), info.getY()), 
                 this.getX() + this.getImage().getWidth()/2 + 10, this.getY() - 10);
         }
