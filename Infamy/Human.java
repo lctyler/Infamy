@@ -10,6 +10,7 @@ public class Human extends Movement
 {
     protected Dialogue d; 
     int health = 100; 
+    HealthBar healthBar;
     public Human() {
        d = new Dialogue();     
         
@@ -17,9 +18,14 @@ public class Human extends Movement
     
     public int getHealth() {
        return health;     
-        
     }
     
+    public void createHealthBar(){
+        healthBar = new HealthBar(this);
+        getWorld().addObject(healthBar, getX() , 
+            getY() - getImage().getHeight()/2 -1); 
+    }
+
     public void loseHealth(int damage) {
        health -= damage;
        if (health <= 0) {
@@ -36,7 +42,7 @@ public class Human extends Movement
         else {
                ((TutorialInfamyWorld)this.getWorld()).decGCounter();
         }
-        
+        getWorld().removeObject(healthBar);
         getWorld().removeObject(this);
         
     }
