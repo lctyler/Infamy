@@ -91,6 +91,7 @@ public class EnemyNPC extends German
     }
     
     public void shoot(British  target) {
+        Greenfoot.playSound("gunFire.mp3");
         ((TutorialInfamyWorld)getWorld()).addBullet(this, target);
     }
 }

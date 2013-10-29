@@ -29,7 +29,9 @@ public class Human extends Movement
     
     public void die() {
         if (this instanceof British) {
-               ((TutorialInfamyWorld)this.getWorld()).decBCounter();
+            if (this instanceof WinstonCrowley)
+                Greenfoot.setWorld(new DefeatWorld());
+            ((TutorialInfamyWorld)this.getWorld()).decBCounter();
         }
         else {
                ((TutorialInfamyWorld)this.getWorld()).decGCounter();
