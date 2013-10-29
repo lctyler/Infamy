@@ -27,8 +27,26 @@ public class SecondLevel extends HumanWorld
     }
     
     public void populate(){
-       winst = new WinstonCrowley();
-       this.addHuman(winst, 50,500);
+        //Sandbags
+        Sandbag sb1 = new Sandbag(true);
+        addObject(sb1, 350,200);
+        Sandbag sb2 = new Sandbag(true);
+        addObject(sb2, 400, 500);
+        Sandbag sb3 = new Sandbag(true);
+        addObject(sb3, 750, 275);
+        //Winston
+        winst = new WinstonCrowley();
+        this.addHuman(winst, 130, 450);
+        //British
+//         BritNPC npc2 = new BritNPC(true);
+//         addHuman(npc2, 130, 350);
+//         BritNPC npc1 = new BritNPC(true);
+//         addHuman(npc1, 130, 100);
+//         BritNPC npc3 = new BritNPC(true);
+//         addHuman(npc1, 130, 200);
+//         BritNPC npc4 = new BritNPC(true);
+//         addHuman(npc1, 130, 300);
+        //Machine Guns
        gun1 = new MountedMachineGun(0,this.getHeight());
        this.addHuman(gun1, 875, 110);
        gun2 = new MountedMachineGun(0,0);
