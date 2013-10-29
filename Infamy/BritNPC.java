@@ -14,6 +14,8 @@ public class BritNPC extends British
     private boolean hasShot = false, advance = true; 
     long timer;
     private boolean isDefender; 
+    private int runTimer = 0;
+    
     public BritNPC(boolean defender)
     {
         isDefender = defender; 
@@ -54,8 +56,22 @@ public class BritNPC extends British
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0);  
         if (germans.size() == 0 && !isDefender) {
+
             NPCAdvance();
+
+            runTimer++;
+            if (runTimer==18)
+            {
+                setImage("man-running-right-4.png");
+                runTimer=0;  
+            }
+            if (runTimer==0) setImage("man-running-right-1.png");  
+            if (runTimer==6) setImage("man-running-right-2.png");  
+            if (runTimer==12) setImage("man-running-right-3.png");
+      
         }
+        else
+            setImage("man-aiming-right.png");
     }    
     
     
@@ -73,7 +89,6 @@ public class BritNPC extends British
         else if (enemyflag.getX() == getX()) {
            setLocation(getX(), getY()+1);  
         }
-        
     }
     
      /**

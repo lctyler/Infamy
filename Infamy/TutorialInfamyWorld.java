@@ -20,6 +20,7 @@ public class TutorialInfamyWorld extends World
     public Dialogue tutorialDiaIntro;
     public Dialogue tutorialDia;
     public int dialogueCounter;
+    public int dialogueTimer;
     public ArrayList<Human> GermanAdvancers, BritAdvancers; 
     public int bCounter, gCounter;
     public long baseTimeG, baseTimeB;
@@ -33,10 +34,12 @@ public class TutorialInfamyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1);
         populate();
+        dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
-        AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
-        AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
+        AddTutorialDialogue("Kill all the enemies and capture the flag!!", 512, 525, false);
+        //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
+        //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
         bCounter = gCounter = 0;
         spawnWave(GERM, NUM_ADVANCERS, false); 
         spawnWave(BRIT, NUM_ADVANCERS, false); 
@@ -72,7 +75,11 @@ public class TutorialInfamyWorld extends World
     
     public void act() {
         Date d  = new Date();
-        
+        dialogueTimer++;
+        if (dialogueTimer == 500)
+        {
+            removeObject(tutorialDia);
+        }
         if ((d.getTime() - baseTimeB) > 10000 ) {
            spawnB = true;
         }

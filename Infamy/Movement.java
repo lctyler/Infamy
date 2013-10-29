@@ -54,7 +54,7 @@ public class Movement extends Actor
         return false;
     }
     
-    public void move ()
+    public boolean move ()
     {
         if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("d"))
         {
@@ -62,6 +62,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() + 1, this.getY() - 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("a"))
         {
@@ -69,6 +70,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() - 1, this.getY() - 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("d"))
         {
@@ -76,6 +78,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() + 1, this.getY() + 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a"))
         {
@@ -83,6 +86,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() - 1, this.getY() + 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("w"))
         {
@@ -90,6 +94,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX(), this.getY() - 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("a"))
         {
@@ -97,6 +102,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() - 1, this.getY());
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("s"))
         {
@@ -104,6 +110,7 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX(), this.getY() + 1);
             }
+            return true;
         }
         else if (Greenfoot.isKeyDown("d"))
         {
@@ -111,7 +118,9 @@ public class Movement extends Actor
             {
                 this.setLocation(this.getX() + 1, this.getY());
             }
+            return true;
         }
+        return false;
     }
     
     public boolean isAtWorldEdge()

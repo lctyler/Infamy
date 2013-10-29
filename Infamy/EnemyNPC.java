@@ -17,6 +17,8 @@ public class EnemyNPC extends German
     private boolean hasShot = false, advance = true; 
     long timer; 
     private boolean isDefender;
+    private int runTimer = 0;
+    
     public EnemyNPC(boolean defenderStatus) {
         isDefender = defenderStatus; 
     }
@@ -56,8 +58,22 @@ public class EnemyNPC extends German
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
         if (brits.size() == 0 && !isDefender) {
+
             NPCAdvance();
+
+            runTimer++;
+            if (runTimer==24)
+            {
+                setImage("enemy-running-left-4.png");
+                runTimer=0;  
+            }
+            if (runTimer==0) setImage("enemy-running-left-1.png");  
+            if (runTimer==8) setImage("enemy-running-left-2.png");  
+            if (runTimer==16) setImage("enemy-running-left-3.png");
+           
         }
+        else
+            setImage("enemy-aiming-left.png");
     }
         // Spot bad guys. (if bad guys are there, crouch, and shoot) 
         // else: advance. 
