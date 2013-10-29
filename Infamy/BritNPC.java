@@ -101,6 +101,7 @@ public class BritNPC extends British
     }
     
     public void shoot(Actor target) {
+        Greenfoot.playSound("gunFire.mp3");
         ((TutorialInfamyWorld)getWorld()).addBullet(this, target);
     }
     
