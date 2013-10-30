@@ -22,7 +22,7 @@ public class TutorialInfamyWorld extends HumanWorld
     public int dialogueCounter;
     public int dialogueTimer;
     public ArrayList<Human> GermanAdvancers, BritAdvancers; 
-    public int bCounter, gCounter;
+   
     public long baseTimeG, baseTimeB;
     public boolean spawnG, spawnB; 
     public GreenfootSound bgMusic ;
@@ -44,11 +44,13 @@ public class TutorialInfamyWorld extends HumanWorld
         //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
         bCounter = gCounter = 0;
+        populate();
+        
         spawnWave(GERM, NUM_ADVANCERS, false); 
         spawnWave(BRIT, NUM_ADVANCERS, false); 
-        spawnG = false;
-        spawnB = false;
-        populate();
+        spawnG = true;
+        spawnB = true;
+        
         //Greenfoot.playSound("FiveArmies.mp3");
         
     }
@@ -108,7 +110,7 @@ public class TutorialInfamyWorld extends HumanWorld
            spawnG = true; 
         }
        
-        
+        System.out.println("spawn: " + spawnG + "gcounter " + gCounter);   
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT, 1, true);
             spawnB = false;

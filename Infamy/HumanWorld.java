@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HumanWorld extends World
 {
-    private int bCounter,gCounter;
+    protected int bCounter,gCounter;
     
     /**
      * Constructor for objects of class HumanWorld.
