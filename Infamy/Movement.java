@@ -32,19 +32,19 @@ public class Movement extends Actor
         {
             if (world.getHeight() > yMove && 0 < yMove)
             {
-               if ((dir == Direction.NORTH || dir2 == Direction.NORTH) && getOneObjectAtOffset(0,-1, null) != null)
+               if ((dir == Direction.NORTH || dir2 == Direction.NORTH) && checkObjectsToMoveThrough(dir))
                {
                     return false;
                }
-               if ((dir == Direction.SOUTH || dir2 == Direction.SOUTH) && getOneObjectAtOffset(0,1, null) != null)
+               else if ((dir == Direction.SOUTH || dir2 == Direction.SOUTH) && checkObjectsToMoveThrough(dir))
                {
                     return false;
                }
-               if ((dir == Direction.EAST || dir2 == Direction.EAST) && getOneObjectAtOffset(1,0, null) != null)
+               else if ((dir == Direction.EAST || dir2 == Direction.EAST) && checkObjectsToMoveThrough(dir))
                {
                     return false;
                }
-               if ((dir == Direction.WEST || dir2 == Direction.WEST) && getOneObjectAtOffset(-1,0, null) != null)
+               else if ((dir == Direction.WEST || dir2 == Direction.WEST) && checkObjectsToMoveThrough(dir))
                {
                     return false;
                }
@@ -52,6 +52,43 @@ public class Movement extends Actor
             }
         }
         return false;
+    }
+    
+    private boolean checkObjectsToMoveThrough(Direction dir)
+    {
+       if (dir == Direction.NORTH)
+       {
+           Actor obj = getOneObjectAtOffset(0,-1, null);
+           if (obj instanceof Landmine || obj instanceof British)
+            return false;
+            else
+                return getOneObjectAtOffset(0,-1, null) != null;
+       }
+       if (dir == Direction.SOUTH)
+       {
+           Actor obj = getOneObjectAtOffset(0,1, null);
+           if (obj instanceof Landmine|| obj instanceof British)
+            return false;
+             else
+                return getOneObjectAtOffset(0,1, null) != null;
+       }
+       if (dir == Direction.EAST)
+       {
+           Actor obj = getOneObjectAtOffset(1,0, null);
+           if (obj instanceof Landmine|| obj instanceof British)
+            return false;
+             else
+                return getOneObjectAtOffset(1,0, null) != null;
+       }
+       if (dir == Direction.WEST)
+       {
+           Actor obj = getOneObjectAtOffset(-1,0, null);
+           if (obj instanceof Landmine|| obj instanceof British)
+            return false;         
+             else
+                return getOneObjectAtOffset(-1,0, null) != null;
+       }
+       return true;
     }
     
     public boolean move ()

@@ -20,6 +20,17 @@ public class WinstonCrowley extends British
     private HealthBar insanityBar;
     private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
+    private ArrayList<Landmine> landmines;
+    public WinstonCrowley()
+    {
+        Landmine landmine1 = new Landmine();
+        Landmine landmine2 = new Landmine();
+        Landmine landmine3 = new Landmine();
+        landmines = new ArrayList<Landmine>();
+        landmines.add(landmine1);
+        landmines.add(landmine2);
+        landmines.add(landmine3);
+    }
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -74,7 +85,17 @@ public class WinstonCrowley extends British
             if (runTimer==16) setImage("winston-running-right-3.png");
         }
         else {
-            setImage("winston-aiming-right.png");
+            //setImage("winston-aiming-right.png");
+        }
+        if (Greenfoot.isKeyDown("space"))
+        {
+            if (!landmines.isEmpty())
+            {
+                Landmine derp = landmines.get(0);
+                landmines.remove(0);
+                getWorld().addObject(derp, this.getX(), this.getY());
+                
+            }
         }
         
         d.ExecuteDialogueInteraction();
