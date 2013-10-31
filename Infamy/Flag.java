@@ -13,10 +13,10 @@ public class Flag extends Actor
     public Flag(String nationality) {
         this.nationality = nationality;
         if (nationality.equals("British")) {
-            setImage("British-Flag.png");
+            setImage("British Flag.png");
         }
         else {
-            setImage("German-Flag.png");
+            setImage("German Flag.png");
         }
             
     }
