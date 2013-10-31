@@ -10,7 +10,7 @@ public class HUDBullet extends HUD
 {
     
     public HUDBullet() {
-        setImage("hudBullet.png"); 
+       // setImage("hudBullet.png"); 
     }
     /**
      * Act - do whatever the HUDBullet wants to do. This method is called whenever

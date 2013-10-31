@@ -28,6 +28,7 @@ public class Bullet extends Movement
     
     public Bullet(Actor from, Actor target) {
         //int tempX, tempY; 
+        setImage("ant.png");  
         setLocation(from.getX(), from.getY());
         this.target = target;
         this.source = from;

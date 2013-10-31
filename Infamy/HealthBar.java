@@ -1,27 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Color;
 /**
  * A bar appearing above the heads of units to indicate current health remaining and health missing.
  * 
  * @Dylan Graves
  * @version 1
  */
-public class HealthBar extends Actor
+public class HealthBar extends StatusBar
 {
     Human subject;
     GreenfootImage bar;
     public HealthBar(Human subject) {
+        super(50, 10, new Color(50,120,0), new Color(200,50,0));
         this.subject = subject;
         bar = new GreenfootImage(100,10);
         updateBar();
     }
     
     public void updateBar(){
-        bar.setColor(new java.awt.Color(50,120,0));
-        bar.fillRect(0, 0, subject.getHealth(), 5);
-        bar.setColor(new java.awt.Color(200,50,0));
-        bar.fillRect(subject.getHealth(), 0, 100 - subject.getHealth(), 5);
-        setImage(bar);
+        super.updateBar(subject.getHealth()/2);
         setLocation(subject.getX(), subject.getY() - subject.getImage().getHeight()/2 - 1);
     }
     
