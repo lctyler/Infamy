@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Oct 30 18:53:08 PDT 2013
+#Wed Oct 30 20:00:40 PDT 2013
 target16.name=BarbedWire
 dependency35.to=WinstonCrowley
 target26.width=80
@@ -375,6 +375,7 @@ target18.editor.width=0
 dependency12.to=FirstLevel
 target25.editor.height=700
 target4.editor.width=900
+class.InstructionScreen.superclass=greenfoot.World
 class.Obstacle.superclass=greenfoot.Actor
 dependency1.from=Bullet
 dependency4.type=UsesDependency
@@ -386,6 +387,7 @@ dependency8.from=TutorialInfamyWorld
 dependency48.from=DefeatWorld
 target12.editor.width=900
 target4.naviview.expanded=true
+class.InstructionScreen.image=Instruction Screen.png
 target22.height=50
 target14.height=50
 class.TutorialInfamyWorld.superclass=HumanWorld
@@ -465,6 +467,7 @@ class.HUD.superclass=greenfoot.Actor
 target6.width=80
 dependency47.from=HealthBar
 target20.width=80
+class.TitleScreen.image=Title Screen.png
 mainWindow.height=786
 target6.editor.y=26
 class.Bullet.image=bullet.png
@@ -553,12 +556,13 @@ dependency46.from=TutorialInfamyWorld
 dependency49.type=UsesDependency
 target14.editor.height=700
 target11.editor.width=900
-world.lastInstantiated=TutorialInfamyWorld
+world.lastInstantiated=TitleScreen
 dependency14.to=BritNPC
 target19.showInterface=false
 class.bullet.superclass=Movement
 dependency56.type=UsesDependency
 dependency53.from=SecondLevel
+class.TitleScreen.superclass=greenfoot.World
 target1.height=50
 mainWindow.width=1385
 dependency60.to=Bullet
