@@ -10,6 +10,7 @@ public class TitleScreen extends World
 {
     private Dialogue dia;
     private Dialogue dial;
+    private GreenfootSound titleMusic;
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -18,13 +19,19 @@ public class TitleScreen extends World
     {
         super(1024, 600, 1);
         AddButtons();
+        titleMusic = new GreenfootSound("titleScreen.mp3");
     }
     
     public void act()
     {
+        if (!titleMusic.isPlaying())
+        {
+            titleMusic.play();
+        }
         if(Greenfoot.mouseClicked(dia))
         {
             Greenfoot.setWorld(new TutorialInfamyWorld());
+            titleMusic.stop();
         }
         if(Greenfoot.mouseClicked(dial))
         {
