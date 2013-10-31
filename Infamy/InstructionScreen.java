@@ -16,6 +16,14 @@ public class InstructionScreen extends World
     public InstructionScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1024, 600, 1); 
+    }
+    
+    public void act()
+    {
+        if(Greenfoot.isKeyDown("escape"))
+        {
+            Greenfoot.setWorld(new TitleScreen());
+        }
     }
 }

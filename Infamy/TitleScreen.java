@@ -8,7 +8,8 @@ import java.awt.Color;
  */
 public class TitleScreen extends World
 {
-
+    private Dialogue dia;
+    private Dialogue dial;
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -19,9 +20,21 @@ public class TitleScreen extends World
         AddButtons();
     }
     
+    public void act()
+    {
+        if(Greenfoot.mouseClicked(dia))
+        {
+            Greenfoot.setWorld(new TutorialInfamyWorld());
+        }
+        if(Greenfoot.mouseClicked(dial))
+        {
+            Greenfoot.setWorld(new InstructionScreen());
+        }
+    }
+    
     public void AddButtons()
     {
-        Dialogue dia = new Dialogue();
+        dia = new Dialogue();
         GreenfootImage textImage = new GreenfootImage("Enter Battle", 56, Color.BLACK, new Color(109, 128, 61));
         textImage.drawString("Enter Battle", 512, 300);
         
@@ -35,7 +48,7 @@ public class TitleScreen extends World
         addObject(dia, 512, 300);
         
         //Instructions Button
-        Dialogue dial = new Dialogue();
+        dial = new Dialogue();
         GreenfootImage textImager = new GreenfootImage("Instructions", 56,  new Color(109, 128, 61), Color.BLACK);
         textImager.drawString("Enter Battle", 512, 300);
         
