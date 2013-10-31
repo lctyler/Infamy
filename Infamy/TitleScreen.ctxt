@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.params=
 comment0.target=TitleScreen()
@@ -7,3 +8,20 @@ comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ AddButtons()
 numComments=3
+=======
+#BlueJ class context
+comment0.params=
+comment0.target=TitleScreen()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TitleScreen.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ Cutscene3()
+comment3.params=
+comment3.target=void\ Cutscene2()
+comment4.params=
+comment4.target=void\ Cutscene()
+comment5.params=
+comment5.target=void\ AddButtons()
+numComments=6
+>>>>>>> 09ba8ed557b27a95ce8d73f91dbcc45fa5a5f56f
