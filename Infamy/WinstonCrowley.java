@@ -17,6 +17,7 @@ public class WinstonCrowley extends British
     private int reloadClock = 0;
     private int reload = 100;
     private int magazineRemaining = 5;
+    private int landMineTimer = 0;
     private HealthBar insanityBar;
     private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
@@ -87,17 +88,19 @@ public class WinstonCrowley extends British
         else {
             //setImage("winston-aiming-right.png");
         }
-        if (Greenfoot.isKeyDown("space"))
+        if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
         {
+            System.out.println(landmines.isEmpty());
             if (!landmines.isEmpty())
             {
                 Landmine derp = landmines.get(0);
-                landmines.remove(0);
+                derp.Active = true;                
                 getWorld().addObject(derp, this.getX(), this.getY());
-                
+                landmines.remove(0);
+                landMineTimer=0;
             }
         }
-        
+        landMineTimer++;
         d.ExecuteDialogueInteraction();
         applyDamageOverTime();
     }    
