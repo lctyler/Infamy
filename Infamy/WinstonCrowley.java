@@ -10,6 +10,8 @@ import java.util.*;
 public class WinstonCrowley extends British
 {
     private final int SHOOT_RANGE = 500;
+    private final int[] xLoc = {250, 275, 300, 325, 350};
+    private final int yLoc = 550;  
     private int runTimer = 0;
     private boolean loaded = true;
     private int lastShot = 0;
@@ -17,7 +19,27 @@ public class WinstonCrowley extends British
     private int reloadClock = 0;
     private int reload = 100;
     private int magazineRemaining = 5;
+    private int landMineTimer = 0;
+    private HealthBar insanityBar;
+    public boolean firstLoad = true;
+    private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
+    private ArrayList<Landmine> landmines;
+    private ArrayList<HUDBullet> hudBullets; 
+    private GreenfootImage ammoCount; 
+    public WinstonCrowley()
+    {
+        Landmine landmine1 = new Landmine();
+        Landmine landmine2 = new Landmine();
+        Landmine landmine3 = new Landmine();
+        landmines = new ArrayList<Landmine>();
+        landmines.add(landmine1);
+        landmines.add(landmine2);
+        landmines.add(landmine3);
+        hudBullets = new ArrayList<HUDBullet>();
+        
+       
+    }
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,13 +50,31 @@ public class WinstonCrowley extends British
         return !germans.isEmpty(); 
     }
     
+    public void firstLoad() {
+       
+        for (int i = 0; i < 1 ; i++) {
+            HUDBullet b = new HUDBullet(); 
+            getWorld().addObject(b, xLoc[i], yLoc);
+            
+            hudBullets.add(b); 
+            
+        }
+       firstLoad = false;
+    }
+    
     public void act() 
-    {
-        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && inRange()) {
+    {   
+       if (firstLoad) {
+         firstLoad();     
+       }
+        
+        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
             if(--magazineRemaining == 0){
                reloadClock = 0;
                loaded = false;
             }
+            
+          
             lastShot = 0;
             MouseInfo info = Greenfoot.getMouseInfo();
             Greenfoot.playSound("gunFire.mp3");
@@ -44,12 +84,16 @@ public class WinstonCrowley extends British
             if(reloadClock / reload > 0) {
                 loaded = true;
                 magazineRemaining = 5;
+                firstLoad();
             } else {
                 reloadClock++;
             }
         } else {
             lastShot++;
         }
+        
+        
+        
         if(!loaded) {
              GreenfootImage reloadMessage = new GreenfootImage("Reloading", 30
                                     , Color.WHITE, new Color(0,0,0,Color.TRANSLUCENT));
@@ -57,7 +101,9 @@ public class WinstonCrowley extends British
              this.getWorld().addObject(reloadDialogue, 50, this.getWorld().getHeight() - 50);
         } else {
              this.getWorld().removeObject(reloadDialogue);
+             
         }
+        
         if(move())
         {
             runTimer++;
@@ -71,8 +117,21 @@ public class WinstonCrowley extends British
             if (runTimer==16) setImage("winston-running-right-3.png");
         }
         else {
-            setImage("man-aiming-right.png");
+            //setImage("winston-aiming-right.png");
         }
+        if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
+        {
+            System.out.println(landmines.isEmpty());
+            if (!landmines.isEmpty())
+            {
+                Landmine derp = landmines.get(0);
+                derp.Active = true;                
+                getWorld().addObject(derp, this.getX(), this.getY());
+                landmines.remove(0);
+                landMineTimer=0;
+            }
+        }
+        landMineTimer++;
         d.ExecuteDialogueInteraction();
         applyDamageOverTime();
     }    

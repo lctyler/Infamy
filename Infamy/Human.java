@@ -45,7 +45,8 @@ public class Human extends Movement
         if (this instanceof British) {
             if (this instanceof WinstonCrowley)
                 Greenfoot.setWorld(new DefeatWorld(Human.Score));
-            ((HumanWorld)this.getWorld()).decBCounter();
+            
+             ((HumanWorld)this.getWorld()).decBCounter();
         }
         else {
                ((HumanWorld)this.getWorld()).decGCounter();

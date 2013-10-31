@@ -28,8 +28,8 @@ public class FirstLevel extends HumanWorld
     
     public void populate()
     {
-        WinstonCrowley winst = new WinstonCrowley();
-        addObject(winst, 200, 300);
+        //WinstonCrowley winst = new WinstonCrowley();
+        //addObject(winst, 200, 300);
         
         //EnemyNPC german = new EnemyNPC();
         //addObject(german, 700, 400);

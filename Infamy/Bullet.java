@@ -15,6 +15,8 @@ public class Bullet extends Movement
     private final static int DAMAGE = 20; 
     
         public Bullet(Actor from, int targetx, int targety) {
+       
+        setImage("ant.png");     
         setLocation(from.getX(), from.getY());
         this.target = target; 
         x = targetx; 

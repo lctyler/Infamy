@@ -35,8 +35,8 @@ public class SecondLevel extends HumanWorld
         Sandbag sb3 = new Sandbag(true);
         addObject(sb3, 750, 275);
         //Winston
-        winst = new WinstonCrowley();
-        this.addHuman(winst, 130, 450);
+       // winst = new WinstonCrowley();
+       // this.addHuman(winst, 130, 450);
         //British
 //         BritNPC npc2 = new BritNPC(true);
 //         addHuman(npc2, 130, 350);
