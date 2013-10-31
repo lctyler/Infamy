@@ -128,10 +128,10 @@ public class TutorialInfamyWorld extends HumanWorld
 
         
         Flag germanFlag = new Flag("german"); 
-        addObject(germanFlag, 900, 245);
+        addObject(germanFlag, 974, 245);
         
         Flag britishFlag = new Flag("British"); 
-        addObject(britishFlag, 130, 245); 
+        addObject(britishFlag, 50, 245); 
         
 
         EnemyNPC germanDefender1 = new EnemyNPC(true);

@@ -17,6 +17,8 @@ public class WinstonCrowley extends British
     private int reloadClock = 0;
     private int reload = 100;
     private int magazineRemaining = 5;
+    private HealthBar insanityBar;
+    private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
@@ -29,7 +31,7 @@ public class WinstonCrowley extends British
     }
     
     public void act() 
-    {
+    {   
         if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && inRange()) {
             if(--magazineRemaining == 0){
                reloadClock = 0;
@@ -58,6 +60,7 @@ public class WinstonCrowley extends British
         } else {
              this.getWorld().removeObject(reloadDialogue);
         }
+        
         if(move())
         {
             runTimer++;
@@ -71,8 +74,9 @@ public class WinstonCrowley extends British
             if (runTimer==16) setImage("winston-running-right-3.png");
         }
         else {
-            setImage("man-aiming-right.png");
+            setImage("winston-aiming-right.png");
         }
+        
         d.ExecuteDialogueInteraction();
         applyDamageOverTime();
     }    
