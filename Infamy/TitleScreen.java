@@ -36,7 +36,7 @@ public class TitleScreen extends World
         {
             removeObject(dia);
             removeObject(dial);
-            setBackground("nurses.jpg");
+            setBackground("trenchesIntro.jpg");
             Cutscene();
             cutscene = 1;
             
@@ -52,6 +52,7 @@ public class TitleScreen extends World
         }
         if (cutscene == 2 && Greenfoot.mousePressed(null))
         {
+            setBackground("ww1battle.jpg");
             Cutscene3();
             cutscene=3;
         }
