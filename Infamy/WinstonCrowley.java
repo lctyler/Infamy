@@ -60,6 +60,10 @@ public class WinstonCrowley extends British
         }
     }
     
+    public void setStress(int amount) {
+        stress = amount;
+    }
+    
     public int getStress() {
         return stress;
     }
@@ -81,9 +85,12 @@ public class WinstonCrowley extends British
     
     public void act() 
     {   
-       if (firstLoad) {
-         firstLoad();     
-       }
+        if (firstLoad) {
+           firstLoad();     
+        }
+        
+        setCovered(Greenfoot.isKeyDown("c") && isInTrench());
+
         
         if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
             increaseStress(5);
