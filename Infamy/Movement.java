@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Movement extends Actor
 {
+    public Direction dir = Direction.EAST;
     public enum Direction
     {
         EAST,
@@ -127,9 +128,10 @@ public class Movement extends Actor
         }
         else if (Greenfoot.isKeyDown("w"))
         {
-            if (canMove(this.getX(), this.getY() - 1, Direction.WEST, Direction.NONE))
+            if (canMove(this.getX(), this.getY() - 1, Direction.NORTH, Direction.NONE))
             {
                 this.setLocation(this.getX(), this.getY() - 1);
+                dir = Direction.NORTH;
             }
             return true;
         }
@@ -138,6 +140,7 @@ public class Movement extends Actor
             if (canMove(this.getX() - 1, this.getY(), Direction.WEST, Direction.NONE))
             {
                 this.setLocation(this.getX() - 1, this.getY());
+                dir = Direction.WEST;
             }
             return true;
         }
@@ -146,6 +149,7 @@ public class Movement extends Actor
             if (canMove(this.getX(), this.getY() + 1, Direction.SOUTH, Direction.NONE))
             {
                 this.setLocation(this.getX(), this.getY() + 1);
+                dir = Direction.SOUTH;
             }
             return true;
         }
@@ -154,6 +158,7 @@ public class Movement extends Actor
             if (canMove(this.getX() + 1, this.getY(), Direction.EAST, Direction.NONE))
             {
                 this.setLocation(this.getX() + 1, this.getY());
+                dir = Direction.EAST;
             }
             return true;
         }
