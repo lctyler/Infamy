@@ -19,7 +19,7 @@ public class DefeatWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1); 
         AddScoreDialogue("Your Score:" + scor, 512, 400);
-        if (Human.Score < 500) {
+        if (scor < 500) {
             AddCrazyDialogue();
             Greenfoot.playSound("crazyLaugh.mp3");
         }

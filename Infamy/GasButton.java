@@ -46,5 +46,6 @@ public class GasButton extends HUD
         
         for (Object hu : humanList)
             ((Human)hu).addDamageOverTime(40, 40);
+        Greenfoot.playSound("gasSound.mp3");
     }
 }
