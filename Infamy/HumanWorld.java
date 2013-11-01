@@ -78,11 +78,10 @@ public class HumanWorld extends World
     {
         int count = getObjects(BritNPC.class).size();
         Human.Score += count * 50;
-        Human.Score += 500;
-         
+        Human.Score += 500;         
         
         if (this instanceof TutorialInfamyWorld ) {
-            Greenfoot.setWorld(new SecondLevel());
+            Greenfoot.setWorld(new CutSceneToSecondLevel());
         }
         else if (this instanceof SecondLevel) {
             Greenfoot.setWorld(new WinWorld(Human.Score)); 
@@ -222,8 +221,6 @@ public class HumanWorld extends World
         removeObject(tutorialDia);
         removeObject(tutorialDiaIntro);
     }
-    
-  
     
     protected void AddTutorialDialogue(String message, int x, int y, boolean intro)
     {
