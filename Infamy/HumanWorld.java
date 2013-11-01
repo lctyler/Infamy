@@ -181,9 +181,7 @@ public class HumanWorld extends World
     
     public void TutorialWin()
     {
-        //System.out.println("Winning");
-        //Greenfoot.setWorld(new FirstLevel());
-        //Greenfoot.setWorld(new WinWorld(Human.Score));
+        Human.Score += 500;
         Greenfoot.setWorld(new SecondLevel());
     }
     

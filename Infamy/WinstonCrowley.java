@@ -144,9 +144,12 @@ public class WinstonCrowley extends British
         else {
             //setImage("winston-aiming-right.png");
         }
+        if (getOneIntersectingObject(Flag.class) != null)
+        {
+            ((HumanWorld)getWorld()).TutorialWin();
+        }
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
         {
-            System.out.println(landmines.isEmpty());
             if (!landmines.isEmpty())
             {
                 Landmine derp = landmines.get(0);
