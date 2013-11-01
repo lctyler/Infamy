@@ -16,7 +16,8 @@ public class HumanWorld extends World
     public final String GERM = "german"; 
     public final int BRIT_X = 200; 
     public final int GERM_X = 750; 
-    public final int[] Y_SET = {135, 235, 335, 435, 500}; 
+    public final int[] Y_SET = {115, 225, 335, 455, 500}; 
+    public boolean bombPlanted = false; 
     
     
     public Dialogue dia;
@@ -32,6 +33,8 @@ public class HumanWorld extends World
     public boolean playmusic = true;
     public int germSpawn = 10000;
     public int britSpawn = 12000;
+    public long t1, t2; 
+    public XMarks x;
     
     
   
@@ -82,6 +85,9 @@ public class HumanWorld extends World
             Greenfoot.setWorld(new SecondLevel());
         }
         else if (this instanceof SecondLevel) {
+            Greenfoot.setWorld(new WinWorld(Human.Score)); 
+        } 
+         else if (this instanceof BombTheBase) {
             Greenfoot.setWorld(new WinWorld(Human.Score)); 
         } 
     } 
@@ -175,6 +181,11 @@ public class HumanWorld extends World
             spawnG = false;
             baseTimeG = d.getTime(); 
         }
+        
+        if (bombPlanted && d.getTime() - t1 > 10000) {
+            bombExplodes();
+            
+        }
    }
    
     public void RemoveDialogueBoxes()
@@ -182,7 +193,13 @@ public class HumanWorld extends World
         removeObject(dia);
         dialogueCounter = 0;
     }
-    
+    public void bombExplodes() {
+        List<Human> inRange = x.getPeopleToKill();
+        for (Human h : inRange) {
+            h.die();
+        }
+        this.TutorialWin();
+    }    
     
     public void AddDialogueBox(String message, int x, int y)
     {

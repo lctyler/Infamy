@@ -52,7 +52,8 @@ public class WinstonCrowley extends British
     }
     
     public void plantBomb() {
-        if (Greenfoot.isKeyDown("e") && getWorld() instanceof BombTheBase) {
+        if (Greenfoot.isKeyDown("e") && getWorld() instanceof BombTheBase &&
+         getOneIntersectingObject(XMarks.class) != null) {
             ((BombTheBase)getWorld()).bombIsPlanted(); 
             hasBomb = false; 
         }
@@ -92,9 +93,9 @@ public class WinstonCrowley extends British
         
         
         setCovered(Greenfoot.isKeyDown("c") && isInTrench());
-
+        plantBomb();
         
-        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
+        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && !hasBomb) {
             increaseStress(5);
             if(--magazineRemaining == 0){
                reloadClock = 0;

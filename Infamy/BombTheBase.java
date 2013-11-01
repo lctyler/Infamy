@@ -1,16 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.*;
 import java.util.*;
 /**
- * Write a description of class InfamyWorld here.
+ * Write a description of class BombTheBase here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TutorialInfamyWorld extends HumanWorld
+public class BombTheBase extends HumanWorld
 {
-
-   
+    public final int BOMB_TIMER = 1000;
     public Dialogue dia;
     public Dialogue tutorialDiaIntro;
     public Dialogue tutorialDia;
@@ -18,17 +16,17 @@ public class TutorialInfamyWorld extends HumanWorld
     public int dialogueTimer;
     public Flag germanFlag;
     public Flag britishFlag;
-   
+  
+    
 
     
+    
     /**
-     * Constructor for objects of class InfamyWorld.
+     * Constructor for objects of class BombTheBase.
      * 
      */
-    public TutorialInfamyWorld()
+    public BombTheBase()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        
         super(1024, 600, 1);
        
         dialogueTimer = 0;
@@ -36,12 +34,16 @@ public class TutorialInfamyWorld extends HumanWorld
         dialogueCounter = 0;
         populate();
         
-        spawnWave(GERM, NUM_ADVANCERS_3, false); 
-        spawnWave(BRIT, NUM_ADVANCERS_3, false); 
+        spawnWave(GERM, 2, false); 
+        spawnWave(BRIT, 4, false); 
         spawnG = true;
         spawnB = true; 
-       //  Greenfoot.setWorld(new BombTheBase());
+        this.britAmmount = 4;
+        this.britSpawn = 6000;
+        this.germSpawn = 20000;
     }
+    
+    
   
     public void populate() {
 
@@ -81,9 +83,9 @@ public class TutorialInfamyWorld extends HumanWorld
        //sb4.turn(90);
        addObject(sb4, 400, 190);
 
-       FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry", 10, 10);
-        addObject(f, 512, 50);
-       FadingDialogue g = new FadingDialogue(512, 480, "Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 10, 10);
+       //FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry", 10, 10);
+        //addObject(f, 512, 50);
+       FadingDialogue g = new FadingDialogue(512, 480, "Plant the bomb in the base!!\n Move with AWSD as shoot with mouse1", 10, 10);
        addObject(g, 512, 480);
 
         BritNPC npc2 = new BritNPC(true);
@@ -93,12 +95,31 @@ public class TutorialInfamyWorld extends HumanWorld
         
         WinstonCrowley move = new WinstonCrowley();
         addHuman(move, 95, 500);
+        //move.giveBomb(); 
+        
+       x = new XMarks(); 
+        
+        addObject(x, 900, 245);
+        
+        Date d  = new Date();
+        
+        if (bombPlanted && d.getTime() - t1 > 10000) {
+            bombExplodes();
+            
+        }
    
         
         
     }
     
-
-}
     
-  
+    
+    public void bombIsPlanted() {
+        FadingDialogue f = new FadingDialogue(512, 50, "Bomb is planted.. Get out of there now!", 10, 10);
+        addObject(f, 512, 50);
+        Date d = new Date();
+        t1 = d.getTime(); 
+        bombPlanted = true;
+        
+    }
+}

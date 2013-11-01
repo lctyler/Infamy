@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Flag extends Actor
 {
-    private String nationality;    
+    public String nationality;    
    
     public Flag(String nationality) {
         this.nationality = nationality;
