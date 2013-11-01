@@ -10,12 +10,14 @@ import java.awt.Color;
 public class HumanWorld extends World
 {
     private int bCounter,gCounter;
-    public final int NUM_ADVANCERS = 3;
+    public final int NUM_ADVANCERS_3 = 3;
+    public final int NUM_ADVANCERS_4 = 4; 
     public final String BRIT = "british"; 
     public final String GERM = "german"; 
     public final int BRIT_X = 200; 
     public final int GERM_X = 750; 
-    public final int[] Y_SET = {135, 235, 335}; 
+    public final int[] Y_SET = {115, 225, 335, 455, 500}; 
+    public boolean bombPlanted = false; 
     
     
     public Dialogue dia;
@@ -23,17 +25,19 @@ public class HumanWorld extends World
     public Dialogue tutorialDia;
     public int dialogueCounter;
     public int dialogueTimer;
-    
+    public int britAmmount = 1;
+    public int germAmmount = 2;
     public long baseTimeG, baseTimeB;
     public boolean spawnG, spawnB; 
     public GreenfootSound bgMusic ;
     public boolean playmusic = true;
+    public int germSpawn = 10000;
+    public int britSpawn = 12000;
+    public long t1, t2; 
+    public XMarks x;
     
     
-    public void populate(){
-        VolumeButton vb = new VolumeButton();
-        addObject(vb, 20, 40);
-    }
+  
     
     /**
      * Constructor for objects of class HumanWorld.
@@ -61,6 +65,32 @@ public class HumanWorld extends World
     public void decGCounter() {
         gCounter--;
     }
+    
+    
+    public void defeat() {
+        int count = getObjects(BritNPC.class).size();
+        Human.Score += count * 50;
+        Human.Score += 500;
+        Greenfoot.setWorld(new DefeatWorld(Human.Score));
+    }
+    
+      public void TutorialWin()
+    {
+        int count = getObjects(BritNPC.class).size();
+        Human.Score += count * 50;
+        Human.Score += 500;         
+        
+        if (this instanceof TutorialInfamyWorld ) {
+            Greenfoot.setWorld(new CutSceneToSecondLevel());
+        }
+        else if (this instanceof SecondLevel) {
+            Greenfoot.setWorld(new WinWorld(Human.Score)); 
+        } 
+         else if (this instanceof BombTheBase) {
+            Greenfoot.setWorld(new WinWorld(Human.Score)); 
+        } 
+    } 
+    
     
     /**
      * Try to add in the bullet here. Call from 
@@ -104,7 +134,9 @@ public class HumanWorld extends World
  }
  
  public void toggleSound(boolean volumeOn) {
-        if (volumeOn) {
+        
+   
+       if (volumeOn) {
            bgMusic.play(); 
         }
         else {
@@ -129,24 +161,29 @@ public class HumanWorld extends World
         {
             removeObject(tutorialDia);
         }
-        if ((d.getTime() - baseTimeB) > 12000 ) {
+        if ((d.getTime() - baseTimeB) > britSpawn ) {
            spawnB = true;
         }
-        if ((d.getTime() - baseTimeG) > 10000 ) {
+        if ((d.getTime() - baseTimeG) > germSpawn ) {
            spawnG = true; 
         }
        
       
         if(spawnB && bCounter == 0) {
-            spawnWave(BRIT, 1, true);
+            spawnWave(BRIT,britAmmount, true);
             spawnB = false;
             baseTimeB = d.getTime(); 
         }
         
         if (spawnG && gCounter == 0) {
-            spawnWave(GERM, 2, true);
+            spawnWave(GERM, germAmmount, true);
             spawnG = false;
             baseTimeG = d.getTime(); 
+        }
+        
+        if (bombPlanted && d.getTime() - t1 > 10000) {
+            bombExplodes();
+            
         }
    }
    
@@ -155,7 +192,13 @@ public class HumanWorld extends World
         removeObject(dia);
         dialogueCounter = 0;
     }
-    
+    public void bombExplodes() {
+        List<Human> inRange = x.getPeopleToKill();
+        for (Human h : inRange) {
+            h.die();
+        }
+        this.TutorialWin();
+    }    
     
     public void AddDialogueBox(String message, int x, int y)
     {
@@ -177,14 +220,6 @@ public class HumanWorld extends World
         }
         removeObject(tutorialDia);
         removeObject(tutorialDiaIntro);
-    }
-    
-    public void TutorialWin()
-    {
-        //System.out.println("Winning");
-        //Greenfoot.setWorld(new FirstLevel());
-        //Greenfoot.setWorld(new WinWorld(Human.Score));
-        Greenfoot.setWorld(new SecondLevel());
     }
     
     protected void AddTutorialDialogue(String message, int x, int y, boolean intro)

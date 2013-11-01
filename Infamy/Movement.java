@@ -59,7 +59,7 @@ public class Movement extends Actor
        if (dir == Direction.NORTH)
        {
            Actor obj = getOneObjectAtOffset(0,-1, null);
-           if (obj instanceof Landmine || obj instanceof British)
+           if (obj instanceof Landmine || obj instanceof British || obj instanceof FadingDialogue)
             return false;
             else
                 return getOneObjectAtOffset(0,-1, null) != null;
@@ -67,7 +67,7 @@ public class Movement extends Actor
        if (dir == Direction.SOUTH)
        {
            Actor obj = getOneObjectAtOffset(0,1, null);
-           if (obj instanceof Landmine|| obj instanceof British)
+           if (obj instanceof Landmine|| obj instanceof British || obj instanceof FadingDialogue)
             return false;
              else
                 return getOneObjectAtOffset(0,1, null) != null;
@@ -75,7 +75,7 @@ public class Movement extends Actor
        if (dir == Direction.EAST)
        {
            Actor obj = getOneObjectAtOffset(1,0, null);
-           if (obj instanceof Landmine|| obj instanceof British)
+           if (obj instanceof Landmine|| obj instanceof British || obj instanceof FadingDialogue)
             return false;
              else
                 return getOneObjectAtOffset(1,0, null) != null;
@@ -83,7 +83,7 @@ public class Movement extends Actor
        if (dir == Direction.WEST)
        {
            Actor obj = getOneObjectAtOffset(-1,0, null);
-           if (obj instanceof Landmine|| obj instanceof British)
+           if (obj instanceof Landmine|| obj instanceof British || obj instanceof FadingDialogue)
             return false;         
              else
                 return getOneObjectAtOffset(-1,0, null) != null;

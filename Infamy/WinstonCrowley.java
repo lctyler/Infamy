@@ -25,10 +25,11 @@ public class WinstonCrowley extends British
     private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
     private ArrayList<Landmine> landmines;
-    private ArrayList<HUDBullet> hudBullets; 
+    private boolean hasBomb = false; 
     private GreenfootImage ammoCount; 
     private int stress = 0;
     private StressBar stressBar;
+    
     
     public WinstonCrowley()
     {
@@ -39,13 +40,25 @@ public class WinstonCrowley extends British
         landmines.add(landmine1);
         landmines.add(landmine2);
         landmines.add(landmine3);
-        hudBullets = new ArrayList<HUDBullet>();
+        
     }
     
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public void giveBomb() {
+        hasBomb = true;
+    }
+    
+    public void plantBomb() {
+        if (Greenfoot.isKeyDown("e") && getWorld() instanceof BombTheBase &&
+         getOneIntersectingObject(XMarks.class) != null) {
+            ((BombTheBase)getWorld()).bombIsPlanted(); 
+            hasBomb = false; 
+        }
+    }
+    
     
     public boolean inRange() {
         ArrayList<Actor> germans = (ArrayList<Actor>)getObjectsInRange(SHOOT_RANGE, German.class);
@@ -68,15 +81,7 @@ public class WinstonCrowley extends British
         return stress;
     }
     
-    public void firstLoad() {
-       
-        for (int i = 0; i < 1 ; i++) {
-            HUDBullet b = new HUDBullet(); 
-            getWorld().addObject(b, xLoc[i], yLoc);      
-            hudBullets.add(b);         
-        }
-       firstLoad = false;
-    }
+  
     
     public void createStressBar() {
         stressBar = new StressBar(this);
@@ -85,14 +90,12 @@ public class WinstonCrowley extends British
     
     public void act() 
     {   
-        if (firstLoad) {
-           firstLoad();     
-        }
+        
         
         setCovered(Greenfoot.isKeyDown("c") && isInTrench());
-
+        plantBomb();
         
-        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
+        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && !hasBomb) {
             increaseStress(5);
             if(--magazineRemaining == 0){
                reloadClock = 0;
@@ -109,7 +112,7 @@ public class WinstonCrowley extends British
             if(reloadClock / reload > 0) {
                 loaded = true;
                 magazineRemaining = 5;
-                firstLoad();
+                
             } else {
                 reloadClock++;
             }
@@ -144,9 +147,9 @@ public class WinstonCrowley extends British
         else {
             //setImage("winston-aiming-right.png");
         }
+       
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
         {
-            System.out.println(landmines.isEmpty());
             if (!landmines.isEmpty())
             {
                 Landmine derp = landmines.get(0);
