@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Nov 01 15:26:02 PDT 2013
+#Fri Nov 01 16:04:08 PDT 2013
 target24.type=ClassTarget
 target16.name=Dialogue
 target13.editor.width=900
@@ -79,6 +79,7 @@ target11.showInterface=false
 target37.editor.y=0
 target20.x=100
 target37.editor.x=0
+dependency117.from=TutorialInfamyWorld
 target20.editor.y=26
 dependency16.to=BritNPC
 target20.editor.x=0
@@ -747,7 +748,7 @@ dependency96.type=UsesDependency
 target6.x=110
 target12.editor.width=900
 dependency31.to=German
-package.numDependencies=116
+package.numDependencies=117
 dependency71.type=UsesDependency
 target34.type=ClassTarget
 dependency104.to=XMarks
@@ -867,9 +868,11 @@ target1.x=10
 dependency44.to=GasButton
 target32.editor.height=700
 class.Flag.superclass=greenfoot.Actor
+dependency117.type=UsesDependency
 target3.width=80
 dependency59.type=UsesDependency
 target5.naviview.expanded=true
+dependency117.to=Mortar
 dependency34.type=UsesDependency
 target14.y=490
 target10.height=50

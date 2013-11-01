@@ -120,6 +120,7 @@ public class TutorialInfamyWorld extends HumanWorld
     }
     
     public void act() {
+        super.act();
         Date d = new Date();
         if (dialogueTimer == 500)
         {

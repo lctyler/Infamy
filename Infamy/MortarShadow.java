@@ -6,7 +6,7 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MortarShadow extends Actor
+public class MortarShadow extends Movement
 {
     GreenfootImage shadow;
     Color shadowBlack;

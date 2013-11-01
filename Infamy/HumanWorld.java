@@ -161,12 +161,12 @@ public class HumanWorld extends World
         {
             removeObject(tutorialDia);
         }
-        if ((d.getTime() - baseTimeB) > britSpawn ) {
-           spawnB = true;
-        }
-        if ((d.getTime() - baseTimeG) > germSpawn ) {
-           spawnG = true; 
-        }
+//         if ((d.getTime() - baseTimeB) > britSpawn ) {
+//            spawnB = true;
+//         }
+//         if ((d.getTime() - baseTimeG) > germSpawn ) {
+//            spawnG = true; 
+//         }
        
       
         if(spawnB && bCounter == 0) {
