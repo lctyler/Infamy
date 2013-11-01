@@ -56,8 +56,10 @@ public class BritNPC extends British
         
             enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0);  
         if (germans.size() == 0 && !isDefender) {
-
-            NPCAdvance();
+            if(!isRetreating)
+                NPCAdvance(1);
+            else
+                NPCAdvance(-1);
 
             runTimer++;
             if (runTimer==18)

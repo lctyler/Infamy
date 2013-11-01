@@ -32,7 +32,7 @@ public class TutorialInfamyWorld extends HumanWorld
         dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
-        AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 512, 525, false);
+        AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 512, 50, false);
         //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
       

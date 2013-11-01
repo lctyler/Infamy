@@ -58,8 +58,10 @@ public class EnemyNPC extends German
         
         enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
         if (brits.size() == 0 && !isDefender) {
-
-            NPCAdvance();
+            if(!isRetreating)
+                NPCAdvance(-1);
+            else
+                NPCAdvance(1);
 
             runTimer++;
             if (runTimer==24)

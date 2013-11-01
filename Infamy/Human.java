@@ -10,11 +10,12 @@ public class Human extends Movement
 {
     protected Dialogue d;
     public static int Score = 0;
-
+    protected boolean isCovered = false;
     private int health = 100; 
     private HealthBar healthBar;
     private ArrayList<DamageOverTime> dmgOverTime;
-
+    protected boolean isRetreating = false;
+    
     public Human() {
        d = new Dialogue();     
        dmgOverTime = new ArrayList<DamageOverTime>();
@@ -26,6 +27,22 @@ public class Human extends Movement
     
     public int getHealth() {
        return health;     
+    }
+    
+    public void setCovered(boolean covered) {
+        isCovered = covered;
+    }
+    
+    public boolean isCovered(){
+        return isCovered;
+    }
+    
+    public void retreat() {
+        isRetreating = true;
+    }
+    
+    public boolean isRetreating() {
+        return isRetreating;
     }
     
     public void createHealthBar(){
@@ -80,8 +97,8 @@ public class Human extends Movement
        }
     }
     
-    
-    public void NPCAdvance() {
+    /* direction is 1 for right -1 for left */
+    public void NPCAdvance(int direction) {
        Flag enemyflag = null; 
        if (this instanceof German) {
         enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);
@@ -89,15 +106,7 @@ public class Human extends Movement
        else {
           enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0); 
         }
-       List<Actor> inWay = null; 
-        if (this instanceof German) {
-          inWay = getObjectsAtOffset(-1, 0, Obstacle.class);
-          //inWay.addAll(getObjectsAtOffset(-1, 0, Human.class));
-        }
-        else {
-          inWay = getObjectsAtOffset(1, 0, Obstacle.class);
-          //inWay.addAll(getObjectsAtOffset(-1, 0, Human.class));
-        }
+       List<Actor> inWay = getObjectsAtOffset(direction, 0, Obstacle.class);
         if (inWay.size() == 0) {
             
             Human target = (Human)getOneIntersectingObject(Human.class);

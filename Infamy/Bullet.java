@@ -86,7 +86,7 @@ public class Bullet extends Movement
     public void kill() {
         Human target = (Human)getOneIntersectingObject(Human.class);
      
-        if (target != null && target != this.source) {
+        if (target != null && target != this.source && !target.isCovered()) {
             target.loseHealth(DAMAGE); 
             getWorld().removeObject(this);
        }
