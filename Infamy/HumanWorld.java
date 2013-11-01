@@ -10,7 +10,8 @@ import java.awt.Color;
 public class HumanWorld extends World
 {
     private int bCounter,gCounter;
-    public final int NUM_ADVANCERS = 3;
+    public final int NUM_ADVANCERS_3 = 3;
+    public final int NUM_ADVANCERS_4 = 4; 
     public final String BRIT = "british"; 
     public final String GERM = "german"; 
     public final int BRIT_X = 200; 
@@ -23,7 +24,8 @@ public class HumanWorld extends World
     public Dialogue tutorialDia;
     public int dialogueCounter;
     public int dialogueTimer;
-    
+    public int britAmmount = 1;
+    public int germAmmount = 2;
     public long baseTimeG, baseTimeB;
     public boolean spawnG, spawnB; 
     public GreenfootSound bgMusic ;
@@ -58,6 +60,30 @@ public class HumanWorld extends World
     public void decGCounter() {
         gCounter--;
     }
+    
+    
+    public void defeat() {
+        int count = getObjects(BritNPC.class).size();
+        Human.Score += count * 50;
+        Human.Score += 500;
+        Greenfoot.setWorld(new DefeatWorld(Human.Score));
+    }
+    
+      public void TutorialWin()
+    {
+        int count = getObjects(BritNPC.class).size();
+        Human.Score += count * 50;
+        Human.Score += 500;
+         
+        
+        if (this instanceof TutorialInfamyWorld ) {
+            Greenfoot.setWorld(new SecondLevel());
+        }
+        else if (this instanceof SecondLevel) {
+            Greenfoot.setWorld(new WinWorld(Human.Score)); 
+        } 
+    } 
+    
     
     /**
      * Try to add in the bullet here. Call from 
@@ -102,7 +128,7 @@ public class HumanWorld extends World
  
  public void toggleSound(boolean volumeOn) {
         
-       System.out.println("HI");
+   
        if (volumeOn) {
            bgMusic.play(); 
         }
@@ -137,13 +163,13 @@ public class HumanWorld extends World
        
       
         if(spawnB && bCounter == 0) {
-            spawnWave(BRIT, 1, true);
+            spawnWave(BRIT,britAmmount, true);
             spawnB = false;
             baseTimeB = d.getTime(); 
         }
         
         if (spawnG && gCounter == 0) {
-            spawnWave(GERM, 2, true);
+            spawnWave(GERM, germAmmount, true);
             spawnG = false;
             baseTimeG = d.getTime(); 
         }
@@ -178,13 +204,7 @@ public class HumanWorld extends World
         removeObject(tutorialDiaIntro);
     }
     
-    public void TutorialWin()
-    {
-        int count = getObjects(BritNPC.class).size();
-        Human.Score += count * 50;
-        Human.Score += 500;
-        Greenfoot.setWorld(new SecondLevel());
-    }
+  
     
     protected void AddTutorialDialogue(String message, int x, int y, boolean intro)
     {

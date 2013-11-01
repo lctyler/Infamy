@@ -16,6 +16,8 @@ public class TutorialInfamyWorld extends HumanWorld
     public Dialogue tutorialDia;
     public int dialogueCounter;
     public int dialogueTimer;
+    public Flag germanFlag;
+    public Flag britishFlag;
    
 
     
@@ -34,8 +36,8 @@ public class TutorialInfamyWorld extends HumanWorld
         dialogueCounter = 0;
         populate();
         
-        spawnWave(GERM, NUM_ADVANCERS, false); 
-        spawnWave(BRIT, NUM_ADVANCERS, false); 
+        spawnWave(GERM, NUM_ADVANCERS_3, false); 
+        spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
         spawnB = true;        
     }
@@ -43,10 +45,10 @@ public class TutorialInfamyWorld extends HumanWorld
     public void populate() {
 
         
-        Flag germanFlag = new Flag("german"); 
+        germanFlag = new Flag("German"); 
         addObject(germanFlag, 974, 245);
         
-        Flag britishFlag = new Flag("British"); 
+        britishFlag = new Flag("British"); 
         addObject(britishFlag, 50, 245); 
         
 
@@ -90,7 +92,12 @@ public class TutorialInfamyWorld extends HumanWorld
         
         WinstonCrowley move = new WinstonCrowley();
         addHuman(move, 95, 500);
+   
+        
+        
     }
+    
+
 }
     
   

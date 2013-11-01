@@ -95,6 +95,7 @@ public class Human extends Movement
        if (!(this instanceof WinstonCrowley)) {
            setLocation(getX()-1, getY()); 
        }
+      
     }
     
     /* direction is 1 for right -1 for left */
@@ -111,7 +112,12 @@ public class Human extends Movement
             
             Human target = (Human)getOneIntersectingObject(Human.class);
             if (target != null) {
-               target.yield(); 
+               if (target instanceof WinstonCrowley) {
+                 setLocation(getX()-1, getY()-1);    
+               }
+               else {
+                target.yield();
+               } 
             }
             else {
             
