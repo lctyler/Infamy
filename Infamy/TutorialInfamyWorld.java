@@ -48,7 +48,7 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
         spawnB = true; 
-       //  Greenfoot.setWorld(new BombTheBase());
+         //Greenfoot.setWorld(new BombTheBase());
     }
   
     public void populate() {
@@ -71,9 +71,9 @@ public class TutorialInfamyWorld extends HumanWorld
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
-       Sandbag sb1 = new Sandbag();
+       //Sandbag sb1 = new Sandbag();
        //sb1.turn(90);
-       addObject(sb1, 600, 130);
+      // addObject(sb1, 600, 130);
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
