@@ -91,9 +91,9 @@ public class Human extends Movement
 
     }    
     
-    public void yield() {
+    public void yield(int i) {
        if (!(this instanceof WinstonCrowley)) {
-           setLocation(getX()-1, getY()); 
+           setLocation(getX()- i, getY()); 
        }
       
     }
@@ -113,8 +113,12 @@ public class Human extends Movement
             Human target = (Human)getOneIntersectingObject(Human.class);
             if (target != null) {
                if (!(target instanceof WinstonCrowley)) {
-                  target.yield();
-               }
+                  if (this.getX() < target.getX() && (target instanceof German)) 
+                     target.yield(1);
+                  }
+                  if (this.getX() > target.getX() && (target instanceof British)){
+                     target.yield(1);   
+                  }
             
             }
             else {
