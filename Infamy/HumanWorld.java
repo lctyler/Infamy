@@ -183,7 +183,7 @@ public class HumanWorld extends World
         int count = getObjects(BritNPC.class).size();
         Human.Score += count * 50;
         Human.Score += 500;
-        Greenfoot.setWorld(new SecondLevel());
+        Greenfoot.setWorld(new CutSceneToSecondLevel());
     }
     
     protected void AddTutorialDialogue(String message, int x, int y, boolean intro)
