@@ -25,7 +25,7 @@ public class WinstonCrowley extends British
     private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
     private ArrayList<Landmine> landmines;
-    private ArrayList<HUDBullet> hudBullets; 
+  
     private GreenfootImage ammoCount; 
     private int stress = 0;
     private StressBar stressBar;
@@ -39,7 +39,7 @@ public class WinstonCrowley extends British
         landmines.add(landmine1);
         landmines.add(landmine2);
         landmines.add(landmine3);
-        hudBullets = new ArrayList<HUDBullet>();
+        
     }
     
     /**
@@ -68,15 +68,7 @@ public class WinstonCrowley extends British
         return stress;
     }
     
-    public void firstLoad() {
-       
-        for (int i = 0; i < 1 ; i++) {
-            HUDBullet b = new HUDBullet(); 
-            getWorld().addObject(b, xLoc[i], yLoc);      
-            hudBullets.add(b);         
-        }
-       firstLoad = false;
-    }
+  
     
     public void createStressBar() {
         stressBar = new StressBar(this);
@@ -85,9 +77,7 @@ public class WinstonCrowley extends British
     
     public void act() 
     {   
-        if (firstLoad) {
-           firstLoad();     
-        }
+        
         
         setCovered(Greenfoot.isKeyDown("c") && isInTrench());
 
@@ -109,7 +99,7 @@ public class WinstonCrowley extends British
             if(reloadClock / reload > 0) {
                 loaded = true;
                 magazineRemaining = 5;
-                firstLoad();
+                
             } else {
                 reloadClock++;
             }

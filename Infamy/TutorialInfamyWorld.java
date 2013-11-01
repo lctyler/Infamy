@@ -42,7 +42,7 @@ public class TutorialInfamyWorld extends HumanWorld
   
     public void populate() {
 
-        super.populate();
+        
         Flag germanFlag = new Flag("german"); 
         addObject(germanFlag, 974, 245);
         
@@ -56,7 +56,7 @@ public class TutorialInfamyWorld extends HumanWorld
         EnemyNPC germanDefender2 = new EnemyNPC(true); 
         addHuman(germanDefender2, 900, 100); 
         
-
+        
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
@@ -66,7 +66,8 @@ public class TutorialInfamyWorld extends HumanWorld
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
-
+         VolumeButton vb = new VolumeButton();
+        addObject(vb, 450, 550);
        Sandbag sb2 = new Sandbag();
        //sb2.turn(90);
        addObject(sb2, 500, 400);

@@ -14,14 +14,17 @@ public class VolumeButton extends HUD
      */
     public boolean volumeOn; 
     public VolumeButton() {
+        super();
         setImage("soundOn.png");
+       
         volumeOn = true;
     }
     
     public void act() {
+         
         if (Greenfoot.mouseClicked(this)) {
             volumeOn = !volumeOn;
-            
+            System.out.println("orly"); 
             if (volumeOn) {
                 setImage("soundOn.png");
             }
@@ -29,7 +32,7 @@ public class VolumeButton extends HUD
                 setImage("soundOff.png"); 
             }
             
-            ((TutorialInfamyWorld)this.getWorld()).toggleSound(volumeOn); 
+            ((HumanWorld)this.getWorld()).toggleSound(volumeOn); 
         }
     }    
 }

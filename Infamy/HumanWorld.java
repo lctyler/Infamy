@@ -30,10 +30,7 @@ public class HumanWorld extends World
     public boolean playmusic = true;
     
     
-    public void populate(){
-        VolumeButton vb = new VolumeButton();
-        addObject(vb, 20, 40);
-    }
+  
     
     /**
      * Constructor for objects of class HumanWorld.
@@ -104,7 +101,9 @@ public class HumanWorld extends World
  }
  
  public void toggleSound(boolean volumeOn) {
-        if (volumeOn) {
+        
+       System.out.println("HI");
+       if (volumeOn) {
            bgMusic.play(); 
         }
         else {
