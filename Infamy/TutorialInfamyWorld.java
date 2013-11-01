@@ -32,7 +32,11 @@ public class TutorialInfamyWorld extends HumanWorld
         dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
+<<<<<<< HEAD
         AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 512, 50, false);
+=======
+        //AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 512, 525, false);
+>>>>>>> e5ed10ef386b838f53d14cd73b615a477019dc56
         //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
       
@@ -85,8 +89,10 @@ public class TutorialInfamyWorld extends HumanWorld
        //sb4.turn(90);
        addObject(sb4, 400, 190);
 
-
-        
+       FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry");
+        addObject(f, 512, 50);
+       FadingDialogue g = new FadingDialogue(512, 475, "Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1");
+       addObject(g, 512, 425);
 
         BritNPC npc2 = new BritNPC(true);
         addHuman(npc2, 130, 400);
