@@ -16,10 +16,12 @@ public class MountedMachineGun extends German
     private int targety;
     private int ydirection = 10;
     private int xdirection = 20;
-    
-    public MountedMachineGun(int startTargetX, int startTargetY){
+    private int standingX;
+    private int runTimer =0;
+    public MountedMachineGun(int standingX, int startTargetX, int startTargetY){
         targetx = startTargetX;
         targety = startTargetY;
+        this.standingX = standingX;
         setImage("enemy-running-left-1.png");
     }
     
@@ -29,17 +31,40 @@ public class MountedMachineGun extends German
      */
     public void act() 
     {
-        // Add your action code here.
-        if(shotClock % fireRate == 0){
-            ((HumanWorld)this.getWorld()).addBullet(this, targetx, targety);
-        }
-       // updateTargetX();
-        updateTargetY();
-        shotClock++;
+        
+        if(!isPlanted() && !isRetreating())
+            NPCAdvance(1);
+        else if (!isRetreating()){
+            // Add your action code here.
+            if(shotClock % fireRate == 0){
+                ((HumanWorld)this.getWorld()).addBullet(this, targetx, targety);
+            }
+           // updateTargetX();
+            updateTargetY();
+            shotClock++;
+      }
     }    
     
+    public boolean isPlanted(){
+        return standingX == getX();
+    }
     public void updateTargetX(){
         targetx += xdirection;
+    }
+    
+    public void animateBack(){
+        setLocation(getX() +1, getY());
+        setRetreat(true);
+        runTimer++;
+        if (runTimer==24)
+        {
+             setImage("enemy-running-left-4.png");
+             getImage().mirrorHorizontally();
+             runTimer=0;  
+        }
+        if (runTimer==0){ setImage("enemy-running-left-1.png");  getImage().mirrorHorizontally();}
+        if (runTimer==8) {setImage("enemy-running-left-2.png");getImage().mirrorHorizontally();}  
+        if (runTimer==16) {setImage("enemy-running-left-3.png");getImage().mirrorHorizontally();}
     }
     
     public void updateTargetY(){

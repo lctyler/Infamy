@@ -1,11 +1,15 @@
 #BlueJ class context
-comment0.params=startTargetX\ startTargetY
-comment0.target=MountedMachineGun(int,\ int)
+comment0.params=standingX\ startTargetX\ startTargetY
+comment0.target=MountedMachineGun(int,\ int,\ int)
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ MountedMachineGun\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
-comment2.target=void\ updateTargetX()
+comment2.target=boolean\ isPlanted()
 comment3.params=
-comment3.target=void\ updateTargetY()
-numComments=4
+comment3.target=void\ updateTargetX()
+comment4.params=
+comment4.target=void\ animateBack()
+comment5.params=
+comment5.target=void\ updateTargetY()
+numComments=6

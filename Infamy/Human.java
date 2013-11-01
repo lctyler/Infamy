@@ -28,7 +28,9 @@ public class Human extends Movement
     public int getHealth() {
        return health;     
     }
-    
+    public HealthBar getHealthBar() {
+        return healthBar;
+    }
     public void setCovered(boolean covered) {
         isCovered = covered;
     }

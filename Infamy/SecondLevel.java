@@ -40,9 +40,9 @@ public class SecondLevel extends HumanWorld
         this.addHuman(winst, 130, 450);
         //British
         //Machine Guns
-       gun1 = new MountedMachineGun(0,this.getHeight());
+       gun1 = new MountedMachineGun(875,0,this.getHeight());
        this.addHuman(gun1, 875, 110);
-       gun2 = new MountedMachineGun(0,0);
+       gun2 = new MountedMachineGun(890,0,0);
        this.addHuman(gun2, 890, 400);
        
        CrossHair crosshair = new CrossHair();

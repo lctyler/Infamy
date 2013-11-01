@@ -24,6 +24,9 @@ public class TutorialInfamyWorld extends HumanWorld
     private int germansKilled = 0;
     private int numGermans = 0;
     private int phase = 0;
+    private int phaseTimer = 0;
+    private MountedMachineGun gun1;
+    private MountedMachineGun gun2;
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -140,11 +143,78 @@ public class TutorialInfamyWorld extends HumanWorld
             }
             FadingDialogue g = new FadingDialogue(512, 480, "Watch Out Machine Guns are coming!\n"
                                                     + " Take cover in your trench!\n"
-                                                    + "(to take cover hold 'c' while in your trench)", 10, 10);
+                                                    + "(to take cover hold 'c' while in your trench)", 15, 15);
+            addObject(g, 512, 480);
+            phase++;
+        }
+        if(phase == 2) {
+            if (phaseTimer / 100 == 1) {
+                phase++;
+                phaseTimer = 0;
+            }
+            else
+                phaseTimer++;
+        }
+        
+        if(phase == 3) {
+            gun1 = new MountedMachineGun(800,10,10);
+            gun2 = new MountedMachineGun(800, 200,10);
+            addHuman(gun1, 1000, 200);
+            addHuman(gun2, 1000, 500);
+            phase++;
+        }
+        
+        if(phase == 4) {
+            if(gun1.isPlanted() && gun2.isPlanted())
+                phase++;
+        }
+        
+        if(phase == 5) {
+            FadingDialogue g = new FadingDialogue(512, 480, "Keep your head down!", 10, 10);
             addObject(g, 512, 480);
             phase++;
         }
 
+        if(phase == 6){
+            if((phaseTimer / 500) == 1){
+                phase++;
+                phaseTimer =0;
+            }
+            else 
+                phaseTimer++;
+        }
+        
+        if(phase == 7){
+            if(gun1.getX() < 1000)
+                gun1.animateBack();
+            if(gun2.getX() < 1000)
+                gun2.animateBack();
+            if(gun2.getX() == 1000 && gun1.getX() == 1000){
+                phase++;
+            }
+        }
+        
+        if(phase == 8) {
+            removeObject(gun1.getHealthBar());
+            removeObject(gun1);
+            removeObject(gun2.getHealthBar());
+            removeObject(gun2);
+            phase++;
+        }
+        
+        if(phase == 9) {
+            if(phaseTimer % 70 == 0){
+                Mortar mortar = new Mortar(125, (int)(Math.random() * 400 + 100));
+                addObject(mortar, 0,0);
+            }
+            if(phaseTimer / 70 == 5) {
+                phaseTimer = 0;
+                phase++;
+            }
+             phaseTimer++;
+        }
+        
+        
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);
