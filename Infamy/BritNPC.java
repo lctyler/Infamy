@@ -67,14 +67,36 @@ public class BritNPC extends British
             }
             if(!isCovered){
                 runTimer++;
-                if (runTimer==18)
-                {
-                    setImage("man-running-right-4.png");
-                    runTimer=0;  
+                if(!isRetreating()){
+                    if (runTimer==18)
+                    {
+                        setImage("man-running-right-4.png");
+                        runTimer=0;  
+                    }
+                    if (runTimer==0) setImage("man-running-right-1.png");  
+                    if (runTimer==6) setImage("man-running-right-2.png");  
+                    if (runTimer==12) setImage("man-running-right-3.png");
                 }
-                if (runTimer==0) setImage("man-running-right-1.png");  
-                if (runTimer==6) setImage("man-running-right-2.png");  
-                if (runTimer==12) setImage("man-running-right-3.png");
+                else {
+                    if (runTimer==18)
+                    {
+                        setImage("man-running-right-4.png");
+                        getImage().mirrorHorizontally();
+                        runTimer=0;  
+                    }
+                    if (runTimer==0) {
+                        setImage("man-running-right-1.png"); 
+                        getImage().mirrorHorizontally();
+                    }
+                    if (runTimer==6){
+                        setImage("man-running-right-2.png");
+                        getImage().mirrorHorizontally();
+                    }
+                    if (runTimer==12){
+                        setImage("man-running-right-3.png");
+                        getImage().mirrorHorizontally();
+                    }
+                }
             }
         }
         else

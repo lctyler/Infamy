@@ -185,7 +185,7 @@ public class WinstonCrowley extends British
             }
         }
         else {
-            //setImage("winston-aiming-right.png");
+            setImage("winston-aiming-right.png");
         }
        
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
