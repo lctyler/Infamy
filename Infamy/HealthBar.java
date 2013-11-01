@@ -8,12 +8,10 @@ import java.awt.Color;
  */
 public class HealthBar extends StatusBar
 {
-    Human subject;
-    GreenfootImage bar;
+   private Human subject;
     public HealthBar(Human subject) {
         super(50, 10, new Color(50,120,0), new Color(200,50,0));
         this.subject = subject;
-        bar = new GreenfootImage(100,10);
         updateBar();
     }
     

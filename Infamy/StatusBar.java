@@ -8,7 +8,7 @@ import java.awt.Color;
  */
 public class StatusBar extends Actor
 {
-    GreenfootImage bar;
+    protected GreenfootImage bar;
     protected Color fullColor;
     protected Color missingColor;
     protected int width, height;

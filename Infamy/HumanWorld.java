@@ -49,6 +49,9 @@ public class HumanWorld extends World
     public void addHuman(Human person, int x, int y){
         addObject(person, x, y);
         person.createHealthBar();
+        if(person instanceof WinstonCrowley){
+            ((WinstonCrowley)person).createStressBar();
+        }
     }
     
     public void decBCounter() {
