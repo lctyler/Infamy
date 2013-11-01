@@ -53,6 +53,7 @@ public class SecondLevel extends HumanWorld
     }
     
     public void act() {
+        super.act();
         alive = getObjects(MountedMachineGun.class);
         updateMusic();
         if(winst.getX() > 800 && alive.size() ==0)
