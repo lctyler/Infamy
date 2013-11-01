@@ -48,7 +48,7 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
         spawnB = true; 
-         //Greenfoot.setWorld(new BombTheBase());
+        //Greenfoot.setWorld(new BombTheBase());
     }
   
     public void populate() {
@@ -157,6 +157,8 @@ public class TutorialInfamyWorld extends HumanWorld
             spawnG = false;
             baseTimeG = d.getTime(); 
         }
+        
+
     }
     
 

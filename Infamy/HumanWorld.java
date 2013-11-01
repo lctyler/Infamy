@@ -84,7 +84,7 @@ public class HumanWorld extends World
             Greenfoot.setWorld(new CutSceneToSecondLevel());
         }
         else if (this instanceof SecondLevel) {
-            Greenfoot.setWorld(new WinWorld(Human.Score)); 
+            Greenfoot.setWorld(new BombTheBase()); 
         } 
          else if (this instanceof BombTheBase) {
             Greenfoot.setWorld(new WinWorld(Human.Score)); 
@@ -194,6 +194,9 @@ public class HumanWorld extends World
     }
     public void bombExplodes() {
         List<Human> inRange = x.getPeopleToKill();
+       
+        System.out.println("BOOM"); 
+        
         for (Human h : inRange) {
             h.die();
         }

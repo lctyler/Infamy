@@ -56,12 +56,10 @@ public class SecondLevel extends HumanWorld
         alive = getObjects(MountedMachineGun.class);
         updateMusic();
         if(winst.getX() > 800 && alive.size() ==0)
-            secondLevelWin();
+           this.TutorialWin();
     }
     
-    public void secondLevelWin(){
-        Greenfoot.setWorld(new WinWorld(Human.Score));
-    }
+  
     
     public void updateMusic(){
         fireSound1.playLoop();

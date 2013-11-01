@@ -9,6 +9,7 @@ import java.util.List;
 public class Flag extends Actor
 {
     public String nationality;    
+    public boolean winCond = true; 
    
     public Flag(String nationality) {
         this.nationality = nationality;
@@ -28,7 +29,8 @@ public class Flag extends Actor
      */
     public void act() 
     {
-      CheckTutorialWin();
+        if (winCond)
+        CheckTutorialWin();
     }
     
     public void CheckTutorialWin()
@@ -40,4 +42,6 @@ public class Flag extends Actor
             ((HumanWorld)getWorld()).TutorialWin();
         }
     }
+    
+   
 }

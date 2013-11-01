@@ -48,8 +48,9 @@ public class BombTheBase extends HumanWorld
     public void populate() {
 
         
-        germanFlag = new Flag("German"); 
+       germanFlag = new Flag("German"); 
         addObject(germanFlag, 974, 245);
+        germanFlag.winCond = false;
         
         britishFlag = new Flag("British"); 
         addObject(britishFlag, 50, 245); 
@@ -65,9 +66,7 @@ public class BombTheBase extends HumanWorld
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
-       Sandbag sb1 = new Sandbag();
-       //sb1.turn(90);
-       addObject(sb1, 600, 130);
+       
        
        GasButton gb = new GasButton();
        addObject(gb, 512, 550);
@@ -95,7 +94,7 @@ public class BombTheBase extends HumanWorld
         
         WinstonCrowley move = new WinstonCrowley();
         addHuman(move, 95, 500);
-        //move.giveBomb(); 
+        move.giveBomb(); 
         
        x = new XMarks(); 
         
