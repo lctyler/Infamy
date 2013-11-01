@@ -17,8 +17,9 @@ public class WinWorld extends World
     public WinWorld(int scor)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1024, 600, 1); 
-        AddScoreDialogue("Your Score:" + score, 512, 400);
+        super(1024, 600, 1);
+        Greenfoot.playSound("victoryMusic.mp3");
+        AddScoreDialogue("Your Score:" + scor, 512, 400);
         if (scor > 800) {
             AddNotCrazyDialogue();
         }
@@ -28,7 +29,7 @@ public class WinWorld extends World
     {
         notCrazy = new Dialogue();
     
-        GreenfootImage textImage = new GreenfootImage("You went crazy from PTSD...", 48, Color.BLACK, Color.WHITE);
+        GreenfootImage textImage = new GreenfootImage("You have overcome PTSD!", 48, Color.BLACK, Color.WHITE);
         //textImage.drawString(message, x, y);
         
         GreenfootImage image = new GreenfootImage(textImage.getWidth()+12, textImage.getHeight()+12);  
