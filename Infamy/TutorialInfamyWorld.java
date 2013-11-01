@@ -202,7 +202,14 @@ public class TutorialInfamyWorld extends HumanWorld
             phase++;
         }
         
-        if(phase == 9) {
+        if(phase == 9){
+            FadingDialogue g = new FadingDialogue(512, 480, "Heads up! Mortars!\n" 
+                                                + "(Mortars will still hit you if you are under cover in the trench)", 10, 10);
+            addObject(g, 512, 480);
+            phase++;
+        }
+        
+        if(phase == 10) {
             if(phaseTimer % 70 == 0){
                 Mortar mortar = new Mortar(125, (int)(Math.random() * 400 + 100));
                 addObject(mortar, 0,0);

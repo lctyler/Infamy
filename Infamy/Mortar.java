@@ -30,7 +30,7 @@ public class Mortar extends Actor
     
     
     protected void addedToWorld(World world) {
-        //getImage().setTransparency(0);
+        getImage().setTransparency(0);
         shadow = new MortarShadow(targetx, targety);
         getWorld().addObject(shadow, targetx, targety);
         setLocation(targetx, 0);
@@ -49,6 +49,7 @@ public class Mortar extends Actor
     }
     
     public void move(){
+        getImage().setTransparency(255);
         setLocation(getX(), getY() + targety/50);
         System.out.println("Moved x: " + getX() + " y: " + getY());
     }
