@@ -14,7 +14,10 @@ public class FadingDialogue extends Movement
     public int x;
     public int y;
     boolean loop;
-    public FadingDialogue(int xl, int yl, String messag)
+    int OpacityIncreaseRate;
+    int OpacityDecreaseRate;
+    
+    public FadingDialogue(int xl, int yl, String messag, int opacityIncrease, int opacityDecrease)
     {
         x = xl;
         y = yl;
@@ -23,6 +26,8 @@ public class FadingDialogue extends Movement
         OpacityValue = 0;        
         MakeFadingDialogue(OpacityValue);
         loop = false;
+        OpacityIncreaseRate = opacityIncrease;
+        OpacityDecreaseRate = opacityDecrease;
     }
     /**
      * Act - do whatever the FadingDialogue wants to do. This method is called whenever
@@ -32,15 +37,14 @@ public class FadingDialogue extends Movement
     {
         if (FadingTimer%10 == 1)
         {
-            System.out.println(OpacityValue);
             MakeFadingDialogue(OpacityValue);
             if (loop)
             {
-                OpacityValue -= 20;
+                OpacityValue -= OpacityDecreaseRate;
             }
             else
             {
-                OpacityValue += 30;
+                OpacityValue += OpacityIncreaseRate;
             }
         }
         if (OpacityValue <= 0 && loop)
