@@ -37,8 +37,8 @@ public class Human extends Movement
         return isCovered;
     }
     
-    public void retreat() {
-        isRetreating = true;
+    public void setRetreat(boolean retreat) {
+        isRetreating = retreat;
     }
     
     public boolean isRetreating() {
@@ -118,12 +118,15 @@ public class Human extends Movement
             
             }
             else {
-            
-                if (enemyflag.getX() < getX()) {
-                   setLocation(getX()-1, getY()); 
+                if(isRetreating() && this instanceof BritNPC)
+                    setLocation(getX() + direction, getY());
+                else if(isRetreating() && this instanceof EnemyNPC)
+                    setLocation(getX() + direction, getY());
+                else if(enemyflag.getX() < getX()) {
+                   setLocation(getX() - direction, getY()); 
                 }
                 else {
-                   setLocation(getX()+1, getY());  
+                   setLocation(getX() + direction, getY());  
                 }
                 
                  if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
@@ -143,9 +146,8 @@ public class Human extends Movement
             }
           }
        }
-      
     }
-    
+    public boolean isDefender(){return false;}
     
     
 }

@@ -9,7 +9,10 @@ import java.util.*;
  */
 public class TutorialInfamyWorld extends HumanWorld
 {
-
+    //phases 0, combat
+    //1, retreat
+    //2, cover
+    
    
     public Dialogue dia;
     public Dialogue tutorialDiaIntro;
@@ -18,9 +21,9 @@ public class TutorialInfamyWorld extends HumanWorld
     public int dialogueTimer;
     public Flag germanFlag;
     public Flag britishFlag;
-   
-
-    
+    private int germansKilled = 0;
+    private int numGermans = 0;
+    private int phase = 0;
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -34,7 +37,7 @@ public class TutorialInfamyWorld extends HumanWorld
         dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
-        AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 512, 50, false);
+        //AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 512, 50, false);
         //AddTutorialDialogue("Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 512, 525, false);
         //AddTutorialDialogue("Hey Winston!!\nCome over here!", 200, 300, false);
         //AddTutorialDialogue("Talk to your fellow soldier and\nother NPC's by pressing the 'e' key.\nMove Winston with the 'wasd' keys.", 400, 100, true);
@@ -88,7 +91,7 @@ public class TutorialInfamyWorld extends HumanWorld
 
        FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry", 10, 10);
         addObject(f, 512, 50);
-       FadingDialogue g = new FadingDialogue(512, 480, "Kill all the enemies and capture the flag!!\n Move with AWSD as shoot with mouse1", 10, 10);
+       FadingDialogue g = new FadingDialogue(512, 480, "Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 10, 10);
        addObject(g, 512, 480);
 
         BritNPC npc2 = new BritNPC(true);
@@ -98,9 +101,62 @@ public class TutorialInfamyWorld extends HumanWorld
         
         WinstonCrowley move = new WinstonCrowley();
         addHuman(move, 95, 500);
-   
         
+        numGermans = 5;
+    }
+    
+    public int germansKilled() {
+        int newNum = getObjects(German.class).size();
+
+        if(numGermans - newNum > 0){
+            germansKilled += numGermans - newNum;
+            System.out.println(germansKilled);
+        }
+        numGermans = newNum;
+        return germansKilled;
+    }
+    
+    public void act() {
+        Date d = new Date();
+        if (dialogueTimer == 500)
+        {
+            removeObject(tutorialDia);
+        }
         
+        if (phase == 0){
+           spawnG = germansKilled() < 5 && (d.getTime() - baseTimeG) > germSpawn; 
+           spawnB = (d.getTime() - baseTimeB) > britSpawn;
+           if(germansKilled == 5){
+              phase++;
+              spawnB = false;
+              spawnG = false;
+            }
+        }
+        
+        if(phase == 1) {
+            for(Human character : (ArrayList<Human>)getObjects(Human.class)){
+                if(!(character instanceof WinstonCrowley)&&!character.isDefender())
+                    character.setRetreat(true);
+            }
+            FadingDialogue g = new FadingDialogue(512, 480, "Watch Out Machine Guns are coming!\n"
+                                                    + " Take cover in your trench!\n"
+                                                    + "(to take cover hold 'c' while in your trench)", 10, 10);
+            addObject(g, 512, 480);
+            phase++;
+        }
+
+        
+        if(spawnB && bCounter == 0) {
+            spawnWave(BRIT,britAmmount, true);
+            spawnB = false;
+            baseTimeB = d.getTime(); 
+        }
+        
+        if (spawnG && gCounter == 0) {
+            spawnWave(GERM, germAmmount, true);
+            spawnG = false;
+            baseTimeG = d.getTime(); 
+        }
     }
     
 

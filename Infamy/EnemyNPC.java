@@ -22,6 +22,9 @@ public class EnemyNPC extends German
     public EnemyNPC(boolean defenderStatus) {
         isDefender = defenderStatus; 
     }
+    public boolean isDefender(){
+        return isDefender;
+    }
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -50,29 +53,37 @@ public class EnemyNPC extends German
                 }
         }
         else {
-            advance = true; 
+            advance = !isRetreating(); 
         }
            
             
-            
         
         enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);  
-        if (brits.size() == 0 && !isDefender) {
-            if(!isRetreating)
-                NPCAdvance(-1);
-            else
+        if (isRetreating() || brits.size() == 0 && !isDefender) {
+            
+            if(!isRetreating()){
+                setCovered(false);
                 NPCAdvance(1);
-
-            runTimer++;
-            if (runTimer==24)
-            {
-                setImage("enemy-running-left-4.png");
-                runTimer=0;  
             }
-            if (runTimer==0) setImage("enemy-running-left-1.png");  
-            if (runTimer==8) setImage("enemy-running-left-2.png");  
-            if (runTimer==16) setImage("enemy-running-left-3.png");
-           
+            else if(isRetreating() && getX() < 900){
+                setLocation(getX() + 1, getY());//NPCAdvance(-1);
+            }
+            else if(isRetreating() && getX() == 900) {
+                setCovered(true);
+                //Change to cover image
+                setImage("enemy-running-left-4.png");
+            }    
+            if(!isCovered()){
+                runTimer++;
+                if (runTimer==24)
+                {
+                    setImage("enemy-running-left-4.png");
+                    runTimer=0;  
+                }
+                if (runTimer==0) setImage("enemy-running-left-1.png");  
+                if (runTimer==8) setImage("enemy-running-left-2.png");  
+                if (runTimer==16) setImage("enemy-running-left-3.png");
+            }
         }
         else
             setImage("enemy-aiming-left.png");

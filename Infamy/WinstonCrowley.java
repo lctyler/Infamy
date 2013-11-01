@@ -95,7 +95,7 @@ public class WinstonCrowley extends British
         setCovered(Greenfoot.isKeyDown("c") && isInTrench());
         plantBomb();
         
-        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && !hasBomb) {
+        if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0 && !hasBomb && !isCovered()) {
             increaseStress(5);
             if(--magazineRemaining == 0){
                reloadClock = 0;

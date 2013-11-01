@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class HumanWorld extends World
 {
-    private int bCounter,gCounter;
+    protected int bCounter,gCounter;
     public final int NUM_ADVANCERS_3 = 3;
     public final int NUM_ADVANCERS_4 = 4; 
     public final String BRIT = "british"; 

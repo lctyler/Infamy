@@ -40,7 +40,7 @@ public class BritNPC extends British
             if ( n > 0)
                 
                 //i = Greenfoot.getRandomNumber(n);
-                if (germans.size() != 0) {
+                if (germans.size() != 0 && !isRetreating()) {
                    // System.out.println("Shooting: " + germans.get(0).getX() + " " + germans.get(0).getY()); 
                     shoot(germans.get(0)); 
                     hasShot = true; 
@@ -48,51 +48,57 @@ public class BritNPC extends British
                 }
         }
         else {
-            advance = true; 
+            advance = !isRetreating(); 
         }
            
-            
-            
-        
-            enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0);  
-        if (germans.size() == 0 && !isDefender) {
-            if(!isRetreating)
+        enemyflag = (Flag)getWorld().getObjects(Flag.class).get(0);  
+        if (isRetreating || germans.size() == 0 && !isDefender) {
+            if(!isRetreating()){
+                setCovered(false);
                 NPCAdvance(1);
-            else
-                NPCAdvance(-1);
-
-            runTimer++;
-            if (runTimer==18)
-            {
-                setImage("man-running-right-4.png");
-                runTimer=0;  
             }
-            if (runTimer==0) setImage("man-running-right-1.png");  
-            if (runTimer==6) setImage("man-running-right-2.png");  
-            if (runTimer==12) setImage("man-running-right-3.png");
-      
+            else if(isRetreating() && !isInTrench()){
+                NPCAdvance(-1);
+            }
+            else if(isRetreating() && isInTrench()) {
+                setCovered(true);
+                //Change to cover image
+                setImage("man-running-right-4.png");
+            }
+            if(!isCovered){
+                runTimer++;
+                if (runTimer==18)
+                {
+                    setImage("man-running-right-4.png");
+                    runTimer=0;  
+                }
+                if (runTimer==0) setImage("man-running-right-1.png");  
+                if (runTimer==6) setImage("man-running-right-2.png");  
+                if (runTimer==12) setImage("man-running-right-3.png");
+            }
         }
         else
             setImage("man-aiming-right.png");
         applyDamageOverTime();
     }    
-    
-    
-   public void advance() { 
-        if (enemyflag.getX() < getX()) {
-           setLocation(getX()-1, getY()); 
-        }
-        else {
-           setLocation(getX()+1, getY());  
-        }
-        
-         if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
-           setLocation(getX(), getY()- 1); 
-        }
-        else if (enemyflag.getX() == getX()) {
-           setLocation(getX(), getY()+1);  
-        }
+    public boolean isDefender(){
+        return isDefender;
     }
+//    public void advance() { 
+//         if (enemyflag.getX() < getX()) {
+//            setLocation(getX()-1, getY()); 
+//         }
+//         else {
+//            setLocation(getX()+1, getY());  
+//         }
+//         
+//          if (enemyflag.getY() < getY() && enemyflag.getX() == getX()) {
+//            setLocation(getX(), getY()- 1); 
+//         }
+//         else if (enemyflag.getX() == getX()) {
+//            setLocation(getX(), getY()+1);  
+//         }
+//     }
     
      /**
      * Detects if there are any british soldiers in the search area. 
