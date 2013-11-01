@@ -28,6 +28,7 @@ public class SecondLevel extends HumanWorld
     
     public void populate(){
         //Sandbags
+        super.populate();
         Sandbag sb1 = new Sandbag(true);
         addObject(sb1, 350,200);
         Sandbag sb2 = new Sandbag(true);

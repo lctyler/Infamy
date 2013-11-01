@@ -50,7 +50,7 @@ public class TutorialInfamyWorld extends HumanWorld
   
     public void populate() {
 
-        
+        super.populate();
         Flag germanFlag = new Flag("german"); 
         addObject(germanFlag, 974, 245);
         
@@ -85,8 +85,7 @@ public class TutorialInfamyWorld extends HumanWorld
        //sb4.turn(90);
        addObject(sb4, 400, 190);
 
-      VolumeButton vb = new VolumeButton();
-      addObject(vb, 20, 40);
+
         
 
         BritNPC npc2 = new BritNPC(true);

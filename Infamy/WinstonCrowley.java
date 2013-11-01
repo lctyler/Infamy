@@ -27,6 +27,8 @@ public class WinstonCrowley extends British
     private ArrayList<Landmine> landmines;
     private ArrayList<HUDBullet> hudBullets; 
     private GreenfootImage ammoCount; 
+    private int stress = 0;
+    
     public WinstonCrowley()
     {
         Landmine landmine1 = new Landmine();
@@ -37,9 +39,8 @@ public class WinstonCrowley extends British
         landmines.add(landmine2);
         landmines.add(landmine3);
         hudBullets = new ArrayList<HUDBullet>();
-        
-       
     }
+    
     /**
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -48,6 +49,14 @@ public class WinstonCrowley extends British
     public boolean inRange() {
         ArrayList<Actor> germans = (ArrayList<Actor>)getObjectsInRange(SHOOT_RANGE, German.class);
         return !germans.isEmpty(); 
+    }
+    
+    public void increaseStress(int amount) {
+        stress += amount;
+    }
+    
+    public int getStress() {
+        return stress;
     }
     
     public void firstLoad() {
