@@ -28,6 +28,7 @@ public class WinstonCrowley extends British
     private ArrayList<HUDBullet> hudBullets; 
     private GreenfootImage ammoCount; 
     private int stress = 0;
+    private StressBar stressBar;
     
     public WinstonCrowley()
     {
@@ -52,7 +53,11 @@ public class WinstonCrowley extends British
     }
     
     public void increaseStress(int amount) {
-        stress += amount;
+        if (stress + amount < 100){
+            stress += amount;
+        } else {
+            stress = 100;
+        }
     }
     
     public int getStress() {
@@ -63,12 +68,15 @@ public class WinstonCrowley extends British
        
         for (int i = 0; i < 1 ; i++) {
             HUDBullet b = new HUDBullet(); 
-            getWorld().addObject(b, xLoc[i], yLoc);
-            
-            hudBullets.add(b); 
-            
+            getWorld().addObject(b, xLoc[i], yLoc);      
+            hudBullets.add(b);         
         }
        firstLoad = false;
+    }
+    
+    public void createStressBar() {
+        stressBar = new StressBar(this);
+        this.getWorld().addObject(stressBar,getX(),getY() - getImage().getHeight()/2 - 11);
     }
     
     public void act() 
@@ -78,6 +86,7 @@ public class WinstonCrowley extends British
        }
         
         if (Greenfoot.mouseClicked(null) && loaded && lastShot / shootSpeed > 0) {
+            increaseStress(5);
             if(--magazineRemaining == 0){
                reloadClock = 0;
                loaded = false;
