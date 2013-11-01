@@ -16,7 +16,7 @@ public class HumanWorld extends World
     public final String GERM = "german"; 
     public final int BRIT_X = 200; 
     public final int GERM_X = 750; 
-    public final int[] Y_SET = {135, 235, 335}; 
+    public final int[] Y_SET = {135, 235, 335, 435, 500}; 
     
     
     public Dialogue dia;
@@ -30,6 +30,8 @@ public class HumanWorld extends World
     public boolean spawnG, spawnB; 
     public GreenfootSound bgMusic ;
     public boolean playmusic = true;
+    public int germSpawn = 10000;
+    public int britSpawn = 12000;
     
     
   
@@ -154,10 +156,10 @@ public class HumanWorld extends World
         {
             removeObject(tutorialDia);
         }
-        if ((d.getTime() - baseTimeB) > 12000 ) {
+        if ((d.getTime() - baseTimeB) > britSpawn ) {
            spawnB = true;
         }
-        if ((d.getTime() - baseTimeG) > 10000 ) {
+        if ((d.getTime() - baseTimeG) > germSpawn ) {
            spawnG = true; 
         }
        

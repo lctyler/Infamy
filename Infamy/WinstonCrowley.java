@@ -25,10 +25,11 @@ public class WinstonCrowley extends British
     private ArrayList<GreenfootImage> runningImages;
     Dialogue reloadDialogue = new Dialogue();
     private ArrayList<Landmine> landmines;
-  
+    private boolean hasBomb = false; 
     private GreenfootImage ammoCount; 
     private int stress = 0;
     private StressBar stressBar;
+    
     
     public WinstonCrowley()
     {
@@ -46,6 +47,17 @@ public class WinstonCrowley extends British
      * Act - do whatever the WinstonCrowley wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public void giveBomb() {
+        hasBomb = true;
+    }
+    
+    public void plantBomb() {
+        if (Greenfoot.isKeyDown("e") && getWorld() instanceof BombTheBase) {
+            ((BombTheBase)getWorld()).bombIsPlanted(); 
+            hasBomb = false; 
+        }
+    }
+    
     
     public boolean inRange() {
         ArrayList<Actor> germans = (ArrayList<Actor>)getObjectsInRange(SHOOT_RANGE, German.class);

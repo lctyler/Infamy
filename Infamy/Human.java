@@ -112,12 +112,10 @@ public class Human extends Movement
             
             Human target = (Human)getOneIntersectingObject(Human.class);
             if (target != null) {
-               if (target instanceof WinstonCrowley) {
-                 setLocation(getX()-1, getY()-1);    
+               if (!(target instanceof WinstonCrowley)) {
+                  target.yield();
                }
-               else {
-                target.yield();
-               } 
+            
             }
             else {
             

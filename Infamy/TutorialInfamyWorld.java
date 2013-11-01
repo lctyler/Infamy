@@ -39,7 +39,8 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(GERM, NUM_ADVANCERS_3, false); 
         spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
-        spawnB = true;        
+        spawnB = true; 
+         Greenfoot.setWorld(new BombTheBase());
     }
   
     public void populate() {
