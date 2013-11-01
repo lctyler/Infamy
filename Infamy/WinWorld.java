@@ -18,7 +18,7 @@ public class WinWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1);
-        Greenfoot.playSound("victoryMusic.mp3");
+        //Greenfoot.playSound("victoryMusic.mp3");
         AddScoreDialogue("Your Score:" + scor, 512, 400);
         if (scor > 800) {
             AddNotCrazyDialogue();
