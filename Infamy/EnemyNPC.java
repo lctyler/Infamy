@@ -33,7 +33,7 @@ public class EnemyNPC extends German
             //System.out.println(d.getTime() - timer); 
             hasShot = false;
         }
-        ArrayList<British> brits = spot(200); 
+        ArrayList<British> brits = spot(isDefender ? 500 : 200); 
         if (brits != null && !hasShot) {
             //System.out.println(brits.size());
             int n = brits.size(); 

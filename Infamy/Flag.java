@@ -28,27 +28,16 @@ public class Flag extends Actor
      */
     public void act() 
     {
-      // Want a cool wave animation
-      if (isTouching(EnemyNPC.class)) {
-        // end the game.   
-      }
       CheckTutorialWin();
     }
     
     public void CheckTutorialWin()
     {
-        try
-        {
-            List<WinstonCrowley> actors = getNeighbours(50, true, java.lang.Class.forName("WinstonCrowley"));
-            //Actor actors = getOneIntersectingObject(java.lang.Class.forName("WinstonCrowley"));
-
-            if (!actors.isEmpty() && this.nationality == "german")
-            {
-                ((TutorialInfamyWorld)this.getWorld()).TutorialWin();
-            }
+        if (nationality.equals("British") && getOneIntersectingObject(German.class) != null) {
+           ((HumanWorld)getWorld()).defeat();
         }
-        catch (Exception e)
-        {
+        else if (nationality.equals("German") && getOneIntersectingObject(British.class) != null) {
+            ((HumanWorld)getWorld()).TutorialWin();
         }
     }
 }
