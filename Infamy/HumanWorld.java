@@ -1,6 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 import java.awt.Color;
+import greenfoot.GreenfootImage;
+import greenfoot.core.*;  
+import javax.swing.*;  
+import java.awt.*;  
 /**
  * Write a description of class HumanWorld here.
  * 
@@ -58,6 +62,14 @@ public class HumanWorld extends World
         bCounter = gCounter = 0;
         setPaintOrder(WinstonCrowley.class);
         setPaintOrder(Explosion.class);
+       
+        //makes curser invisible
+       JPanel panel = WorldHandler.getInstance().getWorldCanvas();  
+       GreenfootImage image = new GreenfootImage(10,10);  
+       Cursor cursor = Toolkit.getDefaultToolkit().createCustomCursor(image.getAwtImage(), new Point(0, 0), "");  
+       panel.setCursor(cursor); 
+       
+       setPaintOrder(CrossHair.class, Human.class, Landmine.class);
         
     }
     
@@ -223,7 +235,7 @@ public void spawnWave(String type, int ammount, boolean rand) {
         dialogueCounter = 0;
     }
     public void bombExplodes() {
-        List<Human> inRange = x.getPeopleToKill();
+        java.util.List<Human> inRange = x.getPeopleToKill();
        
         System.out.println("BOOM"); 
         
