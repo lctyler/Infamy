@@ -29,11 +29,17 @@ public class SecondLevel extends HumanWorld
     public void populate(){
         //Sandbags
         Sandbag sb1 = new Sandbag(true);
-        addObject(sb1, 350,200);
+        addObject(sb1, 350,300);
         Sandbag sb2 = new Sandbag(true);
-        addObject(sb2, 400, 500);
+        addObject(sb2, 550, 150);
+        Sandbag sb4 = new Sandbag(true);
+        addObject(sb4, 350, 350);
         Sandbag sb3 = new Sandbag(true);
         addObject(sb3, 750, 275);
+        BarbedWire bw1 = new BarbedWire();
+        addObject(bw1, 350, 450);
+        BarbedWire bw2 = new BarbedWire();
+        addObject(bw2, 350, 520);
         //Winston
         winst = new WinstonCrowley();
         this.addHuman(winst, 130, 450);
