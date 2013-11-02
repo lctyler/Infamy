@@ -69,8 +69,8 @@ public class Mortar extends Actor
                 tempy += 3;
         }
         if(getY() > targety){
-            setImage("explode.png");
-            getImage().scale(70,70);
+            Explosion ex = new Explosion(70,70);
+            getWorld().addObject(ex, getX(), getY());
             getWorld().removeObject(this);
         }
     }    
