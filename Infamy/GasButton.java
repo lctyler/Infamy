@@ -51,6 +51,7 @@ public class GasButton extends HUD
         List humanList = this.getWorld().getObjects(Human.class);
         
         for (Object hu : humanList)
+            if (!((Human)hu instanceof WinstonCrowley))
             ((Human)hu).addDamageOverTime(40, 40);
         Greenfoot.playSound("gasSound.mp3");
     }
