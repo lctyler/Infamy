@@ -51,7 +51,6 @@ public class Mortar extends Actor
     public void move(){
         getImage().setTransparency(255);
         setLocation(getX(), getY() + targety/50);
-        System.out.println("Moved x: " + getX() + " y: " + getY());
     }
     
     /**
