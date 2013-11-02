@@ -108,7 +108,6 @@ public class TutorialInfamyWorld extends HumanWorld
 
         if(numGermans - newNum > 0){
             germansKilled += numGermans - newNum;
-            System.out.println(germansKilled);
         }
         numGermans = newNum;
         return germansKilled;
