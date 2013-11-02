@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=width\ height\ fullColor\ missingColor
+comment0.target=StatusBar(int,\ int,\ java.awt.Color,\ java.awt.Color)
+comment1.params=amountFull
+comment1.target=void\ updateBar(int)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ HealthBar\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=3

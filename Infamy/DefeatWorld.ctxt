@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=scor
+comment0.target=DefeatWorld(int)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ DefeatWorld.\n\ \n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ CutsceneStory()
+comment3.params=
+comment3.target=void\ AddCrazyDialogue()
+comment4.params=message\ x\ y
+comment4.target=void\ AddScoreDialogue(java.lang.String,\ int,\ int)
+numComments=5

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GasButton()
+comment1.params=
+comment1.target=void\ GasButton()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ GasButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ setPressed()
+comment4.params=
+comment4.target=void\ setAvailable()
+comment5.params=
+comment5.target=void\ gasEm()
+numComments=6

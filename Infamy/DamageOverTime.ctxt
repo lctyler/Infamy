@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=damage\ time
+comment0.target=DamageOverTime(int,\ int)
+comment1.params=
+comment1.target=int\ getDamagePerTick()
+comment1.text=Calculates\ how\ much\ damage\ should\ be\ done\ per\ frame
+comment2.params=
+comment2.target=int\ getDamageLeft()
+comment2.text=Returns\ how\ much\ damage\ has\ not\ been\ dealt
+comment3.params=
+comment3.target=void\ decrementDamageLeft()
+comment3.text=Call\ when\ damage\ has\ been\ dealt
+numComments=4
