@@ -35,6 +35,9 @@ public class HumanWorld extends World
     public int britSpawn = 12000;
     public long t1, t2; 
     public XMarks x;
+    public long insanTime; 
+    public GasButton blahbutton; 
+    public boolean gasUsed = false;
     
     public Landmine l1;
     public Landmine l2;
@@ -49,7 +52,9 @@ public class HumanWorld extends World
     public HumanWorld(int width, int height, int pixels)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(width, height, pixels); 
+        super(width, height, pixels);
+        Date d = new Date();
+        insanTime = d.getTime(); 
         bCounter = gCounter = 0;
     }
     
@@ -182,6 +187,13 @@ public void spawnWave(String type, int ammount, boolean rand) {
         if(getObjects(WinstonCrowley.class).size() != 0){
             if(((WinstonCrowley)(getObjects(WinstonCrowley.class).get(0))).getStress() == 100){
                 gb.setAvailable();
+            }
+        }
+        if (this instanceof BombTheBase) {
+          
+           if (d.getTime() - insanTime > 15000 && !gasUsed) { 
+              gb.setAvailable();
+              gasUsed = true;
             }
         }
         if(spawnB && bCounter == 0) {

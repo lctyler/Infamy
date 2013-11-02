@@ -39,7 +39,7 @@ public class BombTheBase extends HumanWorld
         spawnG = true;
         spawnB = true; 
         this.britAmmount = 4;
-        this.britSpawn = 6000;
+        this.britSpawn = 12000;
         this.germSpawn = 20000;
     }
     
@@ -78,7 +78,7 @@ public class BombTheBase extends HumanWorld
 
        //FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry", 10, 10);
         //addObject(f, 512, 50);
-       FadingDialogue g = new FadingDialogue(512, 480, "Plant the bomb in the base!!\n Move with AWSD as shoot with mouse1", 10, 10);
+       FadingDialogue g = new FadingDialogue(512, 480, "Plant the bomb in the base!!\n Go to the red x and Press E to plant!", 10, 10);
        addObject(g, 512, 480);
 
         BritNPC npc2 = new BritNPC(true);
@@ -96,10 +96,7 @@ public class BombTheBase extends HumanWorld
         
         Date d  = new Date();
         
-        if (bombPlanted && d.getTime() - t1 > 10000) {
-            bombExplodes();
-            
-        }
+      
    
         super.populate();
         
