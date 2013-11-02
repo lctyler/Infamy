@@ -29,6 +29,7 @@ public class WinstonCrowley extends British
     private GreenfootImage ammoCount; 
     private int stress = 0;
     private StressBar stressBar;
+    private Direction lastDir = Direction.EAST;
     
     
     public WinstonCrowley()
@@ -134,17 +135,23 @@ public class WinstonCrowley extends British
         
         if(move())
         {
+            if(dir == Direction.NORTH || dir == Direction.SOUTH)
+            {
+                dir = lastDir;
+            }
             runTimer++;
             if (runTimer==24)
             {
                 if (dir == Direction.EAST)
                 {
                     setImage("winston-running-right-4.png");
+                    lastDir = Direction.EAST;
                 }
                 else
                 {
                     setImage("winston-running-right-4.png");
-                    getImage().mirrorHorizontally();                    
+                    getImage().mirrorHorizontally();
+                    lastDir = Direction.WEST;
                 }
                 runTimer=0;  
             }
@@ -156,12 +163,14 @@ public class WinstonCrowley extends British
                     if (!hasBomb)
                     setImage("winston-running-right-1.png");
                     else setImage("wbr1.png"); 
+                    lastDir = Direction.EAST;
                 }else
                 {
                     if (!hasBomb)
                     setImage("winston-running-right-1.png");
                     else setImage("wbr1.png"); 
-                    getImage().mirrorHorizontally();                    
+                    getImage().mirrorHorizontally();                
+                    lastDir = Direction.WEST;
                 }
             }
             if (runTimer==8) 
@@ -171,13 +180,15 @@ public class WinstonCrowley extends British
                     if (!hasBomb)
                     setImage("winston-running-right-2.png");
                     else setImage("wbr2.png"); 
+                    lastDir = Direction.EAST;
                 }
                 else
                 {
                     if (!hasBomb)
                     setImage("winston-running-right-2.png");
                     else setImage("wbr2.png"); 
-                    getImage().mirrorHorizontally();                    
+                    getImage().mirrorHorizontally();               
+                    lastDir = Direction.WEST;
                 }
             } 
             if (runTimer==16) 
@@ -187,13 +198,15 @@ public class WinstonCrowley extends British
                     if (!hasBomb)
                     setImage("winston-running-right-3.png");
                     else setImage("wbr1.png"); 
+                    lastDir = Direction.EAST;
                 }
                 else
                 {
                     if (!hasBomb)
                     setImage("winston-running-right-3.png");
                     else setImage("wbr1.png"); 
-                    getImage().mirrorHorizontally();                    
+                    getImage().mirrorHorizontally();            
+                    lastDir = Direction.WEST;
                 }
             }
         }
@@ -202,7 +215,7 @@ public class WinstonCrowley extends British
             setImage("winston-aiming-right.png");
             else 
             setImage("wbr1.png"); 
-
+            lastDir = Direction.EAST;
         }
         if(isCovered()) {
             setImage("winston-crouching-right.png");
@@ -216,6 +229,20 @@ public class WinstonCrowley extends British
                 getWorld().addObject(derp, this.getX(), this.getY());
                 landmines.remove(0);
                 landMineTimer=0;
+                if (!((HumanWorld)getWorld()).l1Gone)
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l1);
+                    ((HumanWorld)getWorld()).l1Gone = true;
+                }
+                else if(!((HumanWorld)getWorld()).l2Gone)
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l2);
+                    ((HumanWorld)getWorld()).l2Gone = true;
+                }
+                else
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l3);                    
+                }
             }
         }
         landMineTimer++;
