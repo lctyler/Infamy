@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Nov 01 21:27:39 PDT 2013
+#Fri Nov 01 22:15:52 PDT 2013
 target24.type=ClassTarget
 target16.name=HealthBar
 target13.editor.width=900
@@ -296,6 +296,7 @@ class.FadingDialogue.superclass=Movement
 dependency60.to=Bullet
 target29.editor.width=1296
 target39.height=50
+class.CrossHair.superclass=greenfoot.Actor
 target26.y=670
 target26.x=100
 dependency87.from=HumanWorld
@@ -305,6 +306,7 @@ target4.type=ClassTarget
 dependency62.from=Landmine
 dependency38.type=UsesDependency
 dependency54.to=WinWorld
+class.CrossHair.image=Crosshairs.png
 class.Enemy.superclass=German
 target28.type=ClassTarget
 dependency127.to=Human

@@ -69,7 +69,7 @@ public class HumanWorld extends World
        Cursor cursor = Toolkit.getDefaultToolkit().createCustomCursor(image.getAwtImage(), new Point(0, 0), "");  
        panel.setCursor(cursor); 
        
-       setPaintOrder(CrossHair.class, Human.class, Landmine.class);
+       setPaintOrder(CrossHair.class, Human.class, HUD.class, Landmine.class);
         
     }
     
