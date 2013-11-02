@@ -16,6 +16,7 @@ public class Mortar extends Actor
     private int dropTime;
     private MortarShadow shadow;
     private int tempy;
+    private int DAMAGE = 60;
     public Mortar(int targetx, int targety) {
         this.targetx = targetx;
         this.targety = targety;
