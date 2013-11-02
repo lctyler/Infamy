@@ -71,7 +71,6 @@ public class Mortar extends Actor
         if(getY() > targety){
             setImage("explode.png");
             getImage().scale(70,70);
-            Greenfoot.delay(10);
             getWorld().removeObject(this);
         }
     }    
