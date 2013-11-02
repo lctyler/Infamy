@@ -53,6 +53,8 @@ public class GasButton extends HUD
         for (Object hu : humanList)
             if (!((Human)hu instanceof WinstonCrowley))
             ((Human)hu).addDamageOverTime(40, 40);
+            else
+                ((WinstonCrowley)hu).setStress(0);
         Greenfoot.playSound("gasSound.mp3");
     }
 }
