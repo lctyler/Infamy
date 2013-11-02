@@ -10,12 +10,16 @@ public class Gas extends Actor
 {
     private int counter = 0;
     
+    public Gas() {
+        setImage("gas.png");
+    }
+    
     /**
      * Act - do whatever the Gas wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
-    {
+    {   
         this.setLocation(this.getX(), this.getY() - 1);
         
         if (counter == 150)
