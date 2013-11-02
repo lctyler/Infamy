@@ -150,9 +150,10 @@ public class WinstonCrowley extends British
             else if (runTimer==16 && hasBomb) setImage("wbr3.png");
         }
         else {
-            
-            if (hasBomb) setImage("wb0.png") ;
-            else setImage("man-aiming-right.png");
+            if (hasBomb) 
+            setImage("wbr0.png") ;
+            else
+            setImage("man-aiming-right.png");
         }
        
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
