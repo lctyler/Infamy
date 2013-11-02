@@ -31,19 +31,19 @@ public class MountedMachineGun extends German
      */
     public void act() 
     {
-        if(this != null){
-            if(!isPlanted() && !isRetreating())
-                NPCAdvance(1);
-            else if (!isRetreating()){
-                // Add your action code here.
-                if(shotClock % fireRate == 0){
-                    ((HumanWorld)this.getWorld()).addBullet(this, targetx, targety);
-                }
-               // updateTargetX();
-                updateTargetY();
-                shotClock++;
-          }
-       }
+      if(getWorld() != null){
+        if(!isPlanted() && !isRetreating())
+            NPCAdvance(1);
+        else if (!isRetreating()){
+            // Add your action code here.
+            if(shotClock % fireRate == 0){
+                ((HumanWorld)this.getWorld()).addBullet(this, targetx, targety);
+            }
+           // updateTargetX();
+            updateTargetY();
+            shotClock++;
+      }
+    }
     }    
     
     public boolean isPlanted(){
