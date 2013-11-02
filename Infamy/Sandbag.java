@@ -11,6 +11,7 @@ public class Sandbag extends Obstacle
     private boolean providesCover;
     public Sandbag() {
         providesCover = false;
+      
     }
     
     public Sandbag(boolean providesCover){

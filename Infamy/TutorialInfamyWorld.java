@@ -91,7 +91,7 @@ public class TutorialInfamyWorld extends HumanWorld
        //sb4.turn(90);
        addObject(sb4, 400, 190);
 
-       FadingDialogue f = new FadingDialogue(512, 50, "1912 France, 87th Infantry", 10, 10);
+       FadingDialogue f = new FadingDialogue(512, 50, "1916 France, 87th Infantry", 10, 10);
         addObject(f, 512, 50);
        FadingDialogue g = new FadingDialogue(512, 480, "Kill all the enemies and capture the flag!!\n Move with AWSD and shoot with mouse1", 10, 10);
        addObject(g, 512, 480);

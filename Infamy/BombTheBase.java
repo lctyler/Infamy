@@ -102,6 +102,18 @@ public class BombTheBase extends HumanWorld
         
     }
     
+    public void act() {
+        Date d  = new Date();
+        super.act();
+        if (d.getTime() - baseTimeB > britSpawn) {
+            spawnB = true; 
+        }
+        else if (d.getTime() - baseTimeG > germSpawn) {
+            spawnG = true; 
+        }
+        
+        
+    }
     
     
     public void bombIsPlanted() {

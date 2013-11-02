@@ -15,6 +15,8 @@ public class BritNPC extends British
     long timer;
     private boolean isDefender; 
     private int runTimer = 0;
+    // total hack variable, just leave it alone!
+    public boolean isDucking = false;
     
     public BritNPC(boolean defender)
     {
@@ -26,6 +28,10 @@ public class BritNPC extends British
      */
     public void act() 
     {
+        if (isDucking) {
+            setImage("man-crouching-right.png");
+            return;
+        }
         Date d  = new Date();
         if ((d.getTime() - timer) > RELOAD_TIME ) {
             //System.out.println(d.getTime() - timer); 

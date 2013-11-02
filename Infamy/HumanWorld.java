@@ -102,7 +102,7 @@ public class HumanWorld extends World
         int count = getObjects(BritNPC.class).size();
         Human.Score += count * 50;
         Human.Score += 500;         
-        
+        bgMusic.stop();
         if (this instanceof TutorialInfamyWorld ) {
             Greenfoot.setWorld(new CutSceneToSecondLevel());
         }
@@ -207,11 +207,13 @@ public void spawnWave(String type, int ammount, boolean rand) {
         if (this instanceof BombTheBase) {
           
            if (d.getTime() - insanTime > 15000 && !gasUsed) { 
+              FadingDialogue f = new FadingDialogue(512, 50, "Winston, gas those bastards so we can advance further!!", 10, 10);
+              addObject(f, 512, 480);
               gb.setAvailable();
               gasUsed = true;
             }
         }
-        if(spawnB && bCounter == 0) {
+        if(spawnB  && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);
             spawnB = false;
             baseTimeB = d.getTime(); 

@@ -101,8 +101,11 @@ public class Human extends Movement
     }
     
     /* direction is 1 for right -1 for left */
-    public void NPCAdvance(int direction) {
+    public boolean NPCAdvance(int direction) {
        Flag enemyflag = null; 
+      
+      
+       
        if (this instanceof German) {
         enemyflag = (Flag)getWorld().getObjects(Flag.class).get(1);
        }
@@ -152,6 +155,7 @@ public class Human extends Movement
             }
           }
        }
+       return true;
     }
     public boolean isDefender(){return false;}
     
