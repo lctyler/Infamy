@@ -239,8 +239,6 @@ public class TutorialInfamyWorld extends HumanWorld
             spawnG = false;
             baseTimeG = d.getTime(); 
         }
-        
-
     }
     
 
