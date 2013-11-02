@@ -36,8 +36,11 @@ public class HumanWorld extends World
     public long t1, t2; 
     public XMarks x;
     
-    
-  
+    public Landmine l1;
+    public Landmine l2;
+    public Landmine l3;
+    public boolean l1Gone;
+    public boolean l2Gone;
     
     /**
      * Constructor for objects of class HumanWorld.
@@ -113,10 +116,19 @@ public class HumanWorld extends World
 
     public void populate() {
         VolumeButton vb = new VolumeButton();
-        addObject(vb, 450, 550);
+        addObject(vb, 400, 550);
         
        gb = new GasButton();
-       addObject(gb, 512, 550);
+       addObject(gb, 450, 550);
+       
+       l3 = new Landmine();
+       addObject(l3, 500, 550);
+       
+       l2 = new Landmine();
+       addObject(l2, 550, 550);
+       
+       l1 = new Landmine();
+       addObject(l1, 600, 550);
     }
 public void spawnWave(String type, int ammount, boolean rand) {
       

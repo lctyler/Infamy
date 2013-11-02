@@ -216,6 +216,20 @@ public class WinstonCrowley extends British
                 getWorld().addObject(derp, this.getX(), this.getY());
                 landmines.remove(0);
                 landMineTimer=0;
+                if (!((HumanWorld)getWorld()).l1Gone)
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l1);
+                    ((HumanWorld)getWorld()).l1Gone = true;
+                }
+                else if(!((HumanWorld)getWorld()).l2Gone)
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l2);
+                    ((HumanWorld)getWorld()).l2Gone = true;
+                }
+                else
+                {
+                    ((HumanWorld)getWorld()).removeObject(((HumanWorld)getWorld()).l3);                    
+                }
             }
         }
         landMineTimer++;
