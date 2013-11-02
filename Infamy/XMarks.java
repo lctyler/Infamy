@@ -8,6 +8,11 @@ import java.util.*;
  */
 public class XMarks extends Actor
 {
+    
+    public XMarks() {
+        setImage("redx.png");
+    }
+    
     /**
      * Act - do whatever the XMarks wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
