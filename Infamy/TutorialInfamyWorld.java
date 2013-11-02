@@ -23,7 +23,7 @@ public class TutorialInfamyWorld extends HumanWorld
     public Flag britishFlag;
     private int germansKilled = 0;
     private int numGermans = 0;
-    private int phase = 0;
+    private int phase = 10;
     private int phaseTimer = 0;
     private MountedMachineGun gun1;
     private MountedMachineGun gun2;
