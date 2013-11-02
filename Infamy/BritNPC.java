@@ -99,8 +99,8 @@ public class BritNPC extends British
                 }
             }
         }
-        else
-            setImage("man-aiming-right.png");
+        if(isCovered())
+            setImage("man-crouching-right.png");
         applyDamageOverTime();
     }    
     public boolean isDefender(){

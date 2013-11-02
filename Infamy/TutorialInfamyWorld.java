@@ -51,7 +51,7 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
         spawnB = true; 
-        //Greenfoot.setWorld(new BombTheBase());
+       // Greenfoot.setWorld(new BombTheBase());
     }
   
     public void populate() {
@@ -108,7 +108,6 @@ public class TutorialInfamyWorld extends HumanWorld
 
         if(numGermans - newNum > 0){
             germansKilled += numGermans - newNum;
-            System.out.println(germansKilled);
         }
         numGermans = newNum;
         return germansKilled;
@@ -181,20 +180,28 @@ public class TutorialInfamyWorld extends HumanWorld
         }
         
         if(phase == 7){
-            if(gun1.getX() < 1000)
+            boolean gun1Present = getObjects(MountedMachineGun.class).contains(gun1);
+            boolean gun2Present = getObjects(MountedMachineGun.class).contains(gun2);
+            if( gun1Present && gun1.getX() < 1000)
                 gun1.animateBack();
-            if(gun2.getX() < 1000)
+            if(gun2Present && gun2.getX() < 1000)
                 gun2.animateBack();
-            if(gun2.getX() == 1000 && gun1.getX() == 1000){
+            if(!gun1Present && !gun2Present)
+                phase += 2;
+            if((gun2Present && gun2.getX() == 1000) || (gun1Present  && gun1.getX() == 1000)){
                 phase++;
             }
         }
         
         if(phase == 8) {
-            removeObject(gun1.getHealthBar());
-            removeObject(gun1);
-            removeObject(gun2.getHealthBar());
-            removeObject(gun2);
+            if(getObjects(MountedMachineGun.class).contains(gun1)){
+                removeObject(gun1.getHealthBar());
+                removeObject(gun1);
+            }
+            if(getObjects(MountedMachineGun.class).contains(gun2)){
+                removeObject(gun2.getHealthBar());
+                removeObject(gun2);
+            }
             phase++;
         }
         
@@ -217,7 +224,10 @@ public class TutorialInfamyWorld extends HumanWorld
              phaseTimer++;
         }
         
-        
+        if(phase == 11) {
+             
+            Greenfoot.setWorld(new SecondLevel());
+        }
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);

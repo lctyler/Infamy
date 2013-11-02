@@ -148,14 +148,19 @@ public class WinstonCrowley extends British
                 }
                 runTimer=0;  
             }
+
             if (runTimer==0 ) 
             {
                 if (dir == Direction.EAST)
                 {
-                    setImage("winston-running-right-1.png");  
+                    if (!hasBomb)
+                    setImage("winston-running-right-1.png");
+                    else setImage("wbr1.png"); 
                 }else
                 {
+                    if (!hasBomb)
                     setImage("winston-running-right-1.png");
+                    else setImage("wbr1.png"); 
                     getImage().mirrorHorizontally();                    
                 }
             }
@@ -163,11 +168,15 @@ public class WinstonCrowley extends British
             {
                 if (dir == Direction.EAST)
                 {
-                    setImage("winston-running-right-2.png");  
+                    if (!hasBomb)
+                    setImage("winston-running-right-2.png");
+                    else setImage("wbr2.png"); 
                 }
                 else
                 {
+                    if (!hasBomb)
                     setImage("winston-running-right-2.png");
+                    else setImage("wbr2.png"); 
                     getImage().mirrorHorizontally();                    
                 }
             } 
@@ -175,19 +184,29 @@ public class WinstonCrowley extends British
             {
                 if (dir == Direction.EAST)
                 {
+                    if (!hasBomb)
                     setImage("winston-running-right-3.png");
+                    else setImage("wbr1.png"); 
                 }
                 else
                 {
+                    if (!hasBomb)
                     setImage("winston-running-right-3.png");
+                    else setImage("wbr1.png"); 
                     getImage().mirrorHorizontally();                    
                 }
             }
         }
         else {
+            if (!hasBomb)
             setImage("winston-aiming-right.png");
+            else 
+            setImage("wbr1.png"); 
+
         }
-       
+        if(isCovered()) {
+            setImage("winston-crouching-right.png");
+        }
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
         {
             if (!landmines.isEmpty())
