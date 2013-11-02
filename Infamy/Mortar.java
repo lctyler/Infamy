@@ -19,7 +19,7 @@ public class Mortar extends Actor
     public Mortar(int targetx, int targety) {
         this.targetx = targetx;
         this.targety = targety;
-        //Greenfoot.playSound("MortarLuanch.wav");\
+        Greenfoot.playSound("MortarLuanch.wav");
         setImage("MortarShell.png");
         getImage().scale(50,50);
         getImage().rotate(180);

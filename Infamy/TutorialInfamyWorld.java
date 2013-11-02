@@ -160,7 +160,7 @@ public class TutorialInfamyWorld extends HumanWorld
         }
         
         if(phase == 4) {
-            if(gun1.isPlanted() && gun2.isPlanted())
+            if( (gun1 == null || gun1.isPlanted()) && (gun2 == null || gun2.isPlanted()))
                 phase++;
         }
         
@@ -224,10 +224,6 @@ public class TutorialInfamyWorld extends HumanWorld
              phaseTimer++;
         }
         
-        if(phase == 11) {
-             
-            Greenfoot.setWorld(new SecondLevel());
-        }
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);

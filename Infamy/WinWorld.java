@@ -10,6 +10,8 @@ public class WinWorld extends World
 {
     Dialogue score;
     Dialogue notCrazy;
+    Dialogue diaCutscene;
+    int ActualScore;
     /**
      * Constructor for objects of class WinWorld.
      * 
@@ -18,11 +20,37 @@ public class WinWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 600, 1);
+        ActualScore = scor;
+        CutsceneStory();
         //Greenfoot.playSound("victoryMusic.mp3");
-        AddScoreDialogue("Your Score:" + scor, 512, 400);
-        if (scor > 800) {
-            AddNotCrazyDialogue();
+        
+    }
+    
+    public void act()
+    {
+        if(Greenfoot.mousePressed(null))
+        {
+            removeObject(diaCutscene);
+            setBackground("victory-screen.png");
+            AddScoreDialogue("Your Score:" + ActualScore, 512, 400);
+            if (ActualScore > 800) {
+                AddNotCrazyDialogue();
+            }
         }
+    }
+    
+    public void CutsceneStory()
+    {
+        setBackground("cutScene.png");
+        
+        diaCutscene = new Dialogue();
+        GreenfootImage textImage = new GreenfootImage("Well Winston this story seems\nto have ended nicely,you\nare cleared for civilian life!", 32, Color.WHITE, new Color(50,50,50));
+                
+        GreenfootImage image = new GreenfootImage(textImage.getWidth()+12,textImage.getHeight()+12);  
+        image.setColor(Color.BLACK);  
+        image.drawImage(textImage, 0, 0);
+        diaCutscene.setImage(image);
+        addObject(diaCutscene, 270, 200);
     }
     
     private void AddNotCrazyDialogue()
