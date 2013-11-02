@@ -37,6 +37,9 @@ public class WinWorld extends World
                 AddNotCrazyDialogue();
             }
         }
+        
+        if(Greenfoot.isKeyDown("enter") || Greenfoot.isKeyDown("space"))
+            Greenfoot.setWorld(new TitleScreen());
     }
     
     public void CutsceneStory()

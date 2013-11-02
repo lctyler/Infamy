@@ -36,6 +36,9 @@ public class DefeatWorld extends World
                 Greenfoot.playSound("crazyLaugh.mp3");
             }
         }
+        
+        if(Greenfoot.isKeyDown("enter") || Greenfoot.isKeyDown("space"))
+            Greenfoot.setWorld(new TitleScreen());
     }
     
     public void CutsceneStory()
