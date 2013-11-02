@@ -137,23 +137,72 @@ public class WinstonCrowley extends British
             runTimer++;
             if (runTimer==24)
             {
-                setImage("winston-running-right-4.png");
+                if (dir == Direction.EAST)
+                {
+                    setImage("winston-running-right-4.png");
+                }
+                else
+                {
+                    setImage("winston-running-right-4.png");
+                    getImage().mirrorHorizontally();                    
+                }
                 runTimer=0;  
             }
-            if (runTimer==0 && !hasBomb) 
-               setImage("winston-running-right-1.png");
-            else if (runTimer==0 && hasBomb) 
-                setImage("wbr1.png"); 
-            if (runTimer==8 && !hasBomb) setImage("winston-running-right-2.png");
-            else if (runTimer==0 && hasBomb) setImage("wbr2.png");
-            if (runTimer==16 && !hasBomb) setImage("winston-running-right-3.png");
-            else if (runTimer==16 && hasBomb) setImage("wbr3.png");
+
+            if (runTimer==0 ) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-1.png");
+                    else setImage("wbr1.png"); 
+                }else
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-1.png");
+                    else setImage("wbr1.png"); 
+                    getImage().mirrorHorizontally();                    
+                }
+            }
+            if (runTimer==8) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-2.png");
+                    else setImage("wbr2.png"); 
+                }
+                else
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-2.png");
+                    else setImage("wbr2.png"); 
+                    getImage().mirrorHorizontally();                    
+                }
+            } 
+            if (runTimer==16) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-3.png");
+                    else setImage("wbr1.png"); 
+                }
+                else
+                {
+                    if (!hasBomb)
+                    setImage("winston-running-right-3.png");
+                    else setImage("wbr1.png"); 
+                    getImage().mirrorHorizontally();                    
+                }
+            }
         }
         else {
-            if (hasBomb) 
-            setImage("wbr0.png") ;
-            else
-            setImage("man-aiming-right.png");
+            if (!hasBomb)
+            setImage("winston-aiming-right.png");
+            else 
+            setImage("wbr1.png"); 
+
         }
        
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)

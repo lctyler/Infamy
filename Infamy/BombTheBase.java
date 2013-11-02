@@ -66,12 +66,6 @@ public class BombTheBase extends HumanWorld
        CrossHair crosshair = new CrossHair();
        addObject(crosshair, 0, 0);
         
-       
-       
-       GasButton gb = new GasButton();
-       addObject(gb, 512, 550);
-         VolumeButton vb = new VolumeButton();
-        addObject(vb, 450, 550);
        Sandbag sb2 = new Sandbag();
        //sb2.turn(90);
        addObject(sb2, 500, 400);
@@ -107,7 +101,7 @@ public class BombTheBase extends HumanWorld
             
         }
    
-        
+        super.populate();
         
     }
     

@@ -51,12 +51,11 @@ public class TutorialInfamyWorld extends HumanWorld
         spawnWave(BRIT, NUM_ADVANCERS_3, false); 
         spawnG = true;
         spawnB = true; 
-        Greenfoot.setWorld(new BombTheBase());
+       // Greenfoot.setWorld(new BombTheBase());
     }
   
     public void populate() {
 
-        
         germanFlag = new Flag("German"); 
         addObject(germanFlag, 974, 245);
         
@@ -78,10 +77,6 @@ public class TutorialInfamyWorld extends HumanWorld
        //sb1.turn(90);
       // addObject(sb1, 600, 130);
        
-       GasButton gb = new GasButton();
-       addObject(gb, 512, 550);
-         VolumeButton vb = new VolumeButton();
-        addObject(vb, 450, 550);
        Sandbag sb2 = new Sandbag();
        //sb2.turn(90);
        addObject(sb2, 500, 400);
@@ -104,7 +99,7 @@ public class TutorialInfamyWorld extends HumanWorld
         
         WinstonCrowley move = new WinstonCrowley();
         addHuman(move, 95, 500);
-        
+        super.populate();
         numGermans = 5;
     }
     
@@ -130,7 +125,7 @@ public class TutorialInfamyWorld extends HumanWorld
         if (phase == 0){
            spawnG = germansKilled() < 5 && (d.getTime() - baseTimeG) > germSpawn; 
            spawnB = (d.getTime() - baseTimeB) > britSpawn;
-           if(germansKilled == 5){
+           if(germansKilled == 4){
               phase++;
               spawnB = false;
               spawnG = false;

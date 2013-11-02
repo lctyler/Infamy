@@ -28,7 +28,6 @@ public class SecondLevel extends HumanWorld
     
     public void populate(){
         //Sandbags
-       
         Sandbag sb1 = new Sandbag(true);
         addObject(sb1, 350,200);
         Sandbag sb2 = new Sandbag(true);
@@ -50,9 +49,11 @@ public class SecondLevel extends HumanWorld
        
         FadingDialogue f = new FadingDialogue(512, 50, "1916 France, Battle of Verdun", 10, 10);
         addObject(f, 512, 50);
+       super.populate();
     }
     
     public void act() {
+        super.act();
         alive = getObjects(MountedMachineGun.class);
         updateMusic();
         if(winst.getX() > 800 && alive.size() ==0)
