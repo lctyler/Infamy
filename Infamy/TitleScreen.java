@@ -31,14 +31,13 @@ public class TitleScreen extends World
         if (!titleMusic.isPlaying())
         {
             titleMusic.play();
-        }
+        }        
         if(Greenfoot.mouseClicked(dia))
         {
             removeObject(dia);
             removeObject(dial);
-            setBackground("trenchesIntro.jpg");
-            Cutscene();
-            cutscene = 1;
+            CutsceneStory();
+            cutscene = -1;
             
         }
         if(cutscene == 3 && Greenfoot.mousePressed(null))
@@ -61,8 +60,30 @@ public class TitleScreen extends World
             Cutscene2();
             cutscene = 2;
         }
+        if (cutscene == -1 && Greenfoot.mousePressed(null))
+        {            
+            setBackground("trenchesIntro.jpg");
+            removeObject(diaCutscene);
+            Cutscene();
+            cutscene = 1;
+        }
         
     }
+    
+    public void CutsceneStory()
+    {
+        setBackground("cutScene.png");
+        
+        diaCutscene = new Dialogue();
+        GreenfootImage textImage = new GreenfootImage("You are Winston Crowley, a\nbattle hardened World War I veteran.\n\nUnfortunantely the war has left it's\nmark on you and now you are showing\nsymptoms of PTSD.\n\nYou are mandated\nto go to the London Psychiatric Ward\nfor evaluation, depending on the\noutcome of the you may become\na permanent resident...", 32, Color.WHITE, new Color(50,50,50));
+                
+        GreenfootImage image = new GreenfootImage(textImage.getWidth()+12,textImage.getHeight()+12);  
+        image.setColor(Color.BLACK);  
+        image.drawImage(textImage, 0, 0);
+        diaCutscene.setImage(image);
+        addObject(diaCutscene, 270, 200);
+    }
+    
     public void Cutscene3()
     {
         backgroundDia = new Dialogue();

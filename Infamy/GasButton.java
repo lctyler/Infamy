@@ -29,6 +29,10 @@ public class GasButton extends HUD
         if (Greenfoot.mouseClicked(this) && !pressed) {
             setPressed();
             gasEm();
+            Gas gas1 = new Gas();
+            this.getWorld().addObject(gas1, 700, 300);
+            Gas gas2 = new Gas();
+            this.getWorld().addObject(gas2, 900, 300);
         }
     }   
     
@@ -47,6 +51,7 @@ public class GasButton extends HUD
         List humanList = this.getWorld().getObjects(Human.class);
         
         for (Object hu : humanList)
+            if (!((Human)hu instanceof WinstonCrowley))
             ((Human)hu).addDamageOverTime(40, 40);
         Greenfoot.playSound("gasSound.mp3");
     }
