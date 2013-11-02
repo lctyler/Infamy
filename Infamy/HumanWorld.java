@@ -56,6 +56,9 @@ public class HumanWorld extends World
         Date d = new Date();
         insanTime = d.getTime(); 
         bCounter = gCounter = 0;
+        setPaintOrder(WinstonCrowley.class);
+        setPaintOrder(Explosion.class);
+        
     }
     
     public void addHuman(Human person, int x, int y){

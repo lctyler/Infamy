@@ -28,8 +28,10 @@ public class Landmine extends Actor
         
         if (target != null && this.Active)
         {
+            Explosion ex = new Explosion(70,70);
+            getWorld().addObject(ex, getX(), getY());
             target.loseHealth(DAMAGE);
-            getWorld().removeObject(this);
+            getWorld().removeObject(this);            
         }
     }
 }

@@ -30,6 +30,7 @@ public class WinstonCrowley extends British
     private int stress = 0;
     private StressBar stressBar;
     private Direction lastDir = Direction.EAST;
+    private int idleCount = 0;
     
     
     public WinstonCrowley()
@@ -212,7 +213,22 @@ public class WinstonCrowley extends British
         }
         else {
             if (!hasBomb)
-            setImage("winston-aiming-right.png");
+            {
+                idleCount++;
+                if (idleCount < 200)
+                    setImage("winston-aiming-right.png");
+                else if (idleCount >= 200 && idleCount < 240)
+                    setImage("winston-chilling-1.png");
+                else if (idleCount >= 240 && idleCount < 280)
+                    setImage("winston-chilling-2.png");
+                else if (idleCount >= 280 && idleCount < 320)
+                    setImage("winston-chilling-1.png");
+                else if (idleCount >= 320)
+                {
+                    idleCount = 0;
+                    setImage("winston-aiming-right.png");
+                }
+            }
             else 
             setImage("wbr1.png"); 
             lastDir = Direction.EAST;
