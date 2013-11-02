@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=width\ height\ pixels
 comment0.target=HumanWorld(int,\ int,\ int)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ HumanWorld.\r\n\ \r\n
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ HumanWorld.\n\ \n
 comment1.params=person\ x\ y
 comment1.target=void\ addHuman(Human,\ int,\ int)
 comment10.params=
@@ -32,7 +32,7 @@ comment5.params=
 comment5.target=void\ TutorialWin()
 comment6.params=source\ target
 comment6.target=void\ addBullet(greenfoot.Actor,\ greenfoot.Actor)
-comment6.text=\r\n\ Try\ to\ add\ in\ the\ bullet\ here.\ Call\ from\ \r\n
+comment6.text=\n\ Try\ to\ add\ in\ the\ bullet\ here.\ Call\ from\ \n
 comment7.params=source\ targetx\ targety
 comment7.target=void\ addBullet(greenfoot.Actor,\ int,\ int)
 comment8.params=item\ x\ y
