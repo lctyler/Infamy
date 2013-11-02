@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Fri Nov 01 22:05:28 PDT 2013
+=======
+#Fri Nov 01 22:15:52 PDT 2013
+>>>>>>> ad5ec84a89b3972243f570792b5015b5ca894ee9
 target24.type=ClassTarget
 target16.name=HealthBar
 target13.editor.width=900
@@ -302,9 +306,15 @@ target29.editor.width=900
 dependency60.to=Bullet
 target40.width=170
 target39.height=50
+<<<<<<< HEAD
 target26.y=190
 class.CrossHair.superclass=greenfoot.Actor
 target26.x=190
+=======
+class.CrossHair.superclass=greenfoot.Actor
+target26.y=670
+target26.x=100
+>>>>>>> ad5ec84a89b3972243f570792b5015b5ca894ee9
 dependency87.from=HumanWorld
 dependency10.from=TutorialInfamyWorld
 dependency120.from=TutorialInfamyWorld

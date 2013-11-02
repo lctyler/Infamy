@@ -24,7 +24,6 @@ public class VolumeButton extends HUD
          
         if (Greenfoot.mouseClicked(this)) {
             volumeOn = !volumeOn;
-            System.out.println("orly"); 
             if (volumeOn) {
                 setImage("soundOn.png");
             }

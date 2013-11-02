@@ -27,6 +27,7 @@ public class TutorialInfamyWorld extends HumanWorld
     private int phaseTimer = 0;
     private MountedMachineGun gun1;
     private MountedMachineGun gun2;
+    WinstonCrowley move;
     /**
      * Constructor for objects of class InfamyWorld.
      * 
@@ -97,7 +98,7 @@ public class TutorialInfamyWorld extends HumanWorld
         BritNPC npc1 = new BritNPC(true);
         addHuman(npc1, 130, 100);
         
-        WinstonCrowley move = new WinstonCrowley();
+        move = new WinstonCrowley();
         addHuman(move, 95, 500);
         super.populate();
         numGermans = 5;
@@ -213,8 +214,19 @@ public class TutorialInfamyWorld extends HumanWorld
         }
         
         if(phase == 10) {
+           
             if(phaseTimer % 70 == 0){
-                Mortar mortar = new Mortar(125, (int)(Math.random() * 400 + 100));
+                 Mortar mortar;
+                int choicex = (int)(Math.random() *2);
+                int choicey = (int)(Math.random() *2);
+                int close = (int)(Math.random() * 2);
+                int targetx = choicex == 0 ? (int)(Math.random() * 200 + move.getX()): (int)(Math.random() * 200 - move.getX());
+                int targety = choicex == 0 ? (int)(Math.random() * 200 + move.getY()): (int)(Math.random() * 200 - move.getY());
+                if(close == 0){
+                    mortar = new Mortar(targetx, targety);
+                } else {
+                    mortar = new Mortar((int)(Math.random() * 300), (int)(Math.random()*600));
+                }
                 addObject(mortar, 0,0);
             }
             if(phaseTimer / 70 == 5) {
