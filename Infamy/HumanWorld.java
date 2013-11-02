@@ -135,11 +135,6 @@ public class HumanWorld extends World
     }
 
     public void populate() {
-        VolumeButton vb = new VolumeButton();
-        addObject(vb, 400, 550);
-        
-       gb = new GasButton();
-       addObject(gb, 450, 550);
        
        l3 = new Landmine();
        addObject(l3, 500, 550);
@@ -149,6 +144,11 @@ public class HumanWorld extends World
        
        l1 = new Landmine();
        addObject(l1, 600, 550);
+       VolumeButton vb = new VolumeButton();
+       addObject(vb, 400, 550);
+        
+       gb = new GasButton();
+       addObject(gb, 450, 550);
     }
 public void spawnWave(String type, int ammount, boolean rand) {
       
