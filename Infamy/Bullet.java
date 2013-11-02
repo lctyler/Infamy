@@ -14,9 +14,9 @@ public class Bullet extends Movement
     private int x, y, posx, posy;
     private final static int DAMAGE = 20; 
     
-        public Bullet(Actor from, int targetx, int targety) {
+    public Bullet(Actor from, int targetx, int targety) {
        
-        setImage("ant.png");     
+        setImage("bullet.png");     
         setLocation(from.getX(), from.getY());
         this.target = target; 
         x = targetx; 
@@ -28,7 +28,7 @@ public class Bullet extends Movement
     
     public Bullet(Actor from, Actor target) {
         //int tempX, tempY; 
-        setImage("ant.png");  
+        setImage("bullet.png");  
         setLocation(from.getX(), from.getY());
         this.target = target;
         this.source = from;
