@@ -224,10 +224,6 @@ public class TutorialInfamyWorld extends HumanWorld
              phaseTimer++;
         }
         
-        if(phase == 11) {
-             
-            Greenfoot.setWorld(new SecondLevel());
-        }
         
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);
