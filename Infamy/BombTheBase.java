@@ -39,7 +39,7 @@ public class BombTheBase extends HumanWorld
         spawnG = true;
         spawnB = true; 
         this.britAmmount = 4;
-        this.britSpawn = 6000;
+        this.britSpawn = 12000;
         this.germSpawn = 20000;
     }
     
@@ -96,10 +96,7 @@ public class BombTheBase extends HumanWorld
         
         Date d  = new Date();
         
-        if (bombPlanted && d.getTime() - t1 > 10000) {
-            bombExplodes();
-            
-        }
+      
    
         super.populate();
         
