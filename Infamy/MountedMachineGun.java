@@ -56,6 +56,7 @@ public class MountedMachineGun extends German
             } else {
                 setImage("enemy-aiming-left.png");
             }
+      applyDamageOverTime();
     }    
     
     public boolean isPlanted(){
