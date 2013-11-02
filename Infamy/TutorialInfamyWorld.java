@@ -27,6 +27,8 @@ public class TutorialInfamyWorld extends HumanWorld
     private int phaseTimer = 0;
     private MountedMachineGun gun1;
     private MountedMachineGun gun2;
+    private GreenfootSound fireSound1;
+    private GreenfootSound fireSound2;
     WinstonCrowley move;
     /**
      * Constructor for objects of class InfamyWorld.
@@ -37,7 +39,8 @@ public class TutorialInfamyWorld extends HumanWorld
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         
         super(1024, 600, 1);
-       
+                   fireSound1 = new GreenfootSound("MachineGunFire.wav");
+            fireSound2 = new GreenfootSound("MachineGunFire2.wav");
         dialogueTimer = 0;
         setBackground("Background.png");
         dialogueCounter = 0;
@@ -155,6 +158,7 @@ public class TutorialInfamyWorld extends HumanWorld
         if(phase == 3) {
             gun1 = new MountedMachineGun(800,10,10);
             gun2 = new MountedMachineGun(800, 200,10);
+            updateMachineGunSound();
             addHuman(gun1, 1000, 200);
             addHuman(gun2, 1000, 500);
             phase++;
@@ -172,6 +176,7 @@ public class TutorialInfamyWorld extends HumanWorld
         }
 
         if(phase == 6){
+            updateMachineGunSound();
             if((phaseTimer / 500) == 1){
                 phase++;
                 phaseTimer =0;
@@ -181,6 +186,7 @@ public class TutorialInfamyWorld extends HumanWorld
         }
         
         if(phase == 7){
+            updateMachineGunSound();
             boolean gun1Present = getObjects(MountedMachineGun.class).contains(gun1);
             boolean gun2Present = getObjects(MountedMachineGun.class).contains(gun2);
             if( gun1Present && gun1.getX() < 1000)
@@ -192,6 +198,7 @@ public class TutorialInfamyWorld extends HumanWorld
             if((gun2Present && gun2.getX() == 1000) || (gun1Present  && gun1.getX() == 1000)){
                 phase++;
             }
+
         }
         
         if(phase == 8) {
@@ -216,7 +223,7 @@ public class TutorialInfamyWorld extends HumanWorld
         if(phase == 10) {
            
             if(phaseTimer % 70 == 0){
-                 Mortar mortar = new Mortar((int)(Math.random() * 300 + 50), (int)(Math.random()*600 + 50));
+                 Mortar mortar = new Mortar((int)(Math.random() * 300 + 50), (int)(Math.random()*500 + 50));
                                  addObject(mortar, 0,0);
                 }
             
@@ -241,6 +248,16 @@ public class TutorialInfamyWorld extends HumanWorld
         }
     }
     
+        public void updateMachineGunSound(){
+        fireSound1.playLoop();
+        fireSound2.playLoop();
+        if(gun1.getWorld() == null || !gun1.isPlanted()) {
+            fireSound1.stop();
+        }
+        if(gun2.getWorld() == null || !gun2.isPlanted()) {
+            fireSound2.stop();
+        }
+    }
 
 }
     
