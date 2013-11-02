@@ -140,12 +140,19 @@ public class WinstonCrowley extends British
                 setImage("winston-running-right-4.png");
                 runTimer=0;  
             }
-            if (runTimer==0) setImage("winston-running-right-1.png");  
-            if (runTimer==8) setImage("winston-running-right-2.png");  
-            if (runTimer==16) setImage("winston-running-right-3.png");
+            if (runTimer==0 && !hasBomb) 
+               setImage("winston-running-right-1.png");
+            else if (runTimer==0 && hasBomb) 
+                setImage("wbr1.png"); 
+            if (runTimer==8 && !hasBomb) setImage("winston-running-right-2.png");
+            else if (runTimer==0 && hasBomb) setImage("wbr2.png");
+            if (runTimer==16 && !hasBomb) setImage("winston-running-right-3.png");
+            else if (runTimer==16 && hasBomb) setImage("wbr3.png");
         }
         else {
-            //setImage("winston-aiming-right.png");
+            
+            if (hasBomb) setImage("wb0.png") ;
+            else setImage("man-aiming-right.png");
         }
        
         if (Greenfoot.isKeyDown("space") && Greenfoot.getKey() == null && landMineTimer > 300)
