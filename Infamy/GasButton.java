@@ -10,7 +10,7 @@ import java.util.*;
 public class GasButton extends HUD
 {
     private int counter = 1000;
-    
+    private boolean pressed = true;
     public GasButton(){
         super();
         setImage("gas-button-pressed.png");
@@ -26,19 +26,21 @@ public class GasButton extends HUD
     
     public void act() 
     {
-        if (Greenfoot.mouseClicked(this) && counter == 0) {
-            setImage("gas-button-pressed.png");
-            counter = 1000;
+        if (Greenfoot.mouseClicked(this) && !pressed) {
+            setPressed();
             gasEm();
         }
-        
-        if (counter > 0)
-        {
-            counter--;
-            if (counter == 0)
-                setImage("gas-button.png");
-        }
     }   
+    
+    public void setPressed() {
+        pressed = true;
+        setImage("gas-button-pressed.png");
+    }
+    
+    public void setAvailable() {
+        pressed = false;
+        setImage("gas-button.png");
+    }
     
     private void gasEm()
     {

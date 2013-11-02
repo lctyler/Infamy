@@ -18,7 +18,7 @@ public class HumanWorld extends World
     public final int GERM_X = 750; 
     public final int[] Y_SET = {115, 225, 335, 455, 500}; 
     public boolean bombPlanted = false; 
-    
+    protected GasButton gb;
     
     public Dialogue dia;
     public Dialogue tutorialDiaIntro;
@@ -111,8 +111,14 @@ public class HumanWorld extends World
         removeObject(item); 
     }
 
-
- public void spawnWave(String type, int ammount, boolean rand) {
+    public void populate() {
+        VolumeButton vb = new VolumeButton();
+        addObject(vb, 450, 550);
+        
+       gb = new GasButton();
+       addObject(gb, 512, 550);
+    }
+public void spawnWave(String type, int ammount, boolean rand) {
       
     //int x  = Greenfoot.getRandomNumber(2);
     int x = 0;
@@ -161,7 +167,11 @@ public class HumanWorld extends World
         {
             removeObject(tutorialDia);
         }
-      
+        if(getObjects(WinstonCrowley.class).size() != 0){
+            if(((WinstonCrowley)(getObjects(WinstonCrowley.class).get(0))).getStress() == 100){
+                gb.setAvailable();
+            }
+        }
         if(spawnB && bCounter == 0) {
             spawnWave(BRIT,britAmmount, true);
             spawnB = false;
