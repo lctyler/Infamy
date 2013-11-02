@@ -137,12 +137,52 @@ public class WinstonCrowley extends British
             runTimer++;
             if (runTimer==24)
             {
-                setImage("winston-running-right-4.png");
+                if (dir == Direction.EAST)
+                {
+                    setImage("winston-running-right-4.png");
+                }
+                else
+                {
+                    setImage("winston-running-right-4.png");
+                    getImage().mirrorHorizontally();                    
+                }
                 runTimer=0;  
             }
-            if (runTimer==0) setImage("winston-running-right-1.png");  
-            if (runTimer==8) setImage("winston-running-right-2.png");  
-            if (runTimer==16) setImage("winston-running-right-3.png");
+            if (runTimer==0 ) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    setImage("winston-running-right-1.png");  
+                }else
+                {
+                    setImage("winston-running-right-1.png");
+                    getImage().mirrorHorizontally();                    
+                }
+            }
+            if (runTimer==8) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    setImage("winston-running-right-2.png");  
+                }
+                else
+                {
+                    setImage("winston-running-right-2.png");
+                    getImage().mirrorHorizontally();                    
+                }
+            } 
+            if (runTimer==16) 
+            {
+                if (dir == Direction.EAST)
+                {
+                    setImage("winston-running-right-3.png");
+                }
+                else
+                {
+                    setImage("winston-running-right-3.png");
+                    getImage().mirrorHorizontally();                    
+                }
+            }
         }
         else {
             setImage("winston-aiming-right.png");
