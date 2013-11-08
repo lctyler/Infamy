@@ -11,7 +11,7 @@ Main Character: Winston Crowley
 
 Winston Crowley
 
-18 year old Winston Crowley is a young conscripted infantryman in the Royal Army during the First World War. He knows little of war after growing up in rural Britain, but wants to do right by his country by serving proudly in the military. His romantic vision of war and patriotism carries him through the war, even as that vision rips apart at the seams.
+18 year old Winston Crowley is a young conscripted infantryman in the Royal Army during the First World War. He knows little of war after growing up in rural Britain, but wants to do right by his country by serving proudly in the military. His romantic vision of war and patriotism carries him through the war, even as that vision rips apart at the SeAMS.
 
 Synopsis
 
